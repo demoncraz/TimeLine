@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16E144f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimeLineViewController">
+            <connections>
+                <outlet property="contentTableView" destination="rcc-ka-Aj2" id="fTO-iF-5fw"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="grouped" separatorStyle="default" rowHeight="70" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="rcc-ka-Aj2" customClass="CCContentTableView">
+                    <rect key="frame" x="0.0" y="110" width="375" height="557"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                </tableView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="背景图" translatesAutoresizingMaskIntoConstraints="NO" id="S1M-EA-OAM">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="110" id="GZa-e9-h0i"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="plO-1D-lyW">
+                    <rect key="frame" x="20" y="32" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="DIK-7F-sWB"/>
+                        <constraint firstAttribute="width" constant="20" id="OCh-37-K0N"/>
+                    </constraints>
+                    <state key="normal" image="icon_date"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjO-Jx-9x4" customClass="CCDateButton">
+                    <rect key="frame" x="116" y="32" width="142" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="qSj-vM-GfD"/>
+                    </constraints>
+                    <state key="normal" title="2017年12月13日" image="tintArrow"/>
+                    <state key="selected" image="tintArrow_reverse"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="rcc-ka-Aj2" secondAttribute="bottom" id="8oq-62-UfR"/>
+                <constraint firstItem="plO-1D-lyW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Bti-7T-vt6"/>
+                <constraint firstAttribute="trailing" secondItem="rcc-ka-Aj2" secondAttribute="trailing" id="Cf5-DL-emD"/>
+                <constraint firstItem="plO-1D-lyW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="FNC-Oy-g0q"/>
+                <constraint firstAttribute="trailing" secondItem="S1M-EA-OAM" secondAttribute="trailing" id="MyT-z1-CdG"/>
+                <constraint firstItem="rcc-ka-Aj2" firstAttribute="top" secondItem="S1M-EA-OAM" secondAttribute="bottom" id="Smo-p5-Jcg"/>
+                <constraint firstItem="rcc-ka-Aj2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="atW-BC-Pw8"/>
+                <constraint firstItem="S1M-EA-OAM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fqb-NP-XaB"/>
+                <constraint firstItem="wjO-Jx-9x4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="iv0-Do-z1e"/>
+                <constraint firstItem="wjO-Jx-9x4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="tuf-nq-rd9"/>
+                <constraint firstItem="S1M-EA-OAM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tyN-w5-afA"/>
+            </constraints>
+            <point key="canvasLocation" x="25.5" y="51.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_date" width="20" height="20"/>
+        <image name="tintArrow" width="10" height="6"/>
+        <image name="tintArrow_reverse" width="11" height="5"/>
+        <image name="背景图" width="562" height="171"/>
+    </resources>
+</document>
