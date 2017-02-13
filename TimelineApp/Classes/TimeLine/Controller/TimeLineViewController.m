@@ -19,7 +19,7 @@
 
 @property (weak, nonatomic) IBOutlet CCContentTableView *contentTableView;
 
-@property (nonatomic, strong) UIImageView *noInfoImageView;
+@property (nonatomic, strong) UIButton *noInfoButton;
 
 
 //任务卡模型数组
@@ -54,13 +54,19 @@
     return _previousText;
 }
 
-- (UIImageView *)noInfoImageView {
-    if (_noInfoImageView == nil) {
-        _noInfoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"no_card"]];
-        _noInfoImageView.alpha = 0;
-        _noInfoImageView.center = self.view.center;
+- (UIButton *)noInfoButton {
+    if (_noInfoButton == nil) {
+        _noInfoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_noInfoButton setImage:[UIImage imageNamed:@"no_card"] forState:UIControlStateNormal];
+        [_noInfoButton setImage:[UIImage imageNamed:@"no_card"] forState:UIControlStateHighlighted];
+        [_noInfoButton sizeToFit];
+        
+        [_noInfoButton addTarget:self action:@selector(addButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+        _noInfoButton.alpha = 0;
+        _noInfoButton.center = self.view.center;
     }
-    return _noInfoImageView;
+    return _noInfoButton;
 }
 
 - (NSString *)filePath {
@@ -458,10 +464,10 @@ static NSInteger currentLineNumberOfNewCard = 0;
  展示背景图
  */
 - (void)showNoInfoImage {
-    [self.view addSubview:self.noInfoImageView];
+    [self.view addSubview:self.noInfoButton];
     
     [UIView animateWithDuration:0.5 animations:^{
-        self.noInfoImageView.alpha = 1;
+        self.noInfoButton.alpha = 1;
     }];
     
 }
@@ -471,10 +477,10 @@ static NSInteger currentLineNumberOfNewCard = 0;
 - (void)removeNoinfoImage {
     __weak typeof (self) weakSelf = self;
     [UIView animateWithDuration:0.5 animations:^{
-        self.noInfoImageView.alpha = 0;
+        self.noInfoButton.alpha = 0;
     } completion:^(BOOL finished) {
-        [weakSelf.noInfoImageView removeFromSuperview];
-        weakSelf.noInfoImageView = nil;
+        [weakSelf.noInfoButton removeFromSuperview];
+        weakSelf.noInfoButton = nil;
     }];
     
 }
