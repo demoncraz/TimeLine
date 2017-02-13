@@ -158,7 +158,7 @@
 
     CGFloat newFrameHeight = CGRectGetMaxY(textView.frame) + CCTaskCardBottomMargin;
   
-    if (newFrameHeight >= (self.cellContentView.frame.size.height - 9)) {
+    if (newFrameHeight >= (self.cellContentView.frame.size.height)) {
         
         CGRect frame = self.cellContentView.frame;
         

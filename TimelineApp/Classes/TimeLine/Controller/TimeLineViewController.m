@@ -254,6 +254,8 @@
     //将按钮旋转回去
     [UIView animateWithDuration:0.3 animations:^{
         weakSelf.addButton.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+        [weakSelf.view addSubview:self.addButton];
     }];
 }
 

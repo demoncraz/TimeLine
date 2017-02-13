@@ -434,7 +434,7 @@
 				TargetAttributes = {
 					3D6C99F61E3C917000C2BABE = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = H76K5GCE36;
+						DevelopmentTeam = BGYSV5996R;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -622,7 +622,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = H76K5GCE36;
+				DEVELOPMENT_TEAM = BGYSV5996R;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TimelineApp",
@@ -632,7 +632,7 @@
 				INFOPLIST_FILE = TimelineApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				"OTHER_LDFLAGS[sdk=iphonesimulator*]" = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.steve.TimelineApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TimelineApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -641,7 +641,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = H76K5GCE36;
+				DEVELOPMENT_TEAM = BGYSV5996R;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TimelineApp",
@@ -650,7 +650,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TimelineApp/CCGlobalMacro.pch";
 				INFOPLIST_FILE = TimelineApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.steve.TimelineApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TimelineApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
