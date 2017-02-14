@@ -13,6 +13,15 @@
 		3D0793DF1E487069000D7DC2 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0793DE1E487069000D7DC2 /* libz.tbd */; };
 		3D07945A1E4B1449000D7DC2 /* NSObject+LocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0794591E4B1449000D7DC2 /* NSObject+LocalNotification.m */; };
 		3D07945F1E4B5C16000D7DC2 /* alert_sound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D07945E1E4B5C16000D7DC2 /* alert_sound.m4a */; };
+		3D4BF1CE1E535693007B0F59 /* NSDate+Date.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF1BC1E535693007B0F59 /* NSDate+Date.m */; };
+		3D4BF1CF1E535693007B0F59 /* CCDateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF1BF1E535693007B0F59 /* CCDateTool.m */; };
+		3D4BF1D01E535693007B0F59 /* CCCalenderDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF1C21E535693007B0F59 /* CCCalenderDateView.m */; };
+		3D4BF1D11E535693007B0F59 /* CCCalenderItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF1C41E535693007B0F59 /* CCCalenderItemView.m */; };
+		3D4BF1D21E535693007B0F59 /* CCCalenderItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D4BF1C51E535693007B0F59 /* CCCalenderItemView.xib */; };
+		3D4BF1D31E535693007B0F59 /* CCCalerderPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF1C71E535693007B0F59 /* CCCalerderPickerView.m */; };
+		3D4BF1D41E535693007B0F59 /* CCCalerderPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D4BF1C81E535693007B0F59 /* CCCalerderPickerView.xib */; };
+		3D4BF1D51E535693007B0F59 /* CCDotItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF1CB1E535693007B0F59 /* CCDotItem.m */; };
+		3D4BF1D61E535693007B0F59 /* up_arror.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D4BF1CD1E535693007B0F59 /* up_arror.png */; };
 		3D6C9A071E3C917000C2BABE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D6C9A061E3C917000C2BABE /* Assets.xcassets */; };
 		3D6C9A271E3C91DC00C2BABE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D6C9A121E3C91DC00C2BABE /* Main.storyboard */; };
 		3D6C9A281E3C91DC00C2BABE /* MyProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C9A181E3C91DC00C2BABE /* MyProfileController.m */; };
@@ -62,6 +71,21 @@
 		3D0794581E4B1449000D7DC2 /* NSObject+LocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+LocalNotification.h"; path = "Masonry/NSObject+LocalNotification.h"; sourceTree = "<group>"; };
 		3D0794591E4B1449000D7DC2 /* NSObject+LocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+LocalNotification.m"; path = "Masonry/NSObject+LocalNotification.m"; sourceTree = "<group>"; };
 		3D07945E1E4B5C16000D7DC2 /* alert_sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = alert_sound.m4a; sourceTree = "<group>"; };
+		3D4BF1BB1E535693007B0F59 /* NSDate+Date.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Date.h"; sourceTree = "<group>"; };
+		3D4BF1BC1E535693007B0F59 /* NSDate+Date.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Date.m"; sourceTree = "<group>"; };
+		3D4BF1BE1E535693007B0F59 /* CCDateTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDateTool.h; sourceTree = "<group>"; };
+		3D4BF1BF1E535693007B0F59 /* CCDateTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDateTool.m; sourceTree = "<group>"; };
+		3D4BF1C11E535693007B0F59 /* CCCalenderDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCalenderDateView.h; sourceTree = "<group>"; };
+		3D4BF1C21E535693007B0F59 /* CCCalenderDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCalenderDateView.m; sourceTree = "<group>"; };
+		3D4BF1C31E535693007B0F59 /* CCCalenderItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCalenderItemView.h; sourceTree = "<group>"; };
+		3D4BF1C41E535693007B0F59 /* CCCalenderItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCalenderItemView.m; sourceTree = "<group>"; };
+		3D4BF1C51E535693007B0F59 /* CCCalenderItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCCalenderItemView.xib; sourceTree = "<group>"; };
+		3D4BF1C61E535693007B0F59 /* CCCalerderPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCalerderPickerView.h; sourceTree = "<group>"; };
+		3D4BF1C71E535693007B0F59 /* CCCalerderPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCalerderPickerView.m; sourceTree = "<group>"; };
+		3D4BF1C81E535693007B0F59 /* CCCalerderPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCCalerderPickerView.xib; sourceTree = "<group>"; };
+		3D4BF1CA1E535693007B0F59 /* CCDotItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDotItem.h; sourceTree = "<group>"; };
+		3D4BF1CB1E535693007B0F59 /* CCDotItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDotItem.m; sourceTree = "<group>"; };
+		3D4BF1CD1E535693007B0F59 /* up_arror.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up_arror.png; sourceTree = "<group>"; };
 		3D6C99F71E3C917000C2BABE /* TimelineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimelineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D6C9A061E3C917000C2BABE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D6C9A0B1E3C917000C2BABE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -160,6 +184,68 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3D4BF1B91E535693007B0F59 /* CCCalerderPicker */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF1BA1E535693007B0F59 /* Category */,
+				3D4BF1BD1E535693007B0F59 /* DateTool */,
+				3D4BF1C01E535693007B0F59 /* MainViews */,
+				3D4BF1C91E535693007B0F59 /* Supporting Files */,
+			);
+			path = CCCalerderPicker;
+			sourceTree = "<group>";
+		};
+		3D4BF1BA1E535693007B0F59 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF1BB1E535693007B0F59 /* NSDate+Date.h */,
+				3D4BF1BC1E535693007B0F59 /* NSDate+Date.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		3D4BF1BD1E535693007B0F59 /* DateTool */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF1BE1E535693007B0F59 /* CCDateTool.h */,
+				3D4BF1BF1E535693007B0F59 /* CCDateTool.m */,
+			);
+			path = DateTool;
+			sourceTree = "<group>";
+		};
+		3D4BF1C01E535693007B0F59 /* MainViews */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF1C11E535693007B0F59 /* CCCalenderDateView.h */,
+				3D4BF1C21E535693007B0F59 /* CCCalenderDateView.m */,
+				3D4BF1C31E535693007B0F59 /* CCCalenderItemView.h */,
+				3D4BF1C41E535693007B0F59 /* CCCalenderItemView.m */,
+				3D4BF1C51E535693007B0F59 /* CCCalenderItemView.xib */,
+				3D4BF1C61E535693007B0F59 /* CCCalerderPickerView.h */,
+				3D4BF1C71E535693007B0F59 /* CCCalerderPickerView.m */,
+				3D4BF1C81E535693007B0F59 /* CCCalerderPickerView.xib */,
+			);
+			path = MainViews;
+			sourceTree = "<group>";
+		};
+		3D4BF1C91E535693007B0F59 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF1CA1E535693007B0F59 /* CCDotItem.h */,
+				3D4BF1CB1E535693007B0F59 /* CCDotItem.m */,
+				3D4BF1CC1E535693007B0F59 /* Images */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3D4BF1CC1E535693007B0F59 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF1CD1E535693007B0F59 /* up_arror.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		3D6C99EE1E3C917000C2BABE = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +299,7 @@
 		3D6C9A141E3C91DC00C2BABE /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3D4BF1B91E535693007B0F59 /* CCCalerderPicker */,
 				3D6C9A151E3C91DC00C2BABE /* MyProfile */,
 				3D6C9A1C1E3C91DC00C2BABE /* TimeLine */,
 			);
@@ -462,14 +549,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D4BF1D41E535693007B0F59 /* CCCalerderPickerView.xib in Resources */,
 				3D6C9A071E3C917000C2BABE /* Assets.xcassets in Resources */,
 				3D6C9A2B1E3C91DC00C2BABE /* TimeLineViewController.xib in Resources */,
 				3D6C9B2B1E45FF9900C2BABE /* Info.plist in Resources */,
 				3D6C9A291E3C91DC00C2BABE /* MyProfileController.xib in Resources */,
 				3D6C9A8A1E437A0B00C2BABE /* TaskCardItems.plist in Resources */,
+				3D4BF1D61E535693007B0F59 /* up_arror.png in Resources */,
 				3D6C9A271E3C91DC00C2BABE /* Main.storyboard in Resources */,
 				3D6C9B541E46000A00C2BABE /* Info.plist in Resources */,
 				3D07945F1E4B5C16000D7DC2 /* alert_sound.m4a in Resources */,
+				3D4BF1D21E535693007B0F59 /* CCCalenderItemView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,12 +572,15 @@
 			files = (
 				3D6C9B3B1E45FFB300C2BABE /* AppDelegate.m in Sources */,
 				3D6C9B5A1E46000A00C2BABE /* NSObject+MJClass.m in Sources */,
+				3D4BF1CE1E535693007B0F59 /* NSDate+Date.m in Sources */,
 				3D6C9A881E4374BE00C2BABE /* CCTaskCardItem.m in Sources */,
+				3D4BF1D01E535693007B0F59 /* CCCalenderDateView.m in Sources */,
 				3D6C9B6F1E46157300C2BABE /* CCDatePicker.m in Sources */,
 				3D6C9B321E45FF9900C2BABE /* NSArray+MASAdditions.m in Sources */,
 				3D6C9A281E3C91DC00C2BABE /* MyProfileController.m in Sources */,
 				3D6C9B581E46000A00C2BABE /* MJPropertyKey.m in Sources */,
 				3D6C9B591E46000A00C2BABE /* MJPropertyType.m in Sources */,
+				3D4BF1D51E535693007B0F59 /* CCDotItem.m in Sources */,
 				3D6C9B721E46157300C2BABE /* CCCoverView.m in Sources */,
 				3D6C9B331E45FF9900C2BABE /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				3D6C9B361E45FF9900C2BABE /* UIView+FindViewThatIsFirstResponder.m in Sources */,
@@ -496,6 +589,8 @@
 				3D6C9B2F1E45FF9900C2BABE /* MASLayoutConstraint.m in Sources */,
 				3D0793DA1E484049000D7DC2 /* CCTaskCardTabldViewCell.m in Sources */,
 				3D6C9B3C1E45FFB300C2BABE /* main.m in Sources */,
+				3D4BF1D31E535693007B0F59 /* CCCalerderPickerView.m in Sources */,
+				3D4BF1D11E535693007B0F59 /* CCCalenderItemView.m in Sources */,
 				3D6C9B5D1E46000A00C2BABE /* NSObject+MJProperty.m in Sources */,
 				3D6C9B5B1E46000A00C2BABE /* NSObject+MJCoding.m in Sources */,
 				3D6C9B2C1E45FF9900C2BABE /* MASCompositeConstraint.m in Sources */,
@@ -509,6 +604,7 @@
 				3D0793D71E483D10000D7DC2 /* CCContentTableView.m in Sources */,
 				3D6C9B2E1E45FF9900C2BABE /* MASConstraintMaker.m in Sources */,
 				3D6C9B2D1E45FF9900C2BABE /* MASConstraint.m in Sources */,
+				3D4BF1CF1E535693007B0F59 /* CCDateTool.m in Sources */,
 				3D6C9B731E46157300C2BABE /* CCDateButton.m in Sources */,
 				3D07945A1E4B1449000D7DC2 /* NSObject+LocalNotification.m in Sources */,
 				3D6C9B561E46000A00C2BABE /* MJFoundation.m in Sources */,

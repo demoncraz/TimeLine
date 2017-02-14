@@ -37,7 +37,6 @@
 }
 
 - (void)setupButton {
-    [self addTarget:self action:@selector(dateButtonClick) forControlEvents:UIControlEventTouchUpInside];
     //获取当前日期
     
     [self updateDate];
@@ -63,9 +62,6 @@
 }
 
 
-- (void)dateButtonClick {
-    self.selected = !self.selected;
-}
 
 - (void)startTimer {
     

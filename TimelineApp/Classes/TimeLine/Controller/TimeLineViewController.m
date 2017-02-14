@@ -13,6 +13,7 @@
 #import "CCCoverView.h"
 #import "MJExtension.h"
 #import "NSObject+LocalNotification.h"
+#import "CCCalerderPickerView.h"
 
 
 @interface TimeLineViewController ()<UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, CCCoverViewDelegate>
@@ -37,6 +38,10 @@
 @property (nonatomic, strong) NSString *filePath;
 
 @property (nonatomic, strong) NSString *previousText;
+
+@property (nonatomic, weak) CCCalerderPickerView *pickerView;
+
+@property (nonatomic, weak) UIButton *calendarCoverView;
 
 
 @end
@@ -145,7 +150,7 @@
     
     //注册接收newCard完成按钮的通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newCardComplete:) name:CCNewCardCompleteNotification object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissCalendarCoverView) name:@"CCCalendarDismissNotification" object:nil];
     
 }
 
@@ -498,6 +503,42 @@ static NSInteger currentLineNumberOfNewCard = 0;
     item.cardContent = textField.text;
     [self.contentTableView reloadSections:[NSIndexSet indexSetWithIndex:row] withRowAnimation:UITableViewRowAnimationNone];
 }
+
+
+#pragma mark - 时间按钮点击
+- (IBAction)dateButtonClick:(id)sender {
+    CCCalerderPickerView *pickerView = [CCCalerderPickerView calenderPickerView];
+    _pickerView = pickerView;
+    //添加遮罩
+    UIButton *coverView = [UIButton buttonWithType:UIButtonTypeSystem];
+    _calendarCoverView = coverView;
+    coverView.frame = [UIScreen mainScreen].bounds;
+    [coverView addTarget:self action:@selector(coverViewClick:) forControlEvents:UIControlEventTouchUpInside];
+    coverView.backgroundColor = ColorWithRGB(0, 0, 0, 0.5);
+    coverView.alpha = 0;
+    [[UIApplication sharedApplication].keyWindow addSubview:coverView];
+    //添加日历控件
+    [[UIApplication sharedApplication].keyWindow addSubview:pickerView];
+    //显示遮罩
+    [UIView animateWithDuration:0.3 animations:^{
+        coverView.alpha = 1;
+    }];
+    [pickerView show];
+}
+
+#pragma mark - 遮罩点击事件
+- (void)coverViewClick:(UIButton *)button {
+    [self.pickerView dismiss];
+}
+
+- (void)dismissCalendarCoverView {
+    [UIView animateWithDuration:0.3 animations:^{
+        self.calendarCoverView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.calendarCoverView removeFromSuperview];
+    }];
+}
+
 
 
 @end
