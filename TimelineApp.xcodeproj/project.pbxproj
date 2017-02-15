@@ -24,8 +24,6 @@
 		3D4BF1F41E53E205007B0F59 /* up_arror.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D4BF1EB1E53E205007B0F59 /* up_arror.png */; };
 		3D6C9A071E3C917000C2BABE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D6C9A061E3C917000C2BABE /* Assets.xcassets */; };
 		3D6C9A271E3C91DC00C2BABE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D6C9A121E3C91DC00C2BABE /* Main.storyboard */; };
-		3D6C9A281E3C91DC00C2BABE /* MyProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C9A181E3C91DC00C2BABE /* MyProfileController.m */; };
-		3D6C9A291E3C91DC00C2BABE /* MyProfileController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D6C9A191E3C91DC00C2BABE /* MyProfileController.xib */; };
 		3D6C9A2A1E3C91DC00C2BABE /* TimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C9A1F1E3C91DC00C2BABE /* TimeLineViewController.m */; };
 		3D6C9A2B1E3C91DC00C2BABE /* TimeLineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D6C9A201E3C91DC00C2BABE /* TimeLineViewController.xib */; };
 		3D6C9A881E4374BE00C2BABE /* CCTaskCardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C9A871E4374BE00C2BABE /* CCTaskCardItem.m */; };
@@ -59,6 +57,13 @@
 		3D6C9B6F1E46157300C2BABE /* CCDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C9B641E46157300C2BABE /* CCDatePicker.m */; };
 		3D6C9B721E46157300C2BABE /* CCCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C9B6A1E46157300C2BABE /* CCCoverView.m */; };
 		3D6C9B731E46157300C2BABE /* CCDateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C9B6D1E46157300C2BABE /* CCDateButton.m */; };
+		3DF7FC181E54334800AA0D13 /* CCMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FC171E54334800AA0D13 /* CCMeViewController.m */; };
+		3DF7FC221E544E9C00AA0D13 /* CCProfileViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FC211E544E9C00AA0D13 /* CCProfileViewContoller.m */; };
+		3DF7FC2B1E54521200AA0D13 /* CCProfileViewContoller.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF7FC2A1E54521200AA0D13 /* CCProfileViewContoller.storyboard */; };
+		3DF7FC2E1E54576E00AA0D13 /* CCEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FC2D1E54576E00AA0D13 /* CCEditingViewController.m */; };
+		3DF7FC301E54578500AA0D13 /* CCEditingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF7FC2F1E54578500AA0D13 /* CCEditingViewController.storyboard */; };
+		3DF7FC331E54607C00AA0D13 /* CCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FC321E54607C00AA0D13 /* CCNavigationController.m */; };
+		3DF7FC361E548AED00AA0D13 /* CCImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FC351E548AED00AA0D13 /* CCImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,9 +95,6 @@
 		3D6C9A061E3C917000C2BABE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D6C9A0B1E3C917000C2BABE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D6C9A131E3C91DC00C2BABE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
-		3D6C9A171E3C91DC00C2BABE /* MyProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileController.h; sourceTree = "<group>"; };
-		3D6C9A181E3C91DC00C2BABE /* MyProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileController.m; sourceTree = "<group>"; };
-		3D6C9A191E3C91DC00C2BABE /* MyProfileController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfileController.xib; sourceTree = "<group>"; };
 		3D6C9A1E1E3C91DC00C2BABE /* TimeLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineViewController.h; sourceTree = "<group>"; };
 		3D6C9A1F1E3C91DC00C2BABE /* TimeLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLineViewController.m; sourceTree = "<group>"; };
 		3D6C9A201E3C91DC00C2BABE /* TimeLineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeLineViewController.xib; sourceTree = "<group>"; };
@@ -161,6 +163,18 @@
 		3D6C9B6A1E46157300C2BABE /* CCCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCoverView.m; sourceTree = "<group>"; };
 		3D6C9B6C1E46157300C2BABE /* CCDateButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDateButton.h; sourceTree = "<group>"; };
 		3D6C9B6D1E46157300C2BABE /* CCDateButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDateButton.m; sourceTree = "<group>"; };
+		3DF7FC161E54334800AA0D13 /* CCMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMeViewController.h; sourceTree = "<group>"; };
+		3DF7FC171E54334800AA0D13 /* CCMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMeViewController.m; sourceTree = "<group>"; };
+		3DF7FC201E544E9C00AA0D13 /* CCProfileViewContoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCProfileViewContoller.h; sourceTree = "<group>"; };
+		3DF7FC211E544E9C00AA0D13 /* CCProfileViewContoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCProfileViewContoller.m; sourceTree = "<group>"; };
+		3DF7FC2A1E54521200AA0D13 /* CCProfileViewContoller.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CCProfileViewContoller.storyboard; sourceTree = "<group>"; };
+		3DF7FC2C1E54576E00AA0D13 /* CCEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEditingViewController.h; sourceTree = "<group>"; };
+		3DF7FC2D1E54576E00AA0D13 /* CCEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCEditingViewController.m; sourceTree = "<group>"; };
+		3DF7FC2F1E54578500AA0D13 /* CCEditingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CCEditingViewController.storyboard; sourceTree = "<group>"; };
+		3DF7FC311E54607C00AA0D13 /* CCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCNavigationController.h; path = ../View/CCNavigationController.h; sourceTree = "<group>"; };
+		3DF7FC321E54607C00AA0D13 /* CCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCNavigationController.m; path = ../View/CCNavigationController.m; sourceTree = "<group>"; };
+		3DF7FC341E548AED00AA0D13 /* CCImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageView.h; sourceTree = "<group>"; };
+		3DF7FC351E548AED00AA0D13 /* CCImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,9 +333,10 @@
 		3D6C9A161E3C91DC00C2BABE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3D6C9A171E3C91DC00C2BABE /* MyProfileController.h */,
-				3D6C9A181E3C91DC00C2BABE /* MyProfileController.m */,
-				3D6C9A191E3C91DC00C2BABE /* MyProfileController.xib */,
+				3DF7FC161E54334800AA0D13 /* CCMeViewController.h */,
+				3DF7FC171E54334800AA0D13 /* CCMeViewController.m */,
+				3DF7FC311E54607C00AA0D13 /* CCNavigationController.h */,
+				3DF7FC321E54607C00AA0D13 /* CCNavigationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -336,6 +351,14 @@
 		3D6C9A1B1E3C91DC00C2BABE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3DF7FC201E544E9C00AA0D13 /* CCProfileViewContoller.h */,
+				3DF7FC211E544E9C00AA0D13 /* CCProfileViewContoller.m */,
+				3DF7FC2A1E54521200AA0D13 /* CCProfileViewContoller.storyboard */,
+				3DF7FC2C1E54576E00AA0D13 /* CCEditingViewController.h */,
+				3DF7FC2D1E54576E00AA0D13 /* CCEditingViewController.m */,
+				3DF7FC2F1E54578500AA0D13 /* CCEditingViewController.storyboard */,
+				3DF7FC341E548AED00AA0D13 /* CCImageView.h */,
+				3DF7FC351E548AED00AA0D13 /* CCImageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -549,12 +572,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF7FC2B1E54521200AA0D13 /* CCProfileViewContoller.storyboard in Resources */,
 				3D6C9A071E3C917000C2BABE /* Assets.xcassets in Resources */,
 				3D6C9A2B1E3C91DC00C2BABE /* TimeLineViewController.xib in Resources */,
 				3D6C9B2B1E45FF9900C2BABE /* Info.plist in Resources */,
-				3D6C9A291E3C91DC00C2BABE /* MyProfileController.xib in Resources */,
 				3D4BF1F01E53E205007B0F59 /* CCCalenderItemView.xib in Resources */,
 				3D6C9A8A1E437A0B00C2BABE /* TaskCardItems.plist in Resources */,
+				3DF7FC301E54578500AA0D13 /* CCEditingViewController.storyboard in Resources */,
 				3D4BF1F21E53E205007B0F59 /* CCCalerderPickerView.xib in Resources */,
 				3D6C9A271E3C91DC00C2BABE /* Main.storyboard in Resources */,
 				3D6C9B541E46000A00C2BABE /* Info.plist in Resources */,
@@ -575,10 +599,12 @@
 				3D6C9B5A1E46000A00C2BABE /* NSObject+MJClass.m in Sources */,
 				3D4BF1EE1E53E205007B0F59 /* CCCalenderDateView.m in Sources */,
 				3D6C9A881E4374BE00C2BABE /* CCTaskCardItem.m in Sources */,
+				3DF7FC2E1E54576E00AA0D13 /* CCEditingViewController.m in Sources */,
 				3D6C9B6F1E46157300C2BABE /* CCDatePicker.m in Sources */,
 				3D6C9B321E45FF9900C2BABE /* NSArray+MASAdditions.m in Sources */,
-				3D6C9A281E3C91DC00C2BABE /* MyProfileController.m in Sources */,
 				3D4BF1F11E53E205007B0F59 /* CCCalerderPickerView.m in Sources */,
+				3DF7FC221E544E9C00AA0D13 /* CCProfileViewContoller.m in Sources */,
+				3DF7FC181E54334800AA0D13 /* CCMeViewController.m in Sources */,
 				3D6C9B581E46000A00C2BABE /* MJPropertyKey.m in Sources */,
 				3D6C9B591E46000A00C2BABE /* MJPropertyType.m in Sources */,
 				3D6C9B721E46157300C2BABE /* CCCoverView.m in Sources */,
@@ -591,8 +617,10 @@
 				3D0793DA1E484049000D7DC2 /* CCTaskCardTabldViewCell.m in Sources */,
 				3D6C9B3C1E45FFB300C2BABE /* main.m in Sources */,
 				3D6C9B5D1E46000A00C2BABE /* NSObject+MJProperty.m in Sources */,
+				3DF7FC331E54607C00AA0D13 /* CCNavigationController.m in Sources */,
 				3D6C9B5B1E46000A00C2BABE /* NSObject+MJCoding.m in Sources */,
 				3D6C9B2C1E45FF9900C2BABE /* MASCompositeConstraint.m in Sources */,
+				3DF7FC361E548AED00AA0D13 /* CCImageView.m in Sources */,
 				3D6C9A2A1E3C91DC00C2BABE /* TimeLineViewController.m in Sources */,
 				3D4BF1EF1E53E205007B0F59 /* CCCalenderItemView.m in Sources */,
 				3D4BF1ED1E53E205007B0F59 /* CCDateTool.m in Sources */,

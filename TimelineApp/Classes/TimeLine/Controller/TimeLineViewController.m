@@ -161,9 +161,15 @@
     [self setupAddButton];
     
     //注册接收newCard完成按钮的通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newCardComplete:) name:CCNewCardCompleteNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissCalendarCoverView) name:@"CCCalendarDismissNotification" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calendarDidShow) name:@"CCCalendarShowNotification" object:nil];
+    [CCNotificationCenter addObserver:self selector:@selector(newCardComplete:) name:CCNewCardCompleteNotification object:nil];
+    [CCNotificationCenter addObserver:self selector:@selector(dismissCalendarCoverView) name:@"CCCalendarDismissNotification" object:nil];
+    [CCNotificationCenter addObserver:self selector:@selector(calendarDidShow) name:@"CCCalendarShowNotification" object:nil];
+    //监听到头像变化的通知后刷新表格
+    DefineWeakSelf;
+    [CCNotificationCenter addObserverForName:CCAvatarChangeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        [weakSelf.contentTableView reloadData];
+    }];
+
     
 }
 
@@ -179,7 +185,6 @@
 #pragma mark - 移除通知监听
 
 - (void)dealloc {
-    NSLog(@"%s",__func__);
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

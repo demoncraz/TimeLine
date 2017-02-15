@@ -94,7 +94,9 @@
     //为子控件设置数据
     
     //设置头像
-    self.avatarImageView.image = [UIImage imageNamed:@"avatar_1"];
+    NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"avatarImage"];
+    UIImage *avatarImage = [UIImage imageWithData:imageData];
+    self.avatarImageView.image = avatarImage;
     //设置时间tf
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
