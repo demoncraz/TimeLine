@@ -458,6 +458,9 @@ static NSInteger currentLineNumberOfNewCard = 0;
     //获得对应row的item，并移除对应的通知
     CCTaskCardItem *item = self.taskCardItems[row];
     
+    //移除列表通知
+    [self.notificationDates removeObject:item.cardDate];
+    
     NSString *keyString = [item getKeyFromItem];
     
     [CCTaskCardItem cancelLocalNotificationWithKey:keyString];
