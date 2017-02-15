@@ -43,6 +43,8 @@
 
 @property (nonatomic, weak) UIButton *calendarCoverView;
 
+@property (nonatomic, strong) NSMutableArray *notificationDates;
+
 
 @end
 
@@ -51,6 +53,13 @@
 
 
 #pragma mark - lazy loading
+
+- (NSMutableArray *)notificationDates {
+    if (_notificationDates == nil) {
+        _notificationDates = [NSMutableArray array];
+    }
+    return _notificationDates;
+}
 
 - (NSString *)previousText {
     if (_previousText == nil) {
@@ -118,6 +127,8 @@
                 
                 [CCTaskCardItem registerLocalNotificationWithDate:item.cardDate content:item.cardTitle key:dateString];
                 
+                [self.notificationDates addObject:item.cardDate];
+                
             }
             
             [self sortTaskCardItemsByTime];
@@ -152,6 +163,7 @@
     //注册接收newCard完成按钮的通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newCardComplete:) name:CCNewCardCompleteNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissCalendarCoverView) name:@"CCCalendarDismissNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calendarDidShow) name:@"CCCalendarShowNotification" object:nil];
     
 }
 
@@ -313,8 +325,12 @@
     
     CCTaskCardItem *newCardItem = notification.object;
     
+    //新增通知列表
+    [self.notificationDates addObject:newCardItem.cardDate];
+    
     //添加通知
     [CCTaskCardItem registerLocalNotificationWithDate:newCardItem.cardDate content:newCardItem.cardTitle key:[newCardItem getKeyFromItem]];
+    
     
     //先计算出新卡片要放置的行号
     NSInteger row = 0;
@@ -513,6 +529,7 @@ static NSInteger currentLineNumberOfNewCard = 0;
     
     CCCalerderPickerView *pickerView = [CCCalerderPickerView calenderPickerView];
     _pickerView = pickerView;
+    
     //添加遮罩
     UIButton *coverView = [UIButton buttonWithType:UIButtonTypeSystem];
     _calendarCoverView = coverView;
@@ -543,6 +560,16 @@ static NSInteger currentLineNumberOfNewCard = 0;
     }];
 }
 
+#pragma mark - 监听控件显示
+- (void)calendarDidShow {
+    //设置提示点
+    NSMutableArray *dotItemArr = [NSMutableArray array];
+    for (NSDate *date in self.notificationDates) {
+        CCDotItem *item = [CCDotItem itemWithDate:date dotStyle:1];
+        [dotItemArr addObject:item];
+    }
+    [self.pickerView setDotForDates:dotItemArr];
+}
 
 
 @end
