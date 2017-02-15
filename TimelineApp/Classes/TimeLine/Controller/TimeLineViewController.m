@@ -137,6 +137,7 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view from its nib.
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
 //    self.view.backgroundColor = [UIColor redColor];
     self.view = [[[NSBundle mainBundle] loadNibNamed:@"TimeLineViewController" owner:self options:nil] lastObject];
@@ -153,6 +154,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissCalendarCoverView) name:@"CCCalendarDismissNotification" object:nil];
     
 }
+
+
 
 - (void)viewWillAppear:(BOOL)animated {//将要显示view的时候，判断一下是否为空，如果为空，就展示noInfo的背景图片
     [super viewWillAppear:animated];
@@ -507,6 +510,7 @@ static NSInteger currentLineNumberOfNewCard = 0;
 
 #pragma mark - 时间按钮点击
 - (IBAction)dateButtonClick:(id)sender {
+    
     CCCalerderPickerView *pickerView = [CCCalerderPickerView calenderPickerView];
     _pickerView = pickerView;
     //添加遮罩
