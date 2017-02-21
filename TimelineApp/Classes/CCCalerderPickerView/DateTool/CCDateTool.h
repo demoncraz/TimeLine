@@ -77,4 +77,21 @@
  */
 + (BOOL)isSameDay:(NSDate *)aDay anotherDay:(NSDate *)anotherDay;
 
+
+/**
+ 获取除去时分秒的日期数据
+
+ @return 精确到天的日期数据
+ */
++ (NSDate *)getDateWithoutDailyTimeFromDate:(NSDate *)date;
+
+/**
+ 判断两个NSDate的天数差
+
+ @param aDay 第一个日期
+ @param anotherDay 第二个日期
+ @return 天数差
+ */
++ (NSInteger)dayDifferenceFrom:(NSDate *)aDay toAnotherDay:(NSDate *)anotherDay;
+
 @end

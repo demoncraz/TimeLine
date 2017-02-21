@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="grouped" separatorStyle="default" rowHeight="70" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="rcc-ka-Aj2" customClass="CCContentTableView">
-                    <rect key="frame" x="0.0" y="110" width="375" height="557"/>
+                    <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 </tableView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="背景图" translatesAutoresizingMaskIntoConstraints="NO" id="S1M-EA-OAM">
@@ -29,13 +29,16 @@
                         <constraint firstAttribute="height" constant="110" id="GZa-e9-h0i"/>
                     </constraints>
                 </imageView>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="plO-1D-lyW">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="plO-1D-lyW">
                     <rect key="frame" x="20" y="32" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="DIK-7F-sWB"/>
                         <constraint firstAttribute="width" constant="20" id="OCh-37-K0N"/>
                     </constraints>
                     <state key="normal" image="icon_date"/>
+                    <connections>
+                        <action selector="notesButtonClick:" destination="-1" eventType="touchUpInside" id="5HJ-cz-W3C"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjO-Jx-9x4" customClass="CCDateButton">
                     <rect key="frame" x="116" y="32" width="142" height="20"/>
@@ -57,7 +60,7 @@
                 <constraint firstAttribute="trailing" secondItem="rcc-ka-Aj2" secondAttribute="trailing" id="Cf5-DL-emD"/>
                 <constraint firstItem="plO-1D-lyW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="FNC-Oy-g0q"/>
                 <constraint firstAttribute="trailing" secondItem="S1M-EA-OAM" secondAttribute="trailing" id="MyT-z1-CdG"/>
-                <constraint firstItem="rcc-ka-Aj2" firstAttribute="top" secondItem="S1M-EA-OAM" secondAttribute="bottom" id="Smo-p5-Jcg"/>
+                <constraint firstItem="rcc-ka-Aj2" firstAttribute="top" secondItem="S1M-EA-OAM" secondAttribute="bottom" constant="-2" id="Smo-p5-Jcg"/>
                 <constraint firstItem="rcc-ka-Aj2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="atW-BC-Pw8"/>
                 <constraint firstItem="S1M-EA-OAM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fqb-NP-XaB"/>
                 <constraint firstItem="wjO-Jx-9x4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="iv0-Do-z1e"/>

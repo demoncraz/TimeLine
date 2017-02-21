@@ -95,8 +95,11 @@
     
     //设置头像
     NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"avatarImage"];
-    UIImage *avatarImage = [UIImage imageWithData:imageData];
-    self.avatarImageView.image = avatarImage;
+    if (imageData) {
+        UIImage *avatarImage = [UIImage imageWithData:imageData];
+        self.avatarImageView.image = avatarImage;
+    }
+    
     //设置时间tf
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -149,9 +152,9 @@
     
     //1.设置背景图片
     UIImageView *bgImageView = [[UIImageView alloc] init];
-    UIImage *bgImage = [UIImage imageNamed:@"taskCardBg"];
+    UIImage *bgImage = [UIImage imageNamed:@"bg_line"];
     //    bgImageView.image = bgImage;
-    bgImageView.image = [bgImage stretchableImageWithLeftCapWidth:200 topCapHeight:15];
+    bgImageView.image = [bgImage stretchableImageWithLeftCapWidth:200 topCapHeight:10];
     
     [self.contentView addSubview:bgImageView];
     _bgImageView = bgImageView;

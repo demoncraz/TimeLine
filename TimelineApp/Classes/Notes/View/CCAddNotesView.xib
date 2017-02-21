@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16E154a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CCAddNotesView">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vNa-5O-o4H">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vih-67-3TN">
+                    <rect key="frame" x="0.0" y="160" width="150" height="40"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="取消">
+                        <color key="titleColor" red="0.47450980392156861" green="0.47450980392156861" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelButtonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="36L-gC-Kfp"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36U-5G-7XR">
+                    <rect key="frame" x="150" y="160" width="150" height="40"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="确认">
+                        <color key="titleColor" red="0.47450980392156861" green="0.47450980392156861" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="doneButtonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="nTD-8v-VRH"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.57254901960000004" green="0.57254901960000004" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="36U-5G-7XR" firstAttribute="leading" secondItem="Vih-67-3TN" secondAttribute="trailing" constant="0.5" id="4Jm-PB-a1H"/>
+                <constraint firstItem="vNa-5O-o4H" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6Ve-Yc-ODk"/>
+                <constraint firstAttribute="trailing" secondItem="36U-5G-7XR" secondAttribute="trailing" id="Hh3-eV-JxH"/>
+                <constraint firstItem="vNa-5O-o4H" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QER-Tv-qGI"/>
+                <constraint firstAttribute="bottom" secondItem="Vih-67-3TN" secondAttribute="bottom" id="Qal-3K-yD9"/>
+                <constraint firstItem="36U-5G-7XR" firstAttribute="width" secondItem="Vih-67-3TN" secondAttribute="width" id="Tb8-Xu-M5r"/>
+                <constraint firstItem="36U-5G-7XR" firstAttribute="height" secondItem="Vih-67-3TN" secondAttribute="height" id="aad-Mi-DCX"/>
+                <constraint firstItem="Vih-67-3TN" firstAttribute="top" secondItem="vNa-5O-o4H" secondAttribute="bottom" constant="10" id="eUw-jd-mgr"/>
+                <constraint firstAttribute="bottom" secondItem="36U-5G-7XR" secondAttribute="bottom" id="nC6-M1-mui"/>
+                <constraint firstAttribute="trailing" secondItem="vNa-5O-o4H" secondAttribute="trailing" id="qhn-sM-p5a"/>
+                <constraint firstAttribute="bottom" secondItem="vNa-5O-o4H" secondAttribute="bottom" constant="50" id="sIV-1H-qVZ"/>
+                <constraint firstItem="Vih-67-3TN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="txp-56-neX"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="notesTextView" destination="vNa-5O-o4H" id="Cin-EV-1fC"/>
+            </connections>
+        </view>
+    </objects>
+</document>

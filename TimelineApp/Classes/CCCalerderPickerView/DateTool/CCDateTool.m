@@ -7,6 +7,9 @@
 //
 
 #import "CCDateTool.h"
+#import "NSDate+Date.h"
+
+#define SecondsOfADay (3600 * 24)
 
 @implementation CCDateTool
 
@@ -140,6 +143,20 @@
         if ([obj isEqualToString:dateDict2[key]]) i++;
     }];
     return i == 3;
+}
+
++ (NSDate *)getDateWithoutDailyTimeFromDate:(NSDate *)date {
+    NSInteger daysSince1970 = [date timeIntervalSince1970] / SecondsOfADay;
+    NSDate *newDate = [NSDate dateWithTimeIntervalSince1970:SecondsOfADay * daysSince1970];
+    return newDate;
+}
+
++ (NSInteger)dayDifferenceFrom:(NSDate *)aDay toAnotherDay:(NSDate *)anotherDay {
+    //获取去掉时分秒的日期数据
+    NSDate *day1 = [self getDateWithoutDailyTimeFromDate:aDay];
+    NSDate *day2 = [self getDateWithoutDailyTimeFromDate:anotherDay];
+    NSInteger daysDifference = ([day2 timeIntervalSince1970] - [day1 timeIntervalSince1970]) / SecondsOfADay;
+    return daysDifference;
 }
 
 @end

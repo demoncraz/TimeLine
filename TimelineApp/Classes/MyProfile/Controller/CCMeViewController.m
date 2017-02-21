@@ -24,8 +24,6 @@ static NSString * const cellId = @"cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //设置状态栏
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     
     //监听头像变化的通知
     [CCNotificationCenter addObserver:self selector:@selector(avatarChange:) name:CCAvatarChangeNotification object:nil];
@@ -41,6 +39,8 @@ static NSString * const cellId = @"cell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    //设置状态栏
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     NSString *nameString = [[NSUserDefaults standardUserDefaults] objectForKey:@"nickname"];
     self.nameLabel.text = nameString ? nameString : @"未设置";
     

@@ -37,7 +37,15 @@
     
     //取消之前所有的通知
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
-   
+    
+    //设置头像
+    NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"avatarImage"];
+    if (!imageData) {
+        UIImage *image = [UIImage imageNamed:@"avatar_default"];
+        NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+        [[NSUserDefaults standardUserDefaults] setObject:imageData forKey:@"avatarImage"];
+    }
+    
     
     return YES;
 }

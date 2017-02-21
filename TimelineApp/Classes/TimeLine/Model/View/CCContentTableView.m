@@ -15,6 +15,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.backgroundColor = [UIColor whiteColor];
+    self.bouncesZoom = NO;
     
 }
 
