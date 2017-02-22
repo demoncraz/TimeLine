@@ -19,11 +19,18 @@
 
 + (instancetype)addNotesView {
     CCAddNotesView *addNotesView = [[[NSBundle mainBundle] loadNibNamed:@"CCAddNotesView" owner:nil options:nil] lastObject];
+    addNotesView.CC_width = ScreenW * 0.8;
     addNotesView.CC_centerX = [UIApplication sharedApplication].keyWindow.CC_centerX;
     addNotesView.CC_centerY = [UIApplication sharedApplication].keyWindow.CC_centerY - 100;
     addNotesView.alpha = 0;
 //    [addNotesView becomeFirstResponder];
     return addNotesView;
+}
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.layer.cornerRadius = 3;
+    self.layer.masksToBounds = YES;
 }
 
 - (void)startEdting {

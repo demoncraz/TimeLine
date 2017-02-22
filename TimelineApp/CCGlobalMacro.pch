@@ -39,4 +39,7 @@
 #define iPhone6P_7P (ScreenH == 736)
 #define iPhone5_5s (ScreenH == 568)
 
+/*******User Default Keys********/
+#define CCConfirmNotShowUDKey @"CCConfirmNotShowUDKey"
+
 #endif /* CCGlobalMacro_pch */

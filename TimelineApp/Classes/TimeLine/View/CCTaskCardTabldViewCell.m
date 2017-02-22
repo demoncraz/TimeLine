@@ -92,6 +92,17 @@
     _taskCardItem = taskCardItem;
     
     //为子控件设置数据
+    //设置背景
+
+    UIImage *bgImage = [[UIImage alloc] init];
+    if (!taskCardItem.isDone) {
+        bgImage = [UIImage imageNamed:@"bg_line"];
+    } else {
+        bgImage = [UIImage imageNamed:@"bg_done"];
+    }
+
+    self.bgImageView.image = [bgImage stretchableImageWithLeftCapWidth:200 topCapHeight:10];
+    
     
     //设置头像
     NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"avatarImage"];
@@ -119,8 +130,19 @@
     if (taskCardItem.taskCardAlertType == TaskCardAlertTypeNotification) {
         self.alertIcon.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"icon_notice"].CGImage);
     } else {
-        
     }
+    
+    //设置完成卡片样式
+    NSLog(@"%@", self.contentView.subviews);
+    
+    for (UIView *subView in self.contentView.subviews) {
+        if (taskCardItem.isDone && ![subView isKindOfClass:[UIImageView class]]) {
+            subView.alpha = 0.3;
+        } else {
+            subView.alpha = 1;
+        }
+    }
+    
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -131,7 +153,7 @@
             make.left.equalTo(self).offset(10);
             make.right.equalTo(self).offset(-10);
         }];
-        
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self setupTaskCard];
     }
     return self;
@@ -152,9 +174,9 @@
     
     //1.设置背景图片
     UIImageView *bgImageView = [[UIImageView alloc] init];
-    UIImage *bgImage = [UIImage imageNamed:@"bg_line"];
-    //    bgImageView.image = bgImage;
-    bgImageView.image = [bgImage stretchableImageWithLeftCapWidth:200 topCapHeight:10];
+//    UIImage *bgImage = [UIImage imageNamed:@"bg_line"];
+//    //    bgImageView.image = bgImage;
+//    bgImageView.image = [bgImage stretchableImageWithLeftCapWidth:200 topCapHeight:10];
     
     [self.contentView addSubview:bgImageView];
     _bgImageView = bgImageView;
@@ -214,7 +236,7 @@
     
     // 设置分界线
     UIView *separatorLine = [[UIView alloc] init];
-    separatorLine.backgroundColor = [UIColor whiteColor];
+    separatorLine.backgroundColor = [UIColor clearColor];
     separatorLine.layer.shadowColor = ColorWithRGB(0, 0, 0, 0.04).CGColor;
     separatorLine.layer.shadowOffset = CGSizeMake(0, -1);
     separatorLine.layer.shadowOpacity = 1;
@@ -260,12 +282,6 @@
     [self.rightView addSubview:alertIcon];
     _alertIcon = alertIcon;
     
-}
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    //    self.backgroundImageView.frame = self.bounds;
-
 }
 
 - (void)setupConstraints {
@@ -321,7 +337,7 @@
     [self.rightView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView).offset(9);
         make.right.bottom.equalTo(self.contentView);
-        make.left.equalTo(self.leftView.mas_right);
+        make.left.equalTo(self.leftView.mas_right).offset(5);
     }];
     
     //标题约束

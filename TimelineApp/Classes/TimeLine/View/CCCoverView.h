@@ -7,10 +7,43 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CCTaskCardEditingMode.h"
+
+@class CCCoverView;
+
+
+/*定义CoverView隐藏的选项*/
+typedef enum {
+    CCCoverViewDismissOptionCancel,//取消
+    CCCoverViewDismissOptionAddNew //新卡片添加完成
+} CCCoverViewDismissOption;
+
+@protocol CCCoverViewDelegate <NSObject>
+
+- (void)coverView:(CCCoverView *)coverView didChangeLineNumbers:(NSInteger)lineNumbers;
+
+@end
 
 @interface CCCoverView : UIView
 
-@property (nonatomic, strong) CCTaskCardEditingMode *taskCard;
+@property (nonatomic, strong) id<CCCoverViewDelegate> delegate;
+
+
+/**
+ 显示新建卡片
+ */
+- (void)showNewCard;
+
+/**
+ 隐藏CoverView
+ 
+
+ set property coverView to be nil after the dismiss call if there is strong refence on it
+ 
+ @param option 隐藏选项
+ CCCoverViewDismissOptionCancel 取消
+ CCCoverViewDismissOptionAddNew 新增完毕
+ 
+ */
+- (void)dismissCoverViewWithOptions:(CCCoverViewDismissOption)option;
 
 @end

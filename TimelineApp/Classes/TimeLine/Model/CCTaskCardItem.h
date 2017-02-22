@@ -28,6 +28,8 @@ typedef enum {
 
 @property (nonatomic, strong) NSString *cardAvatarImage;
 
+@property (nonatomic, assign, getter=isDone) BOOL done;
+
 
 /***其他数据**/
 @property (nonatomic, assign) CGFloat height;

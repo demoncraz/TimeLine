@@ -80,8 +80,17 @@ static CCCalerderPickerView *sharedCalenderPickView;
 }
 
 //创建单例对象
+
+static CCCalerderPickerView *pickerView;
 + (instancetype)calenderPickerView {
-    return [[[NSBundle mainBundle] loadNibNamed:@"CCCalerderPickerView" owner:nil options:nil] firstObject];
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        pickerView = [[[NSBundle mainBundle] loadNibNamed:@"CCCalerderPickerView" owner:nil options:nil] firstObject];
+
+    });
+    return pickerView;
+//    return [[[NSBundle mainBundle] loadNibNamed:@"CCCalerderPickerView" owner:nil options:nil] firstObject];
 }
 
 

@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D0793D71E483D10000D7DC2 /* CCContentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0793D61E483D10000D7DC2 /* CCContentTableView.m */; };
-		3D0793DA1E484049000D7DC2 /* CCTaskCardTabldViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0793D91E484049000D7DC2 /* CCTaskCardTabldViewCell.m */; };
 		3D07945A1E4B1449000D7DC2 /* NSObject+LocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0794591E4B1449000D7DC2 /* NSObject+LocalNotification.m */; };
 		3D07945F1E4B5C16000D7DC2 /* alert_sound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D07945E1E4B5C16000D7DC2 /* alert_sound.m4a */; };
 		3D4BF1EC1E53E205007B0F59 /* NSDate+Date.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF1DA1E53E205007B0F59 /* NSDate+Date.m */; };
@@ -52,9 +50,6 @@
 		3D6C9B5C1E46000A00C2BABE /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C9B4F1E46000A00C2BABE /* NSObject+MJKeyValue.m */; };
 		3D6C9B5D1E46000A00C2BABE /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C9B511E46000A00C2BABE /* NSObject+MJProperty.m */; };
 		3D6C9B5E1E46000A00C2BABE /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C9B531E46000A00C2BABE /* NSString+MJExtension.m */; };
-		3D6C9B6F1E46157300C2BABE /* CCDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C9B641E46157300C2BABE /* CCDatePicker.m */; };
-		3D6C9B721E46157300C2BABE /* CCCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C9B6A1E46157300C2BABE /* CCCoverView.m */; };
-		3D6C9B731E46157300C2BABE /* CCDateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C9B6D1E46157300C2BABE /* CCDateButton.m */; };
 		3DF7FC181E54334800AA0D13 /* CCMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FC171E54334800AA0D13 /* CCMeViewController.m */; };
 		3DF7FC221E544E9C00AA0D13 /* CCProfileViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FC211E544E9C00AA0D13 /* CCProfileViewContoller.m */; };
 		3DF7FC2B1E54521200AA0D13 /* CCProfileViewContoller.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF7FC2A1E54521200AA0D13 /* CCProfileViewContoller.storyboard */; };
@@ -72,14 +67,18 @@
 		3DF7FC7C1E5A975C00AA0D13 /* CCAddNotesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FC7B1E5A975C00AA0D13 /* CCAddNotesView.m */; };
 		3DF7FC7E1E5A976F00AA0D13 /* CCAddNotesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF7FC7D1E5A976F00AA0D13 /* CCAddNotesView.xib */; };
 		3DF7FC811E5AC6EF00AA0D13 /* CCNotesItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FC801E5AC6EF00AA0D13 /* CCNotesItem.m */; };
-		3DF7FC841E5AE26800AA0D13 /* CCLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FC831E5AE26800AA0D13 /* CCLineView.m */; };
+		3DF7FCA61E5DDF7A00AA0D13 /* CCRemarkTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FCA51E5DDF7A00AA0D13 /* CCRemarkTableViewController.m */; };
+		3DF7FCD71E5DE26600AA0D13 /* CCDateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FCC91E5DE26600AA0D13 /* CCDateButton.m */; };
+		3DF7FCD81E5DE26600AA0D13 /* CCTaskCardTabldViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FCCB1E5DE26600AA0D13 /* CCTaskCardTabldViewCell.m */; };
+		3DF7FCDB1E5DE2D100AA0D13 /* CCContentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FCD91E5DE2D100AA0D13 /* CCContentTableView.m */; };
+		3DF7FCE51E5DE50700AA0D13 /* CCDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FCE41E5DE50700AA0D13 /* CCDatePicker.m */; };
+		3DF7FCE81E5DE53A00AA0D13 /* CCCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FCE71E5DE53A00AA0D13 /* CCCoverView.m */; };
+		3DF7FCEB1E5DE5AA00AA0D13 /* CCCardDetailCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FCEA1E5DE5AA00AA0D13 /* CCCardDetailCoverView.m */; };
+		3DF7FCEF1E5DE60D00AA0D13 /* CCCardDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FCED1E5DE60D00AA0D13 /* CCCardDetailView.m */; };
+		3DF7FCF01E5DE60D00AA0D13 /* CCCardDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF7FCEE1E5DE60D00AA0D13 /* CCCardDetailView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3D0793D51E483D10000D7DC2 /* CCContentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCContentTableView.h; sourceTree = "<group>"; };
-		3D0793D61E483D10000D7DC2 /* CCContentTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCContentTableView.m; sourceTree = "<group>"; };
-		3D0793D81E484049000D7DC2 /* CCTaskCardTabldViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTaskCardTabldViewCell.h; sourceTree = "<group>"; };
-		3D0793D91E484049000D7DC2 /* CCTaskCardTabldViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTaskCardTabldViewCell.m; sourceTree = "<group>"; };
 		3D0793DB1E487011000D7DC2 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		3D0793DE1E487069000D7DC2 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		3D0794581E4B1449000D7DC2 /* NSObject+LocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+LocalNotification.h"; path = "Masonry/NSObject+LocalNotification.h"; sourceTree = "<group>"; };
@@ -166,12 +165,6 @@
 		3D6C9B511E46000A00C2BABE /* NSObject+MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJProperty.m"; sourceTree = "<group>"; };
 		3D6C9B521E46000A00C2BABE /* NSString+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MJExtension.h"; sourceTree = "<group>"; };
 		3D6C9B531E46000A00C2BABE /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
-		3D6C9B631E46157300C2BABE /* CCDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDatePicker.h; sourceTree = "<group>"; };
-		3D6C9B641E46157300C2BABE /* CCDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDatePicker.m; sourceTree = "<group>"; };
-		3D6C9B691E46157300C2BABE /* CCCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCoverView.h; sourceTree = "<group>"; };
-		3D6C9B6A1E46157300C2BABE /* CCCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCoverView.m; sourceTree = "<group>"; };
-		3D6C9B6C1E46157300C2BABE /* CCDateButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDateButton.h; sourceTree = "<group>"; };
-		3D6C9B6D1E46157300C2BABE /* CCDateButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDateButton.m; sourceTree = "<group>"; };
 		3DF7FC161E54334800AA0D13 /* CCMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMeViewController.h; sourceTree = "<group>"; };
 		3DF7FC171E54334800AA0D13 /* CCMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMeViewController.m; sourceTree = "<group>"; };
 		3DF7FC201E544E9C00AA0D13 /* CCProfileViewContoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCProfileViewContoller.h; sourceTree = "<group>"; };
@@ -202,8 +195,23 @@
 		3DF7FC7D1E5A976F00AA0D13 /* CCAddNotesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCAddNotesView.xib; sourceTree = "<group>"; };
 		3DF7FC7F1E5AC6EF00AA0D13 /* CCNotesItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNotesItem.h; sourceTree = "<group>"; };
 		3DF7FC801E5AC6EF00AA0D13 /* CCNotesItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNotesItem.m; sourceTree = "<group>"; };
-		3DF7FC821E5AE26800AA0D13 /* CCLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLineView.h; sourceTree = "<group>"; };
-		3DF7FC831E5AE26800AA0D13 /* CCLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLineView.m; sourceTree = "<group>"; };
+		3DF7FCA41E5DDF7A00AA0D13 /* CCRemarkTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRemarkTableViewController.h; sourceTree = "<group>"; };
+		3DF7FCA51E5DDF7A00AA0D13 /* CCRemarkTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRemarkTableViewController.m; sourceTree = "<group>"; };
+		3DF7FCC81E5DE26600AA0D13 /* CCDateButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDateButton.h; sourceTree = "<group>"; };
+		3DF7FCC91E5DE26600AA0D13 /* CCDateButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDateButton.m; sourceTree = "<group>"; };
+		3DF7FCCA1E5DE26600AA0D13 /* CCTaskCardTabldViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTaskCardTabldViewCell.h; sourceTree = "<group>"; };
+		3DF7FCCB1E5DE26600AA0D13 /* CCTaskCardTabldViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTaskCardTabldViewCell.m; sourceTree = "<group>"; };
+		3DF7FCD91E5DE2D100AA0D13 /* CCContentTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCContentTableView.m; sourceTree = "<group>"; };
+		3DF7FCDA1E5DE2D100AA0D13 /* CCContentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCContentTableView.h; sourceTree = "<group>"; };
+		3DF7FCE31E5DE50700AA0D13 /* CCDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDatePicker.h; sourceTree = "<group>"; };
+		3DF7FCE41E5DE50700AA0D13 /* CCDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDatePicker.m; sourceTree = "<group>"; };
+		3DF7FCE61E5DE53A00AA0D13 /* CCCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCoverView.h; sourceTree = "<group>"; };
+		3DF7FCE71E5DE53A00AA0D13 /* CCCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCoverView.m; sourceTree = "<group>"; };
+		3DF7FCE91E5DE5AA00AA0D13 /* CCCardDetailCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCardDetailCoverView.h; sourceTree = "<group>"; };
+		3DF7FCEA1E5DE5AA00AA0D13 /* CCCardDetailCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCardDetailCoverView.m; sourceTree = "<group>"; };
+		3DF7FCEC1E5DE60D00AA0D13 /* CCCardDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCardDetailView.h; sourceTree = "<group>"; };
+		3DF7FCED1E5DE60D00AA0D13 /* CCCardDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCardDetailView.m; sourceTree = "<group>"; };
+		3DF7FCEE1E5DE60D00AA0D13 /* CCCardDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCCardDetailView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,6 +353,7 @@
 				3DF7FC601E58139C00AA0D13 /* Notes */,
 				3D6C9A151E3C91DC00C2BABE /* MyProfile */,
 				3D6C9A1C1E3C91DC00C2BABE /* TimeLine */,
+				3DF7FCAF1E5DE26600AA0D13 /* View */,
 				3DF7FC731E5A8DA500AA0D13 /* Others */,
 			);
 			path = Classes;
@@ -398,7 +407,6 @@
 			children = (
 				3D6C9A1D1E3C91DC00C2BABE /* Controller */,
 				3D6C9A211E3C91DC00C2BABE /* Model */,
-				3D6C9B5F1E46157300C2BABE /* View */,
 			);
 			path = TimeLine;
 			sourceTree = "<group>";
@@ -409,6 +417,8 @@
 				3D6C9A1E1E3C91DC00C2BABE /* TimeLineViewController.h */,
 				3D6C9A1F1E3C91DC00C2BABE /* TimeLineViewController.m */,
 				3D6C9A201E3C91DC00C2BABE /* TimeLineViewController.xib */,
+				3DF7FCA41E5DDF7A00AA0D13 /* CCRemarkTableViewController.h */,
+				3DF7FCA51E5DDF7A00AA0D13 /* CCRemarkTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -510,42 +520,6 @@
 			path = MJExtension;
 			sourceTree = "<group>";
 		};
-		3D6C9B5F1E46157300C2BABE /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3D0793D51E483D10000D7DC2 /* CCContentTableView.h */,
-				3D0793D61E483D10000D7DC2 /* CCContentTableView.m */,
-				3D0793D81E484049000D7DC2 /* CCTaskCardTabldViewCell.h */,
-				3D0793D91E484049000D7DC2 /* CCTaskCardTabldViewCell.m */,
-				3D6C9B6B1E46157300C2BABE /* CCDateButton */,
-				3D6C9B601E46157300C2BABE /* CCContentScrollView */,
-				3D6C9B691E46157300C2BABE /* CCCoverView.h */,
-				3D6C9B6A1E46157300C2BABE /* CCCoverView.m */,
-				3DF7FC821E5AE26800AA0D13 /* CCLineView.h */,
-				3DF7FC831E5AE26800AA0D13 /* CCLineView.m */,
-			);
-			name = View;
-			path = Model/View;
-			sourceTree = "<group>";
-		};
-		3D6C9B601E46157300C2BABE /* CCContentScrollView */ = {
-			isa = PBXGroup;
-			children = (
-				3D6C9B631E46157300C2BABE /* CCDatePicker.h */,
-				3D6C9B641E46157300C2BABE /* CCDatePicker.m */,
-			);
-			path = CCContentScrollView;
-			sourceTree = "<group>";
-		};
-		3D6C9B6B1E46157300C2BABE /* CCDateButton */ = {
-			isa = PBXGroup;
-			children = (
-				3D6C9B6C1E46157300C2BABE /* CCDateButton.h */,
-				3D6C9B6D1E46157300C2BABE /* CCDateButton.m */,
-			);
-			path = CCDateButton;
-			sourceTree = "<group>";
-		};
 		3DF7FC5C1E57FCB700AA0D13 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -606,6 +580,53 @@
 				3DF7FC781E5A8DF300AA0D13 /* CCCommonCoverView.m */,
 			);
 			path = Others;
+			sourceTree = "<group>";
+		};
+		3DF7FCAF1E5DE26600AA0D13 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3DF7FCB01E5DE26600AA0D13 /* CCCardDetail */,
+				3DF7FCD91E5DE2D100AA0D13 /* CCContentTableView.m */,
+				3DF7FCDA1E5DE2D100AA0D13 /* CCContentTableView.h */,
+				3DF7FCCA1E5DE26600AA0D13 /* CCTaskCardTabldViewCell.h */,
+				3DF7FCCB1E5DE26600AA0D13 /* CCTaskCardTabldViewCell.m */,
+				3DF7FCE61E5DE53A00AA0D13 /* CCCoverView.h */,
+				3DF7FCE71E5DE53A00AA0D13 /* CCCoverView.m */,
+				3DF7FCC71E5DE26600AA0D13 /* CCDateButton */,
+				3DF7FCE21E5DE50700AA0D13 /* CCDatePicker */,
+			);
+			name = View;
+			path = TimeLine/View;
+			sourceTree = "<group>";
+		};
+		3DF7FCB01E5DE26600AA0D13 /* CCCardDetail */ = {
+			isa = PBXGroup;
+			children = (
+				3DF7FCEC1E5DE60D00AA0D13 /* CCCardDetailView.h */,
+				3DF7FCED1E5DE60D00AA0D13 /* CCCardDetailView.m */,
+				3DF7FCEE1E5DE60D00AA0D13 /* CCCardDetailView.xib */,
+				3DF7FCE91E5DE5AA00AA0D13 /* CCCardDetailCoverView.h */,
+				3DF7FCEA1E5DE5AA00AA0D13 /* CCCardDetailCoverView.m */,
+			);
+			path = CCCardDetail;
+			sourceTree = "<group>";
+		};
+		3DF7FCC71E5DE26600AA0D13 /* CCDateButton */ = {
+			isa = PBXGroup;
+			children = (
+				3DF7FCC81E5DE26600AA0D13 /* CCDateButton.h */,
+				3DF7FCC91E5DE26600AA0D13 /* CCDateButton.m */,
+			);
+			path = CCDateButton;
+			sourceTree = "<group>";
+		};
+		3DF7FCE21E5DE50700AA0D13 /* CCDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				3DF7FCE31E5DE50700AA0D13 /* CCDatePicker.h */,
+				3DF7FCE41E5DE50700AA0D13 /* CCDatePicker.m */,
+			);
+			path = CCDatePicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -669,6 +690,7 @@
 			files = (
 				3DF7FC2B1E54521200AA0D13 /* CCProfileViewContoller.storyboard in Resources */,
 				3D6C9A071E3C917000C2BABE /* Assets.xcassets in Resources */,
+				3DF7FCF01E5DE60D00AA0D13 /* CCCardDetailView.xib in Resources */,
 				3DF7FC7E1E5A976F00AA0D13 /* CCAddNotesView.xib in Resources */,
 				3D6C9A2B1E3C91DC00C2BABE /* TimeLineViewController.xib in Resources */,
 				3D6C9B2B1E45FF9900C2BABE /* Info.plist in Resources */,
@@ -696,10 +718,11 @@
 				3DF7FC721E59EC1200AA0D13 /* CCNotesFullScreenButton.m in Sources */,
 				3D6C9B5A1E46000A00C2BABE /* NSObject+MJClass.m in Sources */,
 				3DF7FC5F1E57FCB700AA0D13 /* UIView+Frame.m in Sources */,
+				3DF7FCDB1E5DE2D100AA0D13 /* CCContentTableView.m in Sources */,
 				3D4BF1EE1E53E205007B0F59 /* CCCalenderDateView.m in Sources */,
 				3D6C9A881E4374BE00C2BABE /* CCTaskCardItem.m in Sources */,
+				3DF7FCA61E5DDF7A00AA0D13 /* CCRemarkTableViewController.m in Sources */,
 				3DF7FC2E1E54576E00AA0D13 /* CCEditingViewController.m in Sources */,
-				3D6C9B6F1E46157300C2BABE /* CCDatePicker.m in Sources */,
 				3D6C9B321E45FF9900C2BABE /* NSArray+MASAdditions.m in Sources */,
 				3D4BF1F11E53E205007B0F59 /* CCCalerderPickerView.m in Sources */,
 				3DF7FC221E544E9C00AA0D13 /* CCProfileViewContoller.m in Sources */,
@@ -707,15 +730,15 @@
 				3DF7FC181E54334800AA0D13 /* CCMeViewController.m in Sources */,
 				3D6C9B581E46000A00C2BABE /* MJPropertyKey.m in Sources */,
 				3D6C9B591E46000A00C2BABE /* MJPropertyType.m in Sources */,
-				3D6C9B721E46157300C2BABE /* CCCoverView.m in Sources */,
 				3D6C9B331E45FF9900C2BABE /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				3DF7FCE51E5DE50700AA0D13 /* CCDatePicker.m in Sources */,
 				3D6C9B361E45FF9900C2BABE /* UIView+FindViewThatIsFirstResponder.m in Sources */,
 				3D6C9B5C1E46000A00C2BABE /* NSObject+MJKeyValue.m in Sources */,
+				3DF7FCEB1E5DE5AA00AA0D13 /* CCCardDetailCoverView.m in Sources */,
 				3D6C9B301E45FF9900C2BABE /* MASViewAttribute.m in Sources */,
 				3D4BF1F31E53E205007B0F59 /* CCDotItem.m in Sources */,
 				3DF7FC6F1E59226600AA0D13 /* CCNotesTableView.m in Sources */,
 				3D6C9B2F1E45FF9900C2BABE /* MASLayoutConstraint.m in Sources */,
-				3D0793DA1E484049000D7DC2 /* CCTaskCardTabldViewCell.m in Sources */,
 				3DF7FC811E5AC6EF00AA0D13 /* CCNotesItem.m in Sources */,
 				3D6C9B3C1E45FFB300C2BABE /* main.m in Sources */,
 				3D6C9B5D1E46000A00C2BABE /* NSObject+MJProperty.m in Sources */,
@@ -723,22 +746,23 @@
 				3DF7FC661E58139C00AA0D13 /* CCNotesViewController.m in Sources */,
 				3D6C9B5B1E46000A00C2BABE /* NSObject+MJCoding.m in Sources */,
 				3D6C9B2C1E45FF9900C2BABE /* MASCompositeConstraint.m in Sources */,
-				3DF7FC841E5AE26800AA0D13 /* CCLineView.m in Sources */,
+				3DF7FCEF1E5DE60D00AA0D13 /* CCCardDetailView.m in Sources */,
 				3DF7FC361E548AED00AA0D13 /* CCImageView.m in Sources */,
 				3D6C9A2A1E3C91DC00C2BABE /* TimeLineViewController.m in Sources */,
 				3D4BF1EF1E53E205007B0F59 /* CCCalenderItemView.m in Sources */,
 				3D4BF1ED1E53E205007B0F59 /* CCDateTool.m in Sources */,
 				3D6C9B311E45FF9900C2BABE /* MASViewConstraint.m in Sources */,
+				3DF7FCE81E5DE53A00AA0D13 /* CCCoverView.m in Sources */,
 				3D6C9B551E46000A00C2BABE /* MJExtensionConst.m in Sources */,
+				3DF7FCD81E5DE26600AA0D13 /* CCTaskCardTabldViewCell.m in Sources */,
 				3D6C9B5E1E46000A00C2BABE /* NSString+MJExtension.m in Sources */,
+				3DF7FCD71E5DE26600AA0D13 /* CCDateButton.m in Sources */,
 				3DF7FC7C1E5A975C00AA0D13 /* CCAddNotesView.m in Sources */,
 				3D6C9B571E46000A00C2BABE /* MJProperty.m in Sources */,
 				3D6C9B2A1E45FF9900C2BABE /* GetCurrentTime.m in Sources */,
 				3D6C9B351E45FF9900C2BABE /* ViewController+MASAdditions.m in Sources */,
-				3D0793D71E483D10000D7DC2 /* CCContentTableView.m in Sources */,
 				3D6C9B2E1E45FF9900C2BABE /* MASConstraintMaker.m in Sources */,
 				3D6C9B2D1E45FF9900C2BABE /* MASConstraint.m in Sources */,
-				3D6C9B731E46157300C2BABE /* CCDateButton.m in Sources */,
 				3DF7FC791E5A8DF300AA0D13 /* CCCommonCoverView.m in Sources */,
 				3D07945A1E4B1449000D7DC2 /* NSObject+LocalNotification.m in Sources */,
 				3D6C9B561E46000A00C2BABE /* MJFoundation.m in Sources */,
