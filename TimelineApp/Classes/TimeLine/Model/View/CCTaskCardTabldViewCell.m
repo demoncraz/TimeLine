@@ -165,9 +165,11 @@
     //3.设置有半部分view
     [self setupRightView];
     
+    
     [self setupConstraints];
     
 }
+
 
 - (void)setupLeftView {
     //设置左半部触控区域

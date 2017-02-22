@@ -38,4 +38,15 @@
     return keyString;
 }
 
+/**
+ 根据模型计算cell高度
+ */
+- (CGFloat)height {
+    NSString *contentString = self.cardContent;
+    CGSize textSize = [contentString boundingRectWithSize:CGSizeMake(CCTaskCardContentW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont fontWithName:@"PingFangSC-Regular" size:12]} context:nil].size;
+    
+    return textSize.height + 60;
+}
+
+
 @end

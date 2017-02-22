@@ -25,6 +25,7 @@
 #define CCTaskCardContentW (ScreenW - 40) * (255.0 / 355) - 20
 
 #define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+#define CCDefaultBlueColor ColorWithRGB(68, 141, 231, 1)
 
 #define CCNewCardCompleteNotification @"newCardComplete"
 

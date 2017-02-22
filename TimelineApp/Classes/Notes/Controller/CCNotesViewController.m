@@ -50,6 +50,8 @@
 
     //设置背景颜色
     self.view.backgroundColor = ColorWithRGB(121, 121, 136, 1);
+    self.view.layer.cornerRadius = 5;
+    self.view.layer.masksToBounds = YES;
     //设置顶部栏
     [self setupTitleView];
     
@@ -110,7 +112,7 @@
     [self.view addSubview:tableView];
     _tableView = tableView;
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.titleView.mas_bottom).offset(0.5);
+        make.top.equalTo(self.titleView.mas_bottom);
         make.left.right.equalTo(self.view);
         make.bottom.equalTo(self.view);
     }];

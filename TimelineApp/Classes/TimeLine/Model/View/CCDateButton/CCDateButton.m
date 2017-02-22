@@ -41,7 +41,7 @@
     
     [self updateDate];
     
-    self.titleLabel.font = [UIFont systemFontOfSize:14];
+    self.titleLabel.font = [UIFont systemFontOfSize:15];
     [self.titleLabel sizeToFit];
     
 }

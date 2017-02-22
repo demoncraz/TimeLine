@@ -10,7 +10,7 @@
 #import "Masonry.h"
 
 
-#define CCNotesTitleColor ColorWithRGB(121, 121, 136, 1)
+#define CCNotesTitleColor ColorWithRGB(255, 255, 255, 1)
 
 @interface CCNotesTitleView ()
 
@@ -38,14 +38,14 @@
 }
 
 - (void)setupStyle {
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = CCDefaultBlueColor;
     
 }
 
 - (void)setupTitle {
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.text = @"备忘录";
-    titleLabel.font = [UIFont boldSystemFontOfSize:20];
+    titleLabel.font = [UIFont systemFontOfSize:20];
     titleLabel.textColor = CCNotesTitleColor;
     titleLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:titleLabel];
@@ -53,8 +53,6 @@
         make.top.bottom.equalTo(self);
         make.centerX.equalTo(self.mas_centerX);
         make.width.equalTo(@100);
-//        make.right.equalTo(self.mas_right).offset(-50);
-//        make.left.equalTo(self.mas_left).offset(50);
     }];
     
     _titleLabel = titleLabel;

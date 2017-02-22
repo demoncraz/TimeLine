@@ -15,6 +15,7 @@ typedef enum {
     TaskCardAlertTypeOther
 } TaskCardAlertType;
 
+/***模型数据**/
 @interface CCTaskCardItem : NSObject
 
 @property (nonatomic, strong) NSDate *cardDate;
@@ -26,6 +27,10 @@ typedef enum {
 @property (nonatomic, assign) TaskCardAlertType taskCardAlertType;
 
 @property (nonatomic, strong) NSString *cardAvatarImage;
+
+
+/***其他数据**/
+@property (nonatomic, assign) CGFloat height;
 
 
 //使用字典快速创建模型对象

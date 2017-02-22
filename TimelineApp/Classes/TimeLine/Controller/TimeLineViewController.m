@@ -20,7 +20,7 @@
 #import "NSDate+Date.h"
 #import "CCDateTool.h"
 
-#define DefaultGroupInset 30
+#define DefaultGroupInset 50
 #define DefaultBgLineColor ColorWithRGB(210, 210, 210, 1)
 #define DefaultDateLabelFont [UIFont systemFontOfSize:12];
 #define DefaultDateLabelColor ColorWithRGB(72, 72, 95, 1);
@@ -35,7 +35,7 @@
 
 
 //任务卡模型数组
-@property (nonatomic, strong) NSMutableArray<CCTaskCardItem *> *taskCardItems;
+@property (nonatomic, strong) NSMutableArray<NSMutableArray *> *taskCardItems;
 
 @property (nonatomic, strong) NSMutableArray<CCTaskCardItem *> *firstTaskCards;
 
@@ -63,10 +63,10 @@
 @property (nonatomic, strong) UIButton *notesCoverView;
 
 
+
 @end
 
 @implementation TimeLineViewController
-
 
 
 #pragma mark - lazy loading
@@ -140,43 +140,62 @@
     return _firstTaskCards;
 }
 
+#pragma mark - 初始化模型数组
+//初始化模型数组
 - (NSMutableArray *)taskCardItems {
     if (_taskCardItems == nil) {
        
         NSArray *taskCardsArr = [NSArray arrayWithContentsOfFile:self.filePath];
-//        NSArray *taskCardsArr = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"TaskCardItems.plist" ofType:nil]];
         
+//        NSArray *taskCardsArr = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"TaskCardItems.plist" ofType:nil]];
+
+        //字典数组转模型数组
         if (taskCardsArr) {
-            //字典数组转模型
-            NSMutableArray *taskCardItemArr = [CCTaskCardItem mj_objectArrayWithKeyValuesArray:taskCardsArr];
-            _taskCardItems = taskCardItemArr;
-            
-            //添加通知
-            for (CCTaskCardItem *item in self.taskCardItems) {
+            NSMutableArray *allTaskCards = [NSMutableArray array];
+            for (NSMutableArray *arr in taskCardsArr) {
+                NSMutableArray *itemArr = [CCTaskCardItem mj_objectArrayWithKeyValuesArray:arr];
                 
-                NSString *dateString = [item getKeyFromItem];
+                //添加注册通知
+                for (CCTaskCardItem *item in itemArr) {
+                    [self addNotificationWithTaskCardItem:item];
+                }
                 
-                [CCTaskCardItem registerLocalNotificationWithDate:item.cardDate content:item.cardTitle key:dateString];
-                
-                [self.notificationDates addObject:item.cardDate];
-                
+                [allTaskCards addObject:itemArr];
             }
+            self.taskCardItems = allTaskCards;
             
             [self sortTaskCardItemsByTime];
         } else {
             _taskCardItems = [NSMutableArray array];
         }
         
-        
     }
     return _taskCardItems;
 }
 
 
+/**
+ 根据模型注册通知
 
+ @param item 模型
+ */
+- (void)addNotificationWithTaskCardItem:(CCTaskCardItem *)item {
+    NSString *dateString = [item getKeyFromItem];
+    
+    [CCTaskCardItem registerLocalNotificationWithDate:item.cardDate content:item.cardTitle key:dateString];
+    
+    [self.notificationDates addObject:item.cardDate];
+}
+
+
+#pragma mark - 生命周期函数
+static NSString *headerViewId = @"headerView";
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    NSLog(@"%@", path);
     
     // Do any additional setup after loading the view from its nib.
     
@@ -185,9 +204,9 @@
     self.contentTableView.dataSource = self;
     self.contentTableView.delegate = self;
     self.contentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.contentTableView.contentInset = UIEdgeInsetsMake(0, 0, 80, 0);
     
-    self.contentTableView.contentInset = UIEdgeInsetsMake(20, 0, 44, 0);
-    
+    //设置添加按钮
     [self setupAddButton];
 
     
@@ -248,28 +267,48 @@
 
 #pragma mark - 将卡片按照时间顺序排列
 - (void)sortTaskCardItemsByTime {
-    [self.firstTaskCards removeAllObjects];
-    
-    [self.taskCardItems sortUsingComparator:^NSComparisonResult(CCTaskCardItem *item1, CCTaskCardItem *item2) {
+//    [self.firstTaskCards removeAllObjects];
+    //为所有日期排序
+    [self.taskCardItems sortUsingComparator:^NSComparisonResult(NSArray *obj1,  NSArray *obj2) {
+        CCTaskCardItem *item1 = [obj1 firstObject];
+        CCTaskCardItem *item2 = [obj2 firstObject];
         if ([item1.cardDate timeIntervalSince1970] > [item2.cardDate timeIntervalSince1970]) {
             return (NSComparisonResult)NSOrderedDescending;
         } else {
             return (NSComparisonResult)NSOrderedAscending;
         }
     }];
-    
-    //记录的每一天的第一张卡片，存放到firstTaskCards数组中
-    if (self.taskCardItems.count > 0) {
-        NSDate *firstDate = [self.taskCardItems firstObject].cardDate;
-        [self.firstTaskCards addObject:[self.taskCardItems firstObject]];
-        for (NSInteger i = 0; i < self.taskCardItems.count; i++) {
-            CCTaskCardItem *item = self.taskCardItems[i];
-            if([CCDateTool dayDifferenceFrom:firstDate toAnotherDay:item.cardDate] >= 1) {
-                [self.firstTaskCards addObject:item];
-                firstDate = item.cardDate;
+    //为每天的卡片排序
+    for (NSMutableArray *arr in self.taskCardItems) {
+        [arr sortUsingComparator:^NSComparisonResult(CCTaskCardItem *item1, CCTaskCardItem *item2) {
+            if ([item1.cardDate timeIntervalSince1970] > [item2.cardDate timeIntervalSince1970]) {
+                return (NSComparisonResult)NSOrderedDescending;
+            } else {
+                return (NSComparisonResult)NSOrderedAscending;
             }
-        }
+        }];
     }
+
+//    [self.taskCardItems sortUsingComparator:^NSComparisonResult(CCTaskCardItem *item1, CCTaskCardItem *item2) {
+//        if ([item1.cardDate timeIntervalSince1970] > [item2.cardDate timeIntervalSince1970]) {
+//            return (NSComparisonResult)NSOrderedDescending;
+//        } else {
+//            return (NSComparisonResult)NSOrderedAscending;
+//        }
+//    }];
+    
+//    //记录的每一天的第一张卡片，存放到firstTaskCards数组中
+//    if (self.taskCardItems.count > 0) {
+//        NSDate *firstDate = [self.taskCardItems firstObject].cardDate;
+//        [self.firstTaskCards addObject:[self.taskCardItems firstObject]];
+//        for (NSInteger i = 0; i < self.taskCardItems.count; i++) {
+//            CCTaskCardItem *item = self.taskCardItems[i];
+//            if([CCDateTool dayDifferenceFrom:firstDate toAnotherDay:item.cardDate] >= 1) {
+//                [self.firstTaskCards addObject:item];
+//                firstDate = item.cardDate;
+//            }
+//        }
+//    }
     
 }
 
@@ -344,7 +383,6 @@
     //        添加遮罩层
     [UIView animateWithDuration:0.3 animations:^{
         weakSelf.coverView.alpha = 1;
-        //            weakSelf.coverView.taskCard.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
         
     }];
@@ -374,7 +412,13 @@
 - (void)saveTaskCards {
     
     //模型转字典数组
-    NSArray *cardsArr = [CCTaskCardItem mj_keyValuesArrayWithObjectArray:self.taskCardItems];
+    NSMutableArray *allItems = [NSMutableArray array];
+    for (NSArray *arr in self.taskCardItems) {
+        NSArray *cardArr = [CCTaskCardItem mj_keyValuesArrayWithObjectArray:arr];
+        [allItems addObject:cardArr];
+    }
+//    
+//    NSArray *cardsArr = [CCTaskCardItem mj_keyValuesArrayWithObjectArray:self.taskCardItems];
     
     NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
     
@@ -382,106 +426,40 @@
     
     NSLog(@"%@", cachesPath);
     
-    [cardsArr writeToFile:fullPath atomically:YES];
+    [allItems writeToFile:fullPath atomically:YES];
     
 
-}
-
-
-#pragma mark - newCardComplete监听到新卡片完成后调用
-
-- (void)newCardComplete:(NSNotification *)notification {
-    
-    CCTaskCardItem *newCardItem = notification.object;
-    
-    //新增通知列表
-    [self.notificationDates addObject:newCardItem.cardDate];
-    
-    
-    //添加通知
-    [CCTaskCardItem registerLocalNotificationWithDate:newCardItem.cardDate content:newCardItem.cardTitle key:[newCardItem getKeyFromItem]];
-    
-    
-    //先计算出新卡片要放置的行号
-//    NSInteger row = 0;
-    
-//    for (CCTaskCardItem *item in self.taskCardItems) {
-//        if ([item.cardDate timeIntervalSince1970] < [newCardItem.cardDate timeIntervalSince1970]) {
-//            row ++;
-//        }
-//    }
-    [self.taskCardItems addObject:newCardItem];
-    [self sortTaskCardItemsByTime];
-    
-    NSInteger row = [self.taskCardItems indexOfObject:newCardItem];
-    
-    //将新建的卡片模型添加到模型数组
-//    [self.taskCardItems insertObject:newCardItem atIndex:row];
-    
-    DefineWeakSelf;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [weakSelf addCardAtRow:row withRowAnimation:UITableViewRowAnimationTop];
-        //自动滚动到新加的卡片
-        [self.contentTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:row] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
-    });
-
-    
-    //将遮罩层移除
-    [self endAddingNewCardWithDismissOption:CCCoverViewDismissOptionAddNew];
-
-    //按钮模式设置为非新增模式
-    self.addingNew = NO;
-        
-    
-    
-    
-}
-
-
-/**
- 根据模型计算cell高度
- */
-- (CGFloat)heightWithTaskCardItem:(CCTaskCardItem *)item {
-    NSString *contentString = item.cardContent;
-    CGSize textSize = [contentString boundingRectWithSize:CGSizeMake(CCTaskCardContentW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont fontWithName:@"PingFangSC-Regular" size:12]} context:nil].size;
-    
-    return textSize.height + 60;
-    
-}
-
-#pragma mark - 计算是否为当前月的第一条卡片
-- (BOOL)isFirstTaskCardOfDay:(NSDate *)date {
-    
-    return YES;
 }
 
 #pragma mark - UITableViewDataSource
 
-- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     return self.taskCardItems.count;
     
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    NSArray *cardGroup = self.taskCardItems[section];
+    return cardGroup.count;
 }
 
+//设置section headerView
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    CCTaskCardItem *item = self.taskCardItems[section];
-    
-//    if (section == 0) return 50;
-    
-    if ([self.firstTaskCards containsObject:item]) {
-        return DefaultGroupInset;
-    } else {
-        return 1;
-    }
+    return DefaultGroupInset;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.01;
+}
+
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
     UIView *headerView = [[UIView alloc] init];
+
     UIView *line = [[UIView alloc] init];
     line.backgroundColor = DefaultBgLineColor;
     CGFloat linePositionX = 0;
@@ -495,40 +473,50 @@
         linePositionX = 95;
     }
     
-    if (section == 0) {
-        line.frame = CGRectMake(linePositionX, -200, 0.5, 270);
-    } else {
-        line.frame = CGRectMake(linePositionX, -35, 0.5, 80);
+    //获得本组高度
+    NSArray *arr = self.taskCardItems[section];
+    CGFloat sectionHeight = 0;
+    for (NSInteger i = 0; i < arr.count; i++) {
+        CGFloat cellHeight = [self tableView:tableView heightForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:section]];
+        sectionHeight += cellHeight;
     }
+    
+    
+//    CGFloat sectionLineHeight = sectionHeight + 30;
+    
+    line.frame = CGRectMake(linePositionX, 20, 0.5, sectionHeight);
     [headerView addSubview:line];
     headerView.layer.zPosition = -1;
     
-    CCTaskCardItem *item = self.taskCardItems[section];
-    if ([self.firstTaskCards containsObject:item]) {
-        
-        //小黄点标记
-        UIImageView *dateTagImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sun"]];
-        dateTagImageView.CC_centerX = line.CC_centerX;
-        dateTagImageView.CC_centerY = DefaultGroupInset * 0.5;
-        [headerView addSubview:dateTagImageView];
-        //日期标记
-        UILabel *dateLabel = [[UILabel alloc] init];
-        dateLabel.font = DefaultDateLabelFont;
-        dateLabel.textColor = DefaultDateLabelColor;
-        dateLabel.text = [NSString stringWithFormat:@"%zd月%zd日", item.cardDate.month, item.cardDate.day];
-        [dateLabel sizeToFit];
-        dateLabel.CC_centerY = dateTagImageView.CC_centerY;
-        dateLabel.CC_centerX = dateTagImageView.CC_centerX + 40;
-        [headerView addSubview:dateLabel];
-        
-        if ([CCDateTool isSameDay:item.cardDate anotherDay:[NSDate date]]) {
-            dateLabel.text = @"今天";
-            dateTagImageView.image = [UIImage imageNamed:@"sun_today"];
-        }
-    }
+    //小黄点标记
+    CCTaskCardItem *item = [arr firstObject];
     
+    UIImageView *dateTagImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sun"]];
+    dateTagImageView.CC_centerX = line.CC_centerX;
+    dateTagImageView.CC_centerY = DefaultGroupInset * 0.7;
+    [headerView addSubview:dateTagImageView];
+    //日期标记
+    UILabel *dateLabel = [[UILabel alloc] init];
+    dateLabel.font = DefaultDateLabelFont;
+    dateLabel.textColor = DefaultDateLabelColor;
+    dateLabel.text = [NSString stringWithFormat:@"%zd月%zd日", item.cardDate.month, item.cardDate.day];
+    [dateLabel sizeToFit];
+    dateLabel.CC_centerY = dateTagImageView.CC_centerY;
+    dateLabel.CC_centerX = dateTagImageView.CC_centerX + 40;
+    [headerView addSubview:dateLabel];
+    
+    if ([CCDateTool isSameDay:item.cardDate anotherDay:[NSDate date]]) {
+        dateLabel.text = @"今天";
+        dateTagImageView.image = [UIImage imageNamed:@"sun_today"];
+    }
+
+
     return headerView;
+
+
 }
+
+
 
 - (CCTaskCardTabldViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellId = @"cellId";
@@ -538,8 +526,10 @@
         cell = [[CCTaskCardTabldViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
 
-    
-    cell.taskCardItem = self.taskCardItems[indexPath.section];
+    NSArray *cardGroup = self.taskCardItems[indexPath.section];
+    CCTaskCardItem *item = cardGroup[indexPath.row];
+    cell.dateTF.hidden = YES;
+    cell.taskCardItem = item;
     
     return cell;
 }
@@ -548,15 +538,15 @@
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CCTaskCardItem *item = self.taskCardItems[indexPath.section];
-    
-    return [self heightWithTaskCardItem:item];
+    NSArray *cardGroup = self.taskCardItems[indexPath.section];
+    CCTaskCardItem *item = cardGroup[indexPath.row];
+    return item.height;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-        [self deleteCardAtRow:indexPath.section withRowAnimation:UITableViewRowAnimationTop];
+        [self deleteCardAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 
@@ -575,24 +565,79 @@ static NSInteger currentLineNumberOfNewCard = 0;
     
 }
 
+#pragma mark - newCardComplete监听到新卡片完成后调用
+
+- (void)newCardComplete:(NSNotification *)notification {
+    
+    CCTaskCardItem *newCardItem = notification.object;
+    
+    //新增通知列表
+    [self.notificationDates addObject:newCardItem.cardDate];
+    //添加通知
+    [CCTaskCardItem registerLocalNotificationWithDate:newCardItem.cardDate content:newCardItem.cardTitle key:[newCardItem getKeyFromItem]];
+    
+    BOOL isNewSection = YES;
+    for (NSMutableArray<CCTaskCardItem *> *arr in self.taskCardItems) {
+        if ([CCDateTool isSameDay:newCardItem.cardDate anotherDay:[arr firstObject].cardDate]) {//新建卡片日期已存在
+            [arr addObject:newCardItem];
+            isNewSection = NO;
+            break;
+        }
+    }
+    if (isNewSection) {//新建卡片日期不存在,需要新增加一个组
+        NSMutableArray *newGroup = [NSMutableArray array];
+        [newGroup addObject:newCardItem];
+        [self.taskCardItems addObject:newGroup];
+    }
+    
+    [self sortTaskCardItemsByTime];
+    //获取section和row
+    NSInteger section = 0;
+    NSInteger row = 0;
+    for (NSInteger i = 0; i < self.taskCardItems.count; i ++) {
+        NSMutableArray *arr = self.taskCardItems[i];
+        for (NSInteger j = 0; j < arr.count; j++) {
+            CCTaskCardItem *item = arr[j];
+            if (item == newCardItem) {
+                section = i;
+                row = j;
+            }
+        }
+    }
+    
+    
+    //将新建的卡片模型添加到模型数组
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+    DefineWeakSelf;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [weakSelf addCardAtIndexPath:indexPath isNewSection:isNewSection withRowAnimation:UITableViewRowAnimationFade];
+        //自动滚动到新加的卡片
+        [self.contentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    });
+    
+    
+    //将遮罩层移除
+    [self endAddingNewCardWithDismissOption:CCCoverViewDismissOptionAddNew];
+    
+    //按钮模式设置为非新增模式
+    self.addingNew = NO;
+    
+}
+
 #pragma mark - 添加／删除卡片逻辑
 
 /**
  删除卡片
 
- @param row 删除行
+ @param indexPath 定位
  @param animation 动画效果
  */
-- (void)deleteCardAtRow:(NSInteger)row withRowAnimation:(UITableViewRowAnimation)animation {
+- (void)deleteCardAtIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation {
     
     //获得对应row的item，并移除对应的通知
-    CCTaskCardItem *item = self.taskCardItems[row];
-    
-    //如果删除的是带标记的卡片,需要判断本日是否还有其他卡片
-    NSDate *cardDate;
-    if ([self.firstTaskCards containsObject:item]) {
-        cardDate = item.cardDate;
-    }
+    NSMutableArray *arr = self.taskCardItems[indexPath.section];
+    CCTaskCardItem *item = arr[indexPath.row];
     
 
     //移除列表通知
@@ -602,17 +647,31 @@ static NSInteger currentLineNumberOfNewCard = 0;
     
     [CCTaskCardItem cancelLocalNotificationWithKey:keyString];
     
-    [self.taskCardItems removeObjectAtIndex:row];
-    [self sortTaskCardItemsByTime];
+    [arr removeObject:item];
+    if (arr.count == 0) {//如果改日期没有卡片了，就将整个section删除
+        [self.taskCardItems removeObjectAtIndex:indexPath.section];
+        [self.contentTableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
+    } else {
+        [self.contentTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:animation];
+    }
+    
+    
+//    [self sortTaskCardItemsByTime];
+    
     
     if (self.taskCardItems.count == 0) {
         [self showNoInfoImage];
     }
 }
 
-- (void)addCardAtRow:(NSInteger)row withRowAnimation:(UITableViewRowAnimation)animation {
+- (void)addCardAtIndexPath:(NSIndexPath *)indexPath isNewSection:(BOOL)isNewSection withRowAnimation:(UITableViewRowAnimation)animation {
+    if (isNewSection) {
+        [self.contentTableView insertSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
+    } else {
+        
+        [self.contentTableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:animation];
+    }
     
-    [self.contentTableView insertSections:[NSIndexSet indexSetWithIndex:row] withRowAnimation:animation];
     
     [self removeNoinfoImage];
     
@@ -650,14 +709,6 @@ static NSInteger currentLineNumberOfNewCard = 0;
     return NO;
 }
 
-
-
-- (void)textChange:(UITextField *)textField {
-    CCTaskCardItem *item = [self.taskCardItems firstObject];
-    NSInteger row = [self.taskCardItems indexOfObject:item];
-    item.cardContent = textField.text;
-    [self.contentTableView reloadSections:[NSIndexSet indexSetWithIndex:row] withRowAnimation:UITableViewRowAnimationNone];
-}
 
 
 #pragma mark - 时间按钮点击

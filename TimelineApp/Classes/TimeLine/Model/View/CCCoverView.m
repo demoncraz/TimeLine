@@ -14,6 +14,12 @@
 #import "GetCurrentTime.h"
 #import "CCTaskCardItem.h"
 
+#define ContentViewTopMargin 145
+#define ContentViewLeftMargin 10
+#define ContentViewRightMargin 10
+#define ContentViewMinHeight 65
+
+
 @interface CCCoverView ()<UITextViewDelegate, CCDatePickerDelegate>
 
 @property (nonatomic, strong) UIView *cellContentView;
@@ -99,19 +105,17 @@
     _cellContentView = contentView;
     
     [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(145);
-        make.left.equalTo(self).offset(10);
-        make.right.equalTo(self).offset(-10);
-        make.height.greaterThanOrEqualTo(@65);
+        make.top.equalTo(self).offset(ContentViewTopMargin);
+        make.left.equalTo(self).offset(ContentViewLeftMargin);
+        make.right.equalTo(self).offset(-ContentViewRightMargin);
+        make.height.greaterThanOrEqualTo(@ContentViewMinHeight);
     }];
     
-    __weak typeof (self) weakSelf = self;
     contentView.transform = CGAffineTransformMakeTranslation(0, -60);
+    //动画完成后设置时间选择器为第一相应者
+    [self.cell setFirstResponder:CCTaskCardTabldViewCellResponderTypeDatePicker];
     [UIView animateWithDuration:0.3 animations:^{
         contentView.transform = CGAffineTransformIdentity;
-    } completion:^(BOOL finished) {
-        //动画完成后设置时间选择器为第一相应者
-        [weakSelf.cell setFirstResponder:CCTaskCardTabldViewCellResponderTypeDatePicker];
     }];
 
 }
@@ -223,7 +227,7 @@
 
     
     if (self.cell.titleTF.text.length == 0) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [weakSelf.cell setFirstResponder:CCTaskCardTabldViewCellResponderTypeTitle];
         });
     }
