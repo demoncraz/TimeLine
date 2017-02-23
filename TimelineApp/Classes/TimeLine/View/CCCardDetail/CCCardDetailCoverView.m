@@ -8,11 +8,15 @@
 
 #import "CCCardDetailCoverView.h"
 #import "CCCardDetailView.h"
+#import "CCRemarkNavigationController.h"
+#import "CCRemarkViewController.h"
 
 @interface CCCardDetailCoverView ()
 
 
 @property (nonatomic, weak) CCCardDetailView *cardDetailView;
+
+@property (nonatomic, strong) CCRemarkNavigationController *navVc;
 
 @end
 
@@ -23,11 +27,11 @@
     self = [super initWithFrame:frame];
     if (self) {
         CCCardDetailView *cardDetailView = [CCCardDetailView cardDetailView];
-//        cardDetailView.backgroundColor = [UIColor whiteColor];
-//        [cardDetailView sizeToFit];
+
+        cardDetailView.CC_width = ScreenW * 0.8;
         cardDetailView.CC_centerX = [UIApplication sharedApplication].keyWindow.CC_centerX;
         cardDetailView.CC_centerY = [UIApplication sharedApplication].keyWindow.CC_centerY - 49;
-        cardDetailView.CC_width = ScreenW * 0.8;
+
         _cardDetailView = cardDetailView;
         [self addSubview:cardDetailView];
         [self setupActions];
@@ -49,6 +53,19 @@
 
 #pragma mark - 备注按钮点击
 - (void)remarkButtonClick {
+    
+    //弹出remarkVc
+
+    CCRemarkViewController *remarkVc = [[CCRemarkViewController alloc] init];
+    CCRemarkNavigationController *navVc = [[CCRemarkNavigationController alloc] initWithRootViewController:remarkVc];
+    _navVc = navVc;
+    //强引用控制器，使其不备销毁
+    
+    [self addSubview:navVc.view];
+    [UIView animateWithDuration:0.3 animations:^{
+        navVc.view.CC_y = ScreenH - navVc.view.CC_height;
+    }];
+    
     
 }
 

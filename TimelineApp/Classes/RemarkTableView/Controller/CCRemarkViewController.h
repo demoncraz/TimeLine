@@ -1,5 +1,5 @@
 //
-//  CCRemarkTableViewController.h
+//  CCRemarkViewController.h
 //  TimelineApp
 //
 //  Created by demoncraz on 2017/2/22.
@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-@interface CCRemarkTableViewController : UITableViewController
+@interface CCRemarkViewController : UITableViewController
 
 @end

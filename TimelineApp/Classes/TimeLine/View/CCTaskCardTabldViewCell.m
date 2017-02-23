@@ -133,8 +133,6 @@
     }
     
     //设置完成卡片样式
-    NSLog(@"%@", self.contentView.subviews);
-    
     for (UIView *subView in self.contentView.subviews) {
         if (taskCardItem.isDone && ![subView isKindOfClass:[UIImageView class]]) {
             subView.alpha = 0.3;
@@ -413,7 +411,7 @@
     
     if (state == UITableViewCellStateShowingDeleteConfirmationMask) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            //        NSLog(@"%@", self.subviews);
+            
             
             for (UIView *view in self.subviews) {
                 if ([view isKindOfClass:NSClassFromString(@"UITableViewCellDeleteConfirmationView")]) {

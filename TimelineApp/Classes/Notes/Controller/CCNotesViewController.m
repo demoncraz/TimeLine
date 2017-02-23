@@ -82,7 +82,6 @@
  设置顶部栏
  */
 - (void)setupTitleView {
-//    NSLog(@"%@",NSStringFromCGRect(self.view.frame));
     
     CCNotesTitleView *titleView = [[CCNotesTitleView alloc] init];
     [titleView.fullScreenButton addTarget:self action:@selector(fullScreenButtonClick:) forControlEvents:UIControlEventTouchUpInside];

@@ -28,14 +28,17 @@
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     //统一设置返回按钮
-    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
-    backButton.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
-    [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    [backButton sizeToFit];
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    if (self.childViewControllers.count > 0) {//非根控制器
+        UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+        backButton.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+        [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+        [backButton sizeToFit];
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+        
+        viewController.navigationItem.leftBarButtonItem = item;
+    }
     
-    viewController.navigationItem.leftBarButtonItem = item;
     
     [super pushViewController:viewController animated:animated];
     
