@@ -10,7 +10,6 @@
 #import "UIView+Frame.h"
 #import "Masonry.h"
 #import "CCNotesTitleView.h"
-#import "CCNotesTableView.h"
 #import "CCCommonCoverView.h"
 #import "CCAddNotesView.h"
 #import "CCNotesItem.h"
@@ -21,7 +20,7 @@
 
 @property (nonatomic, weak) CCNotesTitleView *titleView;
 
-@property (nonatomic, weak) CCNotesTableView *tableView;
+@property (nonatomic, weak) UITableView *tableView;
 
 @property (nonatomic, weak) CCAddNotesView *addNotesView;
 
@@ -102,7 +101,7 @@
  设置TableView
  */
 - (void)setupNotesTableView {
-    CCNotesTableView *tableView= [[CCNotesTableView alloc] init];
+    UITableView *tableView= [[UITableView alloc] init];
 //    tableView.backgroundColor = [UIColor yellowColor];
     //设置代理和数据源
     tableView.delegate = self;

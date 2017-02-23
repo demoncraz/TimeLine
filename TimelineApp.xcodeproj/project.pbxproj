@@ -61,7 +61,6 @@
 		3DF7FC5F1E57FCB700AA0D13 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FC5E1E57FCB700AA0D13 /* UIView+Frame.m */; };
 		3DF7FC661E58139C00AA0D13 /* CCNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FC631E58139C00AA0D13 /* CCNotesViewController.m */; };
 		3DF7FC691E5813C500AA0D13 /* CCNotesTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FC681E5813C500AA0D13 /* CCNotesTitleView.m */; };
-		3DF7FC6F1E59226600AA0D13 /* CCNotesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FC6E1E59226600AA0D13 /* CCNotesTableView.m */; };
 		3DF7FC721E59EC1200AA0D13 /* CCNotesFullScreenButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FC711E59EC1200AA0D13 /* CCNotesFullScreenButton.m */; };
 		3DF7FC791E5A8DF300AA0D13 /* CCCommonCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FC781E5A8DF300AA0D13 /* CCCommonCoverView.m */; };
 		3DF7FC7C1E5A975C00AA0D13 /* CCAddNotesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FC7B1E5A975C00AA0D13 /* CCAddNotesView.m */; };
@@ -189,8 +188,6 @@
 		3DF7FC631E58139C00AA0D13 /* CCNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNotesViewController.m; sourceTree = "<group>"; };
 		3DF7FC671E5813C500AA0D13 /* CCNotesTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNotesTitleView.h; sourceTree = "<group>"; };
 		3DF7FC681E5813C500AA0D13 /* CCNotesTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNotesTitleView.m; sourceTree = "<group>"; };
-		3DF7FC6D1E59226600AA0D13 /* CCNotesTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNotesTableView.h; sourceTree = "<group>"; };
-		3DF7FC6E1E59226600AA0D13 /* CCNotesTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNotesTableView.m; sourceTree = "<group>"; };
 		3DF7FC701E59EC1200AA0D13 /* CCNotesFullScreenButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNotesFullScreenButton.h; sourceTree = "<group>"; };
 		3DF7FC711E59EC1200AA0D13 /* CCNotesFullScreenButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNotesFullScreenButton.m; sourceTree = "<group>"; };
 		3DF7FC771E5A8DF300AA0D13 /* CCCommonCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCommonCoverView.h; sourceTree = "<group>"; };
@@ -577,8 +574,6 @@
 			children = (
 				3DF7FC671E5813C500AA0D13 /* CCNotesTitleView.h */,
 				3DF7FC681E5813C500AA0D13 /* CCNotesTitleView.m */,
-				3DF7FC6D1E59226600AA0D13 /* CCNotesTableView.h */,
-				3DF7FC6E1E59226600AA0D13 /* CCNotesTableView.m */,
 				3DF7FC701E59EC1200AA0D13 /* CCNotesFullScreenButton.h */,
 				3DF7FC711E59EC1200AA0D13 /* CCNotesFullScreenButton.m */,
 				3DF7FC7A1E5A975C00AA0D13 /* CCAddNotesView.h */,
@@ -794,7 +789,6 @@
 				3DF7FCEB1E5DE5AA00AA0D13 /* CCCardDetailCoverView.m in Sources */,
 				3D6C9B301E45FF9900C2BABE /* MASViewAttribute.m in Sources */,
 				3D4BF1F31E53E205007B0F59 /* CCDotItem.m in Sources */,
-				3DF7FC6F1E59226600AA0D13 /* CCNotesTableView.m in Sources */,
 				3D6C9B2F1E45FF9900C2BABE /* MASLayoutConstraint.m in Sources */,
 				3DF7FC811E5AC6EF00AA0D13 /* CCNotesItem.m in Sources */,
 				3D6C9B3C1E45FFB300C2BABE /* main.m in Sources */,
