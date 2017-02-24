@@ -10,6 +10,14 @@
 
 @implementation CCTaskCardItem
 
+//添加模型
++ (NSDictionary *)mj_objectClassInArray {
+    return @{
+             @"remarkItems" : @"CCRemarkItem"
+             };
+}
+
+
 //使用字典快速创建模型对象
 + (instancetype)taskCardItemWithDict:(NSDictionary *)dict {
 

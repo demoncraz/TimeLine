@@ -9,9 +9,11 @@
 #import "CCRemarkViewController.h"
 #import "UIBarButtonItem+BarButtonItem.h"
 #import "CCRemarkTableViewCell.h"
+#import "CCAddRemarkViewController.h"
+#import "CCRemarkTitleCloseButton.h"
 
 #define ButtonTransitAnimationDuration 0.1
-#define RemarkTableViewSeparatorInsetLeft 70
+#define RemarkTableViewSeparatorInsetLeft 50
 
 typedef NS_ENUM(NSInteger, CCButtonTransitAnimationDirection) {
     CCButtonTransitAnimationDirectionLeft,
@@ -21,15 +23,13 @@ typedef NS_ENUM(NSInteger, CCButtonTransitAnimationDirection) {
 
 static NSString * const remarkCellId = @"remarkCellId";
 
-@interface CCRemarkViewController ()
+@interface CCRemarkViewController ()<CCAddRemarkViewControllerDelegate>
 
 @property (nonatomic, strong) UIBarButtonItem *editBarButton;
 
 @property (nonatomic, weak) UIButton *addButton;
 
 @property (nonatomic, weak) UIButton *editButton;
-
-@property (nonatomic, strong) NSMutableArray *remarkItems;
 
 @property (nonatomic, strong) NSMutableDictionary *changedTextArr;
 
@@ -79,18 +79,15 @@ static NSString * const remarkCellId = @"remarkCellId";
 - (NSMutableArray *)remarkItems {
     if (_remarkItems == nil) {
         _remarkItems = [NSMutableArray array];
-        for (NSInteger i = 0; i < 20; i++) {
-            CCRemarkItem *item = [CCRemarkItem itemWithText:[NSString stringWithFormat:@"%ld", i] imageName:@"delete_button"];
-            [_remarkItems addObject:item];
-        }
     }
     return _remarkItems;
 }
 
+#pragma mark - 生命周期
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"备注";
-    
     
     [self setupNavBar];
     
@@ -98,6 +95,7 @@ static NSString * const remarkCellId = @"remarkCellId";
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([CCRemarkTableViewCell class]) bundle:nil] forCellReuseIdentifier:remarkCellId];
     
     self.tableView.separatorInset = UIEdgeInsetsMake(0, RemarkTableViewSeparatorInsetLeft, 0, 0);
+    self.tableView.tableFooterView = [[UIView alloc] init];
     
     [CCNotificationCenter addObserver:self selector:@selector(editingChange:) name:UITextFieldTextDidChangeNotification object:nil];
     
@@ -139,6 +137,26 @@ static NSString * const remarkCellId = @"remarkCellId";
     _addButton = addButton;
     UIBarButtonItem *addBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:addButton];
     self.navigationItem.rightBarButtonItem = addBarButtonItem;
+    
+    //titleView关闭按钮
+    CCRemarkTitleCloseButton *titleCloseButton = [CCRemarkTitleCloseButton buttonWithType:UIButtonTypeCustom];
+    [titleCloseButton addTarget:self action:@selector(titleCloseButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    titleCloseButton.frame = CGRectMake(0, 0, 60, 50);
+
+    self.navigationItem.titleView = titleCloseButton;
+}
+
+- (void)titleCloseButtonClick {
+    //发送通知
+    [CCNotificationCenter postNotificationName:CCRemarkViewControllerWillDismissNotification object:nil];
+    
+    //dismiss vc
+
+    [UIView animateWithDuration:0.3 animations:^{
+        self.navigationController.view.CC_y = ScreenH;
+    } completion:^(BOOL finished) {
+        [self.navigationController.view removeFromSuperview];
+    }];
 }
 
 - (void)editButtonClick:(UIButton *)button {
@@ -151,7 +169,11 @@ static NSString * const remarkCellId = @"remarkCellId";
         [self.moveIndexTemps removeAllObjects];
     }
     if (button.selected) {//取消了编辑，复原；
-        [self.tableView reloadData];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+        
     }
     
     //切换编辑按钮状态的动画
@@ -204,6 +226,13 @@ static NSString * const remarkCellId = @"remarkCellId";
         [self setSelectedTransitAnimationForButton:self.addButton withDirection:CCButtonTransitAnimationDirectionRight];
     }
     
+    
+    else {//切换到增加新备注页面
+        CCAddRemarkViewController *addRemarkVc = [[CCAddRemarkViewController alloc] init];
+        addRemarkVc.delegate = self;
+        [self.navigationController pushViewController:addRemarkVc animated:YES];
+    }
+    
 }
 
 
@@ -230,6 +259,7 @@ static NSString * const remarkCellId = @"remarkCellId";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.remarkItems.count;;
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CCRemarkTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:remarkCellId forIndexPath:indexPath];
@@ -261,6 +291,15 @@ static NSString * const remarkCellId = @"remarkCellId";
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
     }
 }
+
+#pragma mark - CCAddRemarkViewControllerDelegate
+
+- (void)CCAddRemarkViewController:(CCAddRemarkViewController *)addRemarkViewController didCompleteWithText:(NSString *)text tagImageName:(NSString *)tagImageName {
+    [self.remarkItems addObject:[CCRemarkItem itemWithText:text imageName:tagImageName]];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.remarkItems.count - 1 inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+}
+
 @end
 
 

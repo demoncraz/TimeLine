@@ -13,11 +13,16 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
+
+/*******************通知宏**********************/
 #define CCNewCardCompleteNofitifation @"CCNewCardComplete"
 #define CCAvatarChangeNotification @"CCAvatarChangeNotification"
 #define CCNotesDidCloseNotificaton @"CCNotesDidCloseNotificaton"
 #define CCCommonCoverViewWillDismissNotification @"CCCommonCoverViewWillDismissNotification"
+#define CCRemarkViewControllerWillDismissNotification @"CCRemarkViewControllerWillDismissNotification"
 #define CCNotificationCenter [NSNotificationCenter defaultCenter]
+/*******************通知宏**********************/
+
 
 #define ScreenW [UIScreen mainScreen].bounds.size.width
 #define ScreenH [UIScreen mainScreen].bounds.size.height
@@ -26,6 +31,7 @@
 
 #define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
 #define CCDefaultBlueColor ColorWithRGB(68, 141, 231, 1)
+#define CCDefaultGreyClor ColorWithRGB(121, 121, 136, 1)
 
 #define CCNewCardCompleteNotification @"newCardComplete"
 

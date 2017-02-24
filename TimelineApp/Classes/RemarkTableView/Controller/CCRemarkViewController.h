@@ -11,4 +11,7 @@
 
 @interface CCRemarkViewController : UITableViewController
 
+//备注列表
+@property (nonatomic, strong) NSMutableArray *remarkItems;
+
 @end

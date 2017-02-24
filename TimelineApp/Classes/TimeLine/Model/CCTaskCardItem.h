@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CCRemarkItem.h"
 
 
 typedef enum {
@@ -30,9 +31,12 @@ typedef enum {
 
 @property (nonatomic, assign, getter=isDone) BOOL done;
 
+@property (nonatomic, strong) NSMutableArray<CCRemarkItem *> *remarkItems;
+
 
 /***其他数据**/
 @property (nonatomic, assign) CGFloat height;
+
 
 
 //使用字典快速创建模型对象

@@ -80,6 +80,10 @@
 		3DF7FD051E5ECD2F00AA0D13 /* CCRemarkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD031E5ECD2F00AA0D13 /* CCRemarkTableViewCell.m */; };
 		3DF7FD061E5ECD2F00AA0D13 /* CCRemarkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF7FD041E5ECD2F00AA0D13 /* CCRemarkTableViewCell.xib */; };
 		3DF7FD091E5EDF8300AA0D13 /* CCRemarkItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD081E5EDF8300AA0D13 /* CCRemarkItem.m */; };
+		3DF7FD0C1E5F1A0300AA0D13 /* CCAddRemarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD0B1E5F1A0300AA0D13 /* CCAddRemarkViewController.m */; };
+		3DF7FD0E1E5F1F9E00AA0D13 /* CCAddRemarkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF7FD0D1E5F1F9E00AA0D13 /* CCAddRemarkViewController.xib */; };
+		3DF7FD111E5F395500AA0D13 /* CCTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD101E5F395500AA0D13 /* CCTagButton.m */; };
+		3DF7FD141E5FF41600AA0D13 /* CCRemarkTitleCloseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD131E5FF41600AA0D13 /* CCRemarkTitleCloseButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -223,6 +227,13 @@
 		3DF7FD041E5ECD2F00AA0D13 /* CCRemarkTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCRemarkTableViewCell.xib; sourceTree = "<group>"; };
 		3DF7FD071E5EDF8300AA0D13 /* CCRemarkItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRemarkItem.h; sourceTree = "<group>"; };
 		3DF7FD081E5EDF8300AA0D13 /* CCRemarkItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRemarkItem.m; sourceTree = "<group>"; };
+		3DF7FD0A1E5F1A0300AA0D13 /* CCAddRemarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAddRemarkViewController.h; sourceTree = "<group>"; };
+		3DF7FD0B1E5F1A0300AA0D13 /* CCAddRemarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAddRemarkViewController.m; sourceTree = "<group>"; };
+		3DF7FD0D1E5F1F9E00AA0D13 /* CCAddRemarkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCAddRemarkViewController.xib; sourceTree = "<group>"; };
+		3DF7FD0F1E5F395500AA0D13 /* CCTagButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTagButton.h; sourceTree = "<group>"; };
+		3DF7FD101E5F395500AA0D13 /* CCTagButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTagButton.m; sourceTree = "<group>"; };
+		3DF7FD121E5FF41600AA0D13 /* CCRemarkTitleCloseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRemarkTitleCloseButton.h; sourceTree = "<group>"; };
+		3DF7FD131E5FF41600AA0D13 /* CCRemarkTitleCloseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRemarkTitleCloseButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -655,6 +666,9 @@
 				3DF7FCFA1E5DE9C500AA0D13 /* CCRemarkViewController.m */,
 				3DF7FCFC1E5E7D0000AA0D13 /* CCRemarkNavigationController.h */,
 				3DF7FCFD1E5E7D0000AA0D13 /* CCRemarkNavigationController.m */,
+				3DF7FD0A1E5F1A0300AA0D13 /* CCAddRemarkViewController.h */,
+				3DF7FD0B1E5F1A0300AA0D13 /* CCAddRemarkViewController.m */,
+				3DF7FD0D1E5F1F9E00AA0D13 /* CCAddRemarkViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -674,6 +688,10 @@
 				3DF7FD021E5ECD2F00AA0D13 /* CCRemarkTableViewCell.h */,
 				3DF7FD031E5ECD2F00AA0D13 /* CCRemarkTableViewCell.m */,
 				3DF7FD041E5ECD2F00AA0D13 /* CCRemarkTableViewCell.xib */,
+				3DF7FD0F1E5F395500AA0D13 /* CCTagButton.h */,
+				3DF7FD101E5F395500AA0D13 /* CCTagButton.m */,
+				3DF7FD121E5FF41600AA0D13 /* CCRemarkTitleCloseButton.h */,
+				3DF7FD131E5FF41600AA0D13 /* CCRemarkTitleCloseButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -752,6 +770,7 @@
 				3D6C9A271E3C91DC00C2BABE /* Main.storyboard in Resources */,
 				3D6C9B541E46000A00C2BABE /* Info.plist in Resources */,
 				3D07945F1E4B5C16000D7DC2 /* alert_sound.m4a in Resources */,
+				3DF7FD0E1E5F1F9E00AA0D13 /* CCAddRemarkViewController.xib in Resources */,
 				3D4BF1F41E53E205007B0F59 /* up_arror.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -780,6 +799,7 @@
 				3DF7FC221E544E9C00AA0D13 /* CCProfileViewContoller.m in Sources */,
 				3DF7FC691E5813C500AA0D13 /* CCNotesTitleView.m in Sources */,
 				3DF7FC181E54334800AA0D13 /* CCMeViewController.m in Sources */,
+				3DF7FD141E5FF41600AA0D13 /* CCRemarkTitleCloseButton.m in Sources */,
 				3D6C9B581E46000A00C2BABE /* MJPropertyKey.m in Sources */,
 				3D6C9B591E46000A00C2BABE /* MJPropertyType.m in Sources */,
 				3D6C9B331E45FF9900C2BABE /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
@@ -790,6 +810,7 @@
 				3D6C9B301E45FF9900C2BABE /* MASViewAttribute.m in Sources */,
 				3D4BF1F31E53E205007B0F59 /* CCDotItem.m in Sources */,
 				3D6C9B2F1E45FF9900C2BABE /* MASLayoutConstraint.m in Sources */,
+				3DF7FD111E5F395500AA0D13 /* CCTagButton.m in Sources */,
 				3DF7FC811E5AC6EF00AA0D13 /* CCNotesItem.m in Sources */,
 				3D6C9B3C1E45FFB300C2BABE /* main.m in Sources */,
 				3D6C9B5D1E46000A00C2BABE /* NSObject+MJProperty.m in Sources */,
@@ -799,6 +820,7 @@
 				3D6C9B2C1E45FF9900C2BABE /* MASCompositeConstraint.m in Sources */,
 				3DF7FCEF1E5DE60D00AA0D13 /* CCCardDetailView.m in Sources */,
 				3DF7FC361E548AED00AA0D13 /* CCImageView.m in Sources */,
+				3DF7FD0C1E5F1A0300AA0D13 /* CCAddRemarkViewController.m in Sources */,
 				3D6C9A2A1E3C91DC00C2BABE /* TimeLineViewController.m in Sources */,
 				3D4BF1EF1E53E205007B0F59 /* CCCalenderItemView.m in Sources */,
 				3D4BF1ED1E53E205007B0F59 /* CCDateTool.m in Sources */,

@@ -7,12 +7,30 @@
 //
 
 #import "CCRemarkNavigationController.h"
+#import "CCRemarkViewController.h"
 
 @interface CCRemarkNavigationController ()
+
+@property (nonatomic, weak) CCRemarkViewController *remarkVc;
 
 @end
 
 @implementation CCRemarkNavigationController
+
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+        CCRemarkViewController *remarkVc = [[CCRemarkViewController alloc] init];
+        _remarkVc = remarkVc;
+        [self pushViewController:remarkVc animated:NO];
+    }
+    return self;
+}
+
+- (void)setRemarkItems:(NSMutableArray *)remarkItems {
+    _remarkItems = remarkItems;
+    self.remarkVc.remarkItems = remarkItems;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -15,11 +15,73 @@
 
 @property (nonatomic, assign, getter=isDeleteMode) BOOL deleteMode;
 
-
+@property (nonatomic, strong) NSMutableArray *remarkItems;
 
 @end
 
 @implementation CCTaskCardTabldViewCell
+
+#pragma mark - lazy loading
+
+
+#pragma mark - 设置数据
+- (void)setTaskCardItem:(CCTaskCardItem *)taskCardItem {
+    _taskCardItem = taskCardItem;
+    
+    //为子控件设置数据
+    //设置背景
+    
+    UIImage *bgImage = [[UIImage alloc] init];
+    if (!taskCardItem.isDone) {
+        bgImage = [UIImage imageNamed:@"bg_line"];
+    } else {
+        bgImage = [UIImage imageNamed:@"bg_done"];
+    }
+    
+    self.bgImageView.image = [bgImage stretchableImageWithLeftCapWidth:200 topCapHeight:10];
+    
+    
+    //设置头像
+    NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"avatarImage"];
+    if (imageData) {
+        UIImage *avatarImage = [UIImage imageWithData:imageData];
+        self.avatarImageView.image = avatarImage;
+    }
+    
+    //设置时间tf
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"HH:mm"];
+    NSString *timeString = [formatter stringFromDate:taskCardItem.cardDate];
+    self.timeTF.text = timeString;
+    
+    //设置日期tf
+    [formatter setDateFormat:@"M月d日"];
+    NSString *dateString = [formatter stringFromDate:taskCardItem.cardDate];
+    self.dateTF.text = dateString;
+    //设置标题
+    self.titleTF.text = taskCardItem.cardTitle;
+    //设置内容
+    self.contentTF.text = taskCardItem.cardContent;
+    //设置提醒样式
+    if (taskCardItem.taskCardAlertType == TaskCardAlertTypeNotification) {
+        self.alertIcon.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"icon_notice"].CGImage);
+    } else {
+    }
+    
+    //这是备注列表
+    self.remarkItems = taskCardItem.remarkItems;
+    
+    //设置完成卡片样式
+    for (UIView *subView in self.contentView.subviews) {
+        if (taskCardItem.isDone && ![subView isKindOfClass:[UIImageView class]]) {
+            subView.alpha = 0.3;
+        } else {
+            subView.alpha = 1;
+        }
+    }
+    
+}
 
 
 - (void)setEditable:(BOOL)editable {
@@ -87,61 +149,6 @@
     return _datePicker;
 }
 
-
-- (void)setTaskCardItem:(CCTaskCardItem *)taskCardItem {
-    _taskCardItem = taskCardItem;
-    
-    //为子控件设置数据
-    //设置背景
-
-    UIImage *bgImage = [[UIImage alloc] init];
-    if (!taskCardItem.isDone) {
-        bgImage = [UIImage imageNamed:@"bg_line"];
-    } else {
-        bgImage = [UIImage imageNamed:@"bg_done"];
-    }
-
-    self.bgImageView.image = [bgImage stretchableImageWithLeftCapWidth:200 topCapHeight:10];
-    
-    
-    //设置头像
-    NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"avatarImage"];
-    if (imageData) {
-        UIImage *avatarImage = [UIImage imageWithData:imageData];
-        self.avatarImageView.image = avatarImage;
-    }
-    
-    //设置时间tf
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"HH:mm"];
-    NSString *timeString = [formatter stringFromDate:taskCardItem.cardDate];
-    self.timeTF.text = timeString;
-    
-    //设置日期tf
-    [formatter setDateFormat:@"M月d日"];
-    NSString *dateString = [formatter stringFromDate:taskCardItem.cardDate];
-    self.dateTF.text = dateString;
-    //设置标题
-    self.titleTF.text = taskCardItem.cardTitle;
-    //设置内容
-    self.contentTF.text = taskCardItem.cardContent;
-    //设置提醒样式
-    if (taskCardItem.taskCardAlertType == TaskCardAlertTypeNotification) {
-        self.alertIcon.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"icon_notice"].CGImage);
-    } else {
-    }
-    
-    //设置完成卡片样式
-    for (UIView *subView in self.contentView.subviews) {
-        if (taskCardItem.isDone && ![subView isKindOfClass:[UIImageView class]]) {
-            subView.alpha = 0.3;
-        } else {
-            subView.alpha = 1;
-        }
-    }
-    
-}
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
