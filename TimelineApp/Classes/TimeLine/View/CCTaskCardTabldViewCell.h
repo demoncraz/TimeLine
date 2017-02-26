@@ -37,7 +37,7 @@ typedef enum {
 
 @property (nonatomic, strong) UITextField *titleTF;
 
-@property (nonatomic, strong) UITextView *contentTF;
+//@property (nonatomic, strong) UITextView *contentTF;
 
 @property (nonatomic, weak) UIView *alertIcon;
 
@@ -62,12 +62,7 @@ typedef enum {
  */
 - (void)setEditable:(BOOL)editable;
 
-/**
- 为内部的内容TF设置代理
 
- @param delegate 代理者
- */
-- (void)setInnerTextViewDelegateOf:(id)delegate;
 /**
  为内部的datePicker设置代理
  

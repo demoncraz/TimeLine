@@ -9,6 +9,7 @@
 #import "CCTaskCardTabldViewCell.h"
 #import "Masonry.h"
 #import "GetCurrentTime.h"
+#import "CCRemarkContainerView.h"
 
 
 @interface CCTaskCardTabldViewCell ()<CCDatePickerDelegate,UITextFieldDelegate,UITextViewDelegate>
@@ -16,6 +17,8 @@
 @property (nonatomic, assign, getter=isDeleteMode) BOOL deleteMode;
 
 @property (nonatomic, strong) NSMutableArray *remarkItems;
+
+@property (nonatomic, weak) CCRemarkContainerView *containerView;
 
 @end
 
@@ -62,7 +65,7 @@
     //设置标题
     self.titleTF.text = taskCardItem.cardTitle;
     //设置内容
-    self.contentTF.text = taskCardItem.cardContent;
+//    self.contentTF.text = taskCardItem.cardContent;
     //设置提醒样式
     if (taskCardItem.taskCardAlertType == TaskCardAlertTypeNotification) {
         self.alertIcon.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"icon_notice"].CGImage);
@@ -71,6 +74,7 @@
     
     //这是备注列表
     self.remarkItems = taskCardItem.remarkItems;
+    self.containerView.remarkItems = taskCardItem.remarkItems;
     
     //设置完成卡片样式
     for (UIView *subView in self.contentView.subviews) {
@@ -86,7 +90,7 @@
 
 - (void)setEditable:(BOOL)editable {
     self.titleTF.enabled = editable;
-    self.contentTF.userInteractionEnabled = editable;
+//    self.contentTF.userInteractionEnabled = editable;
 }
 
 /**
@@ -94,9 +98,9 @@
 
  @param delegate 代理者
  */
-- (void)setInnerTextViewDelegateOf:(id)delegate {
-    self.contentTF.delegate = delegate;
-}
+//- (void)setInnerTextViewDelegateOf:(id)delegate {
+//    self.contentTF.delegate = delegate;
+//}
 /**
  为内部的datePicker添加代理的方法
  
@@ -115,7 +119,7 @@
             [self.titleTF becomeFirstResponder];
             break;
         case CCTaskCardTabldViewCellResponderTypeContent:
-            [self.contentTF becomeFirstResponder];
+//            [self.contentTF becomeFirstResponder];
             break;
         case CCTaskCardTabldViewCellResponderTypeDatePicker:
             [self.dateTF becomeFirstResponder];
@@ -179,9 +183,6 @@
     
     //1.设置背景图片
     UIImageView *bgImageView = [[UIImageView alloc] init];
-//    UIImage *bgImage = [UIImage imageNamed:@"bg_line"];
-//    //    bgImageView.image = bgImage;
-//    bgImageView.image = [bgImage stretchableImageWithLeftCapWidth:200 topCapHeight:10];
     
     [self.contentView addSubview:bgImageView];
     _bgImageView = bgImageView;
@@ -268,16 +269,22 @@
     _titleTF = titleTF;
     
     //内容
-    UITextView *contentTF = [[UITextView alloc] init];
-//    contentTF.placeholder = @"内容...";
-    contentTF.font = [UIFont fontWithName:@"PingFangSC-Regular" size:12];
-    contentTF.textColor = ColorWithRGB(135, 135, 147, 1);
-    contentTF.backgroundColor = [UIColor clearColor];
-    contentTF.userInteractionEnabled = NO;
-    contentTF.delegate = self;
-    contentTF.textContainerInset = UIEdgeInsetsMake(4, -5, 4, 0);
-    [rightView addSubview:contentTF];
-    _contentTF = contentTF;
+//    UITextView *contentTF = [[UITextView alloc] init];
+////    contentTF.placeholder = @"内容...";
+//    contentTF.font = [UIFont fontWithName:@"PingFangSC-Regular" size:12];
+//    contentTF.textColor = ColorWithRGB(135, 135, 147, 1);
+//    contentTF.backgroundColor = [UIColor clearColor];
+//    contentTF.userInteractionEnabled = NO;
+//    contentTF.delegate = self;
+//    contentTF.textContainerInset = UIEdgeInsetsMake(4, -5, 4, 0);
+//    [rightView addSubview:contentTF];
+//    _contentTF = contentTF;
+    //备注标签
+    CCRemarkContainerView *containerView = [[CCRemarkContainerView alloc] init];
+    _containerView = containerView;
+    containerView.frame = CGRectMake(0, 0, 200, 50);
+    [rightView addSubview:containerView];
+    
     
     //提醒icon
     UIView *alertIcon = [[UIView alloc] init];
@@ -353,7 +360,7 @@
         make.height.equalTo(@20);
     }];
     //内容约束
-    [self.contentTF mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.titleTF.mas_bottom).offset(0);
         make.left.equalTo(self.titleTF.mas_left);
         //        make.right.equalTo(self.rightView).offset(-10);

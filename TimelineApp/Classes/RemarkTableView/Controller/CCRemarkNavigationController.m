@@ -27,9 +27,14 @@
     return self;
 }
 
-- (void)setRemarkItems:(NSMutableArray *)remarkItems {
-    _remarkItems = remarkItems;
-    self.remarkVc.remarkItems = remarkItems;
+//- (void)setRemarkItems:(NSMutableArray *)remarkItems {
+//    _remarkItems = remarkItems;
+//    self.remarkVc.remarkItems = remarkItems;
+//}
+
+- (void)setItem:(CCTaskCardItem *)item {
+    _item = item;
+    self.remarkVc.item = item;
 }
 
 - (void)viewDidLoad {

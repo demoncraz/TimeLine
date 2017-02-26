@@ -20,6 +20,8 @@
 
 @property (nonatomic, weak) id<CCCardDetailCoverViewDelegate> delegate;
 
+@property (nonatomic, weak) CCTaskCardItem *item;
+
 - (void)showWithItem:(CCTaskCardItem *)item;
 
 @end

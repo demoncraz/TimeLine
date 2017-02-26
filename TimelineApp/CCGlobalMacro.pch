@@ -20,6 +20,8 @@
 #define CCNotesDidCloseNotificaton @"CCNotesDidCloseNotificaton"
 #define CCCommonCoverViewWillDismissNotification @"CCCommonCoverViewWillDismissNotification"
 #define CCRemarkViewControllerWillDismissNotification @"CCRemarkViewControllerWillDismissNotification"
+#define CCRemarkDidChangeNotification @"CCRemarkDidChangeNotification"
+
 #define CCNotificationCenter [NSNotificationCenter defaultCenter]
 /*******************通知宏**********************/
 

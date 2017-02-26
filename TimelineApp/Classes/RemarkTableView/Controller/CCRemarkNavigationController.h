@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "CCNavigationController.h"
 #import "CCRemarkItem.h"
+#import "CCTaskCardItem.h"
 
 @interface CCRemarkNavigationController : CCNavigationController
 
-@property (nonatomic, strong) NSMutableArray *remarkItems;
+@property (nonatomic, strong) CCTaskCardItem *item;
 
 @end

@@ -70,7 +70,6 @@
 		3DF7FCD81E5DE26600AA0D13 /* CCTaskCardTabldViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FCCB1E5DE26600AA0D13 /* CCTaskCardTabldViewCell.m */; };
 		3DF7FCDB1E5DE2D100AA0D13 /* CCContentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FCD91E5DE2D100AA0D13 /* CCContentTableView.m */; };
 		3DF7FCE51E5DE50700AA0D13 /* CCDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FCE41E5DE50700AA0D13 /* CCDatePicker.m */; };
-		3DF7FCE81E5DE53A00AA0D13 /* CCCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FCE71E5DE53A00AA0D13 /* CCCoverView.m */; };
 		3DF7FCEB1E5DE5AA00AA0D13 /* CCCardDetailCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FCEA1E5DE5AA00AA0D13 /* CCCardDetailCoverView.m */; };
 		3DF7FCEF1E5DE60D00AA0D13 /* CCCardDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FCED1E5DE60D00AA0D13 /* CCCardDetailView.m */; };
 		3DF7FCF01E5DE60D00AA0D13 /* CCCardDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF7FCEE1E5DE60D00AA0D13 /* CCCardDetailView.xib */; };
@@ -84,6 +83,10 @@
 		3DF7FD0E1E5F1F9E00AA0D13 /* CCAddRemarkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF7FD0D1E5F1F9E00AA0D13 /* CCAddRemarkViewController.xib */; };
 		3DF7FD111E5F395500AA0D13 /* CCTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD101E5F395500AA0D13 /* CCTagButton.m */; };
 		3DF7FD141E5FF41600AA0D13 /* CCRemarkTitleCloseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD131E5FF41600AA0D13 /* CCRemarkTitleCloseButton.m */; };
+		3DF7FD1A1E601D5600AA0D13 /* CCRemarkContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD191E601D5600AA0D13 /* CCRemarkContainerView.m */; };
+		3DF7FD1E1E6078CF00AA0D13 /* CCCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD1D1E6078CF00AA0D13 /* CCCoverView.m */; };
+		3DF7FD211E607F3200AA0D13 /* CCNewCardTagContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD201E607F3200AA0D13 /* CCNewCardTagContainerView.m */; };
+		3DF7FD241E6081A000AA0D13 /* CCNewCardTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD231E6081A000AA0D13 /* CCNewCardTagButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -209,8 +212,6 @@
 		3DF7FCDA1E5DE2D100AA0D13 /* CCContentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCContentTableView.h; sourceTree = "<group>"; };
 		3DF7FCE31E5DE50700AA0D13 /* CCDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDatePicker.h; sourceTree = "<group>"; };
 		3DF7FCE41E5DE50700AA0D13 /* CCDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDatePicker.m; sourceTree = "<group>"; };
-		3DF7FCE61E5DE53A00AA0D13 /* CCCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCoverView.h; sourceTree = "<group>"; };
-		3DF7FCE71E5DE53A00AA0D13 /* CCCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCoverView.m; sourceTree = "<group>"; };
 		3DF7FCE91E5DE5AA00AA0D13 /* CCCardDetailCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCardDetailCoverView.h; sourceTree = "<group>"; };
 		3DF7FCEA1E5DE5AA00AA0D13 /* CCCardDetailCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCardDetailCoverView.m; sourceTree = "<group>"; };
 		3DF7FCEC1E5DE60D00AA0D13 /* CCCardDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCardDetailView.h; sourceTree = "<group>"; };
@@ -234,6 +235,14 @@
 		3DF7FD101E5F395500AA0D13 /* CCTagButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTagButton.m; sourceTree = "<group>"; };
 		3DF7FD121E5FF41600AA0D13 /* CCRemarkTitleCloseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRemarkTitleCloseButton.h; sourceTree = "<group>"; };
 		3DF7FD131E5FF41600AA0D13 /* CCRemarkTitleCloseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRemarkTitleCloseButton.m; sourceTree = "<group>"; };
+		3DF7FD181E601D5600AA0D13 /* CCRemarkContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRemarkContainerView.h; sourceTree = "<group>"; };
+		3DF7FD191E601D5600AA0D13 /* CCRemarkContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRemarkContainerView.m; sourceTree = "<group>"; };
+		3DF7FD1C1E6078CF00AA0D13 /* CCCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCoverView.h; sourceTree = "<group>"; };
+		3DF7FD1D1E6078CF00AA0D13 /* CCCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCoverView.m; sourceTree = "<group>"; };
+		3DF7FD1F1E607F3200AA0D13 /* CCNewCardTagContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNewCardTagContainerView.h; sourceTree = "<group>"; };
+		3DF7FD201E607F3200AA0D13 /* CCNewCardTagContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNewCardTagContainerView.m; sourceTree = "<group>"; };
+		3DF7FD221E6081A000AA0D13 /* CCNewCardTagButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNewCardTagButton.h; sourceTree = "<group>"; };
+		3DF7FD231E6081A000AA0D13 /* CCNewCardTagButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNewCardTagButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -606,13 +615,14 @@
 		3DF7FCAF1E5DE26600AA0D13 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3DF7FD1B1E6078CF00AA0D13 /* CCTimeLineCoverView */,
 				3DF7FCB01E5DE26600AA0D13 /* CCCardDetail */,
-				3DF7FCD91E5DE2D100AA0D13 /* CCContentTableView.m */,
 				3DF7FCDA1E5DE2D100AA0D13 /* CCContentTableView.h */,
+				3DF7FCD91E5DE2D100AA0D13 /* CCContentTableView.m */,
 				3DF7FCCA1E5DE26600AA0D13 /* CCTaskCardTabldViewCell.h */,
 				3DF7FCCB1E5DE26600AA0D13 /* CCTaskCardTabldViewCell.m */,
-				3DF7FCE61E5DE53A00AA0D13 /* CCCoverView.h */,
-				3DF7FCE71E5DE53A00AA0D13 /* CCCoverView.m */,
+				3DF7FD181E601D5600AA0D13 /* CCRemarkContainerView.h */,
+				3DF7FD191E601D5600AA0D13 /* CCRemarkContainerView.m */,
 				3DF7FCC71E5DE26600AA0D13 /* CCDateButton */,
 				3DF7FCE21E5DE50700AA0D13 /* CCDatePicker */,
 			);
@@ -694,6 +704,19 @@
 				3DF7FD131E5FF41600AA0D13 /* CCRemarkTitleCloseButton.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		3DF7FD1B1E6078CF00AA0D13 /* CCTimeLineCoverView */ = {
+			isa = PBXGroup;
+			children = (
+				3DF7FD1C1E6078CF00AA0D13 /* CCCoverView.h */,
+				3DF7FD1D1E6078CF00AA0D13 /* CCCoverView.m */,
+				3DF7FD1F1E607F3200AA0D13 /* CCNewCardTagContainerView.h */,
+				3DF7FD201E607F3200AA0D13 /* CCNewCardTagContainerView.m */,
+				3DF7FD221E6081A000AA0D13 /* CCNewCardTagButton.h */,
+				3DF7FD231E6081A000AA0D13 /* CCNewCardTagButton.m */,
+			);
+			path = CCTimeLineCoverView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -784,12 +807,14 @@
 			files = (
 				3D4BF1EC1E53E205007B0F59 /* NSDate+Date.m in Sources */,
 				3DF7FCFE1E5E7D0000AA0D13 /* CCRemarkNavigationController.m in Sources */,
+				3DF7FD241E6081A000AA0D13 /* CCNewCardTagButton.m in Sources */,
 				3D6C9B3B1E45FFB300C2BABE /* AppDelegate.m in Sources */,
 				3DF7FD011E5EB02400AA0D13 /* UIBarButtonItem+BarButtonItem.m in Sources */,
 				3DF7FC721E59EC1200AA0D13 /* CCNotesFullScreenButton.m in Sources */,
 				3D6C9B5A1E46000A00C2BABE /* NSObject+MJClass.m in Sources */,
 				3DF7FC5F1E57FCB700AA0D13 /* UIView+Frame.m in Sources */,
 				3DF7FCDB1E5DE2D100AA0D13 /* CCContentTableView.m in Sources */,
+				3DF7FD211E607F3200AA0D13 /* CCNewCardTagContainerView.m in Sources */,
 				3D4BF1EE1E53E205007B0F59 /* CCCalenderDateView.m in Sources */,
 				3D6C9A881E4374BE00C2BABE /* CCTaskCardItem.m in Sources */,
 				3DF7FC2E1E54576E00AA0D13 /* CCEditingViewController.m in Sources */,
@@ -822,10 +847,10 @@
 				3DF7FC361E548AED00AA0D13 /* CCImageView.m in Sources */,
 				3DF7FD0C1E5F1A0300AA0D13 /* CCAddRemarkViewController.m in Sources */,
 				3D6C9A2A1E3C91DC00C2BABE /* TimeLineViewController.m in Sources */,
+				3DF7FD1A1E601D5600AA0D13 /* CCRemarkContainerView.m in Sources */,
 				3D4BF1EF1E53E205007B0F59 /* CCCalenderItemView.m in Sources */,
 				3D4BF1ED1E53E205007B0F59 /* CCDateTool.m in Sources */,
 				3D6C9B311E45FF9900C2BABE /* MASViewConstraint.m in Sources */,
-				3DF7FCE81E5DE53A00AA0D13 /* CCCoverView.m in Sources */,
 				3D6C9B551E46000A00C2BABE /* MJExtensionConst.m in Sources */,
 				3DF7FCFB1E5DE9C500AA0D13 /* CCRemarkViewController.m in Sources */,
 				3DF7FCD81E5DE26600AA0D13 /* CCTaskCardTabldViewCell.m in Sources */,
@@ -837,6 +862,7 @@
 				3D6C9B2A1E45FF9900C2BABE /* GetCurrentTime.m in Sources */,
 				3D6C9B351E45FF9900C2BABE /* ViewController+MASAdditions.m in Sources */,
 				3D6C9B2E1E45FF9900C2BABE /* MASConstraintMaker.m in Sources */,
+				3DF7FD1E1E6078CF00AA0D13 /* CCCoverView.m in Sources */,
 				3D6C9B2D1E45FF9900C2BABE /* MASConstraint.m in Sources */,
 				3DF7FC791E5A8DF300AA0D13 /* CCCommonCoverView.m in Sources */,
 				3D07945A1E4B1449000D7DC2 /* NSObject+LocalNotification.m in Sources */,

@@ -76,12 +76,12 @@ static NSString * const remarkCellId = @"remarkCellId";
     return _changedTextArr;
 }
 
-- (NSMutableArray *)remarkItems {
-    if (_remarkItems == nil) {
-        _remarkItems = [NSMutableArray array];
-    }
-    return _remarkItems;
-}
+//- (NSMutableArray *)remarkItems {
+//    if (_remarkItems == nil) {
+//        _remarkItems = [NSMutableArray array];
+//    }
+//    return _remarkItems;
+//}
 
 #pragma mark - 生命周期
 
@@ -193,8 +193,9 @@ static NSString * const remarkCellId = @"remarkCellId";
             [self.changedTextArr enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *newText, BOOL * _Nonnull stop) {
                 NSInteger index = [key integerValue];
                 //取出模型修改数据
-                CCRemarkItem *item = self.remarkItems[index];
+                CCRemarkItem *item = self.item.remarkItems[index];
                 item.text = newText;
+                //通知timeline列表刷新
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
                 [self.changedIndexPathes addObject:indexPath];
             }];
@@ -202,7 +203,7 @@ static NSString * const remarkCellId = @"remarkCellId";
         //交换模型位置
         NSMutableDictionary *indexTemps = [NSMutableDictionary dictionary];//用来记录交换过位置的所有cell的index
         for (CCMoveIndexTemp *temp in self.moveIndexTemps) {
-            [self.remarkItems exchangeObjectAtIndex:temp.sourceIndex withObjectAtIndex:temp.destinationIndex];
+            [self.item.remarkItems exchangeObjectAtIndex:temp.sourceIndex withObjectAtIndex:temp.destinationIndex];
             [indexTemps setObject:@"" forKey:[NSString stringWithFormat:@"%ld",temp.sourceIndex]];
             [indexTemps setObject:@"" forKey:[NSString stringWithFormat:@"%ld",temp.destinationIndex]];
         }
@@ -212,7 +213,8 @@ static NSString * const remarkCellId = @"remarkCellId";
             [self.changedIndexPathes addObject:indexPath];
         }];
         
-
+        //通知首页时间轴更新
+        [CCNotificationCenter postNotificationName:CCRemarkDidChangeNotification object:self.item];
         
         //完成后清空缓存
         [self.moveIndexTemps removeAllObjects];
@@ -257,13 +259,13 @@ static NSString * const remarkCellId = @"remarkCellId";
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.remarkItems.count;;
+    return self.item.remarkItems.count;;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CCRemarkTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:remarkCellId forIndexPath:indexPath];
-    cell.item = self.remarkItems[indexPath.row];
+    cell.item = self.item.remarkItems[indexPath.row];
     cell.row = indexPath.row;
     return cell;
 }
@@ -287,7 +289,8 @@ static NSString * const remarkCellId = @"remarkCellId";
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.remarkItems removeObjectAtIndex:indexPath.row];
+        [self.item.remarkItems removeObjectAtIndex:indexPath.row];
+        [CCNotificationCenter postNotificationName:CCRemarkDidChangeNotification object:self.item];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
     }
 }
@@ -295,8 +298,10 @@ static NSString * const remarkCellId = @"remarkCellId";
 #pragma mark - CCAddRemarkViewControllerDelegate
 
 - (void)CCAddRemarkViewController:(CCAddRemarkViewController *)addRemarkViewController didCompleteWithText:(NSString *)text tagImageName:(NSString *)tagImageName {
-    [self.remarkItems addObject:[CCRemarkItem itemWithText:text imageName:tagImageName]];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.remarkItems.count - 1 inSection:0];
+    [self.item.remarkItems addObject:[CCRemarkItem itemWithText:text imageName:tagImageName]];
+    [CCNotificationCenter postNotificationName:CCRemarkDidChangeNotification object:self.item];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.item.remarkItems.count - 1 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
 }
 

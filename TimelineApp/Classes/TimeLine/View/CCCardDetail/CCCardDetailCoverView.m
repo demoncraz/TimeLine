@@ -84,7 +84,7 @@
     //弹出remarkVc
     
     [self addSubview:self.navVc.view];
-    self.navVc.remarkItems = self.cardDetailView.item.remarkItems;
+    self.navVc.item = self.cardDetailView.item;
     [UIView animateWithDuration:CCCardDetailTransitAnimationDuration animations:^{
         self.navVc.view.CC_y = CCStatusBarH + self.cardDetailView.CC_height;
     }];
@@ -126,6 +126,7 @@
 }
 
 - (void)showWithItem:(CCTaskCardItem *)item {
+    self.item = item;
     self.cardDetailView.item = item;
     [[UIApplication sharedApplication].keyWindow addSubview:self];
     [UIView animateWithDuration:CCCardDetailTransitAnimationDuration animations:^{
@@ -145,8 +146,9 @@
 - (void)remarkVcWillDismiss {
     [UIView animateWithDuration:CCCardDetailTransitAnimationDuration animations:^{
         self.cardDetailView.CC_centerY = CCCardDetailViewDefaultCenterY;
+    } completion:^(BOOL finished) {
+        self.cardDetailView.remarkButton.enabled = YES;
     }];
-    self.cardDetailView.remarkButton.enabled = YES;
 }
 
 @end

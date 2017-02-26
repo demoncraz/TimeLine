@@ -122,10 +122,6 @@
         CGFloat x = (i % cols)* (TagButtonW + xMargin);
         CGFloat y = (i / cols) * (TagButtonH + yMargin);
         CCTagButton *tagButton = [CCTagButton buttonWithType:UIButtonTypeCustom];
-        NSString *imageName = [self getImageNameWithTitle:self.tagTitleArr[i]];
-        NSString *selectedImageName = [self getSelectedImageNameWithTitle:self.tagTitleArr[i]];
-        [tagButton setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-        [tagButton setImage:[UIImage imageNamed:selectedImageName] forState:UIControlStateSelected];
         tagButton.title = self.tagTitleArr[i];
         tagButton.frame = CGRectMake(x, y, TagButtonW, TagButtonH);
         [tagButton addTarget:self action:@selector(tagButtonClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -142,19 +138,6 @@
 }
 
 
-/**
- 根据title返回tag图片名
-
- @param title tag标题
- @return 图片名
- */
-- (NSString *)getImageNameWithTitle:(NSString *)title {
-    return [NSString stringWithFormat:@"remark_%@", title];
-}
-
-- (NSString *)getSelectedImageNameWithTitle:(NSString *)title {
-    return [NSString stringWithFormat:@"remark_%@_white", title];
-}
 
 
 
@@ -177,7 +160,7 @@
     if (self.textView.text.length > 0) {
         NSString *textString = self.textView.text;
         NSString *tagName = self.selTagButton.titleLabel.text;
-        [self.delegate CCAddRemarkViewController:self didCompleteWithText:textString tagImageName:[self getImageNameWithTitle:tagName]];
+        [self.delegate CCAddRemarkViewController:self didCompleteWithText:textString tagImageName:[NSString stringWithFormat:@"remark_%@", tagName]];
         [self.navigationController popViewControllerAnimated:YES];
     }
 }

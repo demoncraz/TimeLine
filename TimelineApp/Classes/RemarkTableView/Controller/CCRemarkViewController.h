@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+#import "CCTaskCardItem.h"
 
 @interface CCRemarkViewController : UITableViewController
 
 //备注列表
-@property (nonatomic, strong) NSMutableArray *remarkItems;
+@property (nonatomic, strong) CCTaskCardItem *item;
 
 @end

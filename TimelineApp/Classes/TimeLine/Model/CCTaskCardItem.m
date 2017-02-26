@@ -38,6 +38,14 @@
     return item;
 }
 
+- (instancetype)init {
+    if (self = [super init]) {
+        //默认创建一个空的备忘数组
+        self.remarkItems = [NSMutableArray array];
+    }
+    return self;
+}
+
 
 - (NSString *)getKeyFromItem {
     
@@ -50,10 +58,11 @@
  根据模型计算cell高度
  */
 - (CGFloat)height {
-    NSString *contentString = self.cardContent;
-    CGSize textSize = [contentString boundingRectWithSize:CGSizeMake(CCTaskCardContentW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont fontWithName:@"PingFangSC-Regular" size:12]} context:nil].size;
+//    NSString *contentString = self.cardContent;
+//    CGSize textSize = [contentString boundingRectWithSize:CGSizeMake(CCTaskCardContentW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont fontWithName:@"PingFangSC-Regular" size:12]} context:nil].size;
+    NSInteger remarkCount = self.remarkItems.count;
     
-    return textSize.height + 60;
+    return (remarkCount * 15) + 50;
 }
 
 

@@ -26,6 +26,7 @@
 #define DefaultDateLabelFont [UIFont systemFontOfSize:12];
 #define DefaultDateLabelColor ColorWithRGB(72, 72, 95, 1);
 #define EstimatedCardHeight 110
+#define CCTimelineCellMinHeight 75
 
 
 @interface TimeLineViewController ()<UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, CCCoverViewDelegate, CCCardDetailCoverViewDelegate>
@@ -221,6 +222,13 @@ static NSString *headerViewId = @"headerView";
     [CCNotificationCenter addObserver:self selector:@selector(dismissCalendarCoverView) name:@"CCCalendarDismissNotification" object:nil];
     [CCNotificationCenter addObserver:self selector:@selector(calendarDidShow) name:@"CCCalendarShowNotification" object:nil];
     [CCNotificationCenter addObserver:self selector:@selector(notesCoverViewClick:) name:CCCommonCoverViewWillDismissNotification object:self.notesCoverView];
+    //监听到备注新增完成后刷新对应行
+    [CCNotificationCenter addObserverForName:CCRemarkDidChangeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        CCTaskCardItem *item = note.object;
+        NSIndexPath *indexPath = [self getIndexPathForItem:item];
+        [self.contentTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    }];
+    
     //监听到头像变化的通知后刷新表格
     DefineWeakSelf;
     [CCNotificationCenter addObserverForName:CCAvatarChangeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
@@ -348,7 +356,7 @@ static NSString *headerViewId = @"headerView";
     [self.view.window insertSubview:self.addButton aboveSubview:self.coverView];
     
     //将contentView下移
-    
+     [self.contentTableView setContentOffset:CGPointMake(0, -(EstimatedCardHeight + self.contentTableView.contentInset.top)) animated:YES];
     //将addButton旋转
     [UIView animateWithDuration:0.3 animations:^{
     
@@ -357,9 +365,7 @@ static NSString *headerViewId = @"headerView";
         
     } completion:^(BOOL finished) {
     }];
-    
-    [self.contentTableView setContentOffset:CGPointMake(0, -(EstimatedCardHeight + self.contentTableView.contentInset.top)) animated:YES];
-    
+
     
     //        添加遮罩层
     [UIView animateWithDuration:0.3 animations:^{
@@ -518,7 +524,7 @@ static NSString *headerViewId = @"headerView";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSArray *cardGroup = self.taskCardItems[indexPath.section];
     CCTaskCardItem *item = cardGroup[indexPath.row];
-    return item.height;
+    return item.height > CCTimelineCellMinHeight ? item.height : CCTimelineCellMinHeight;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -768,8 +774,6 @@ static NSInteger currentLineNumberOfNewCard = 0;
     
     return [NSIndexPath indexPathForRow:row inSection:section];
 }
-
-
 
 
 @end

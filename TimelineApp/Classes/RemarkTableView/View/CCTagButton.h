@@ -6,10 +6,8 @@
 //  Copyright © 2017年 demoncraz. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "CCNewCardTagButton.h"
 
-@interface CCTagButton : UIButton
-
-@property (nonatomic, strong) NSString *title;
+@interface CCTagButton : CCNewCardTagButton
 
 @end
