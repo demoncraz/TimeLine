@@ -151,6 +151,7 @@
     
     [UIView animateWithDuration:0.2 animations:^{
         tagButton.transform = CGAffineTransformMakeScale(0.1, 0.1);
+        tagButton.alpha = 0;
         [self arrangeTagButtons];
     } completion:^(BOOL finished) {
         [tagButton removeFromSuperview];
@@ -176,6 +177,7 @@
  */
 - (void)addTagButton:(CCNewCardTagButton *)tagButton toScrollView:(UIScrollView *)scrollView {
     [scrollView addSubview:tagButton];
+    tagButton.alpha = 1;
     [UIView animateWithDuration:0.2 animations:^{
         tagButton.transform = CGAffineTransformIdentity;
     }];
@@ -254,12 +256,14 @@
 
     [UIView animateWithDuration:0.2 animations:^{
         tagButton.transform = CGAffineTransformMakeScale(0.1, 0.1);
+        tagButton.alpha = 0;
         //设置scrollView的滚动范围
         self.scrollView.contentSize = CGSizeMake(self.scrollView.CC_width, self.selectedTagButtons.count * CCRemarkItemLineH);
     } completion:^(BOOL finished) {
         [tagButton removeFromSuperview];
         tagButton.transform = CGAffineTransformIdentity;
         tagButton.frame = CGRectZero;
+        tagButton.alpha = 1;
         [self.titleView addSubview:tagButton];
         [UIView animateWithDuration:0.2 animations:^{
             [self arrangeTagButtons];

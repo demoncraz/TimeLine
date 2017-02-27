@@ -161,7 +161,7 @@
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout {
     if (self = [super initWithFrame:frame collectionViewLayout:layout]) {
         //注册cell
-        [self registerNib:[UINib nibWithNibName:@"CCCalenderItemView" bundle:nil] forCellWithReuseIdentifier:@"cell"];
+        [self registerClass:[CCCalenderItemView class] forCellWithReuseIdentifier:@"cell"];
         self.dataSource = self;
         //设置背景颜色
         self.backgroundColor = [UIColor whiteColor];

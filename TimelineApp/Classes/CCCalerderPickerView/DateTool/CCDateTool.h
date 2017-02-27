@@ -94,4 +94,5 @@
  */
 + (NSInteger)dayDifferenceFrom:(NSDate *)aDay toAnotherDay:(NSDate *)anotherDay;
 
+
 @end

@@ -61,10 +61,6 @@
     self.textView.layer.borderColor = CCDefaultGreyClor.CGColor;
     self.textView.layer.borderWidth = 0.5;
     self.textView.layer.cornerRadius = 3;
-//    self.textView.layer.shadowColor = [UIColor blackColor].CGColor;
-//    self.textView.layer.shadowOffset = CGSizeMake(0.5, 1);
-//    self.textView.layer.shadowOpacity = 0.3;
-//    self.textView.layer.masksToBounds = NO;
 }
 
 /**
@@ -169,6 +165,15 @@
 
 - (void)textViewDidChange:(UITextView *)textView {
     self.doneButton.hidden = (textView.text.length == 0);
+    
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    return YES;
 }
 
 @end

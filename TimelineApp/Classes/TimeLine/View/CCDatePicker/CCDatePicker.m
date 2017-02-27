@@ -36,6 +36,7 @@
 //        datePicker.timeZone = [NSTimeZone timeZoneWithName:@"Asia/beijing"];
         [datePicker setLocale:[NSLocale localeWithLocaleIdentifier:@"zh_CN"]];
         [datePicker addTarget:self action:@selector(dateChange:) forControlEvents:UIControlEventValueChanged];
+        datePicker.minimumDate = [NSDate date];
         [self addSubview:datePicker];
         _datePicker = datePicker;
         
@@ -89,7 +90,6 @@
 #pragma mark - 监听datepicker滚动
 - (void)dateChange:(UIDatePicker *)datePicker{
     self.selectedDate = datePicker.date;
-    
     [self.delegate datePicker:self didChangeDate:datePicker.date];
 }
 

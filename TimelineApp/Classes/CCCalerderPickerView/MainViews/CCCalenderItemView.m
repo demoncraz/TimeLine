@@ -8,6 +8,7 @@
 
 #import "CCCalenderItemView.h"
 #import "CCDateTool.h"
+#import "CCCalenderItemButton.h"
 
 #define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
 #define CCDefaultDateTextColor ColorWithRGB(16, 16, 42, 1)
@@ -30,15 +31,44 @@
 
 @property (weak, nonatomic) IBOutlet UIView *dotView;
 
-
+@property (nonatomic, weak) CCCalenderItemButton *itemButton;
 
 @end
 
 @implementation CCCalenderItemView
 
-+ (instancetype)calenderItemView {
-    return [[[NSBundle mainBundle] loadNibNamed:@"CCCalenderItemView" owner:nil options:nil] firstObject];
-    
+//+ (instancetype)calenderItemView {
+////    return [[[NSBundle mainBundle] loadNibNamed:@"CCCalenderItemView" owner:nil options:nil] firstObject];
+//    CCCalenderItemView *itemView = [[CCCalenderItemView alloc] init];
+//    
+//    UIButton *itemButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    itemButton.backgroundColor = [UIColor redColor];
+//    itemButton.frame = CGRectMake(0, 0, 50, 60);
+//    [itemView.contentView addSubview:itemButton];
+//    
+//    return itemView;
+//}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        CCCalenderItemButton *itemButton = [CCCalenderItemButton calendarItemButton];
+        [itemButton addTarget:self action:@selector(itemButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        itemButton.itemDate = [NSDate date];
+        _itemButton = itemButton;
+        [self.contentView addSubview:itemButton];
+    }
+    return self;
+}
+
+- (void)itemButtonClick:(UIButton *)button {
+    [CCNotificationCenter postNotificationName:CCCalendarItemDidSelectNotification object:button];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.itemButton.frame = self.contentView.bounds;
 }
 
 
@@ -54,40 +84,7 @@
 
 - (void)setItemDate:(NSDate *)itemDate {
     _itemDate = itemDate;
-    NSDictionary *dateDict = [CCDateTool getDateComponentsFromDate:itemDate];
-    NSString *dayString = dateDict[@"day"];
-    //设置日期（天）
-    //去掉前面的0
-    if ([dayString hasPrefix:@"0"]) {
-        dayString = [dayString substringFromIndex:1];
-    }
-    self.normalDateLabel.text = dayString;
-    //判断星期几
-    NSInteger weekDay = [CCDateTool getWeedDayFromDate:itemDate];
-    
-    if ([CCDateTool isToday:itemDate]) {
-        self.chineseDateLabel.text = @"今天";
-        self.bgView.backgroundColor = CCDefaultHighlightBgColor;
-        self.normalDateLabel.textColor = CCHighlightDateTextColor;
-        self.chineseDateLabel.textColor = CCHighlightDateTextColor;
-    } else {
-        //计算农历日并显示
-        NSDictionary *chineseDateDict = [CCDateTool getChineseDateComponentsFromDate:itemDate];
-        NSInteger chineseDay = [chineseDateDict[@"day"] integerValue];
-        self.chineseDateLabel.text = ChineseDays[chineseDay - 1];
-        
-        self.bgView.backgroundColor = [UIColor clearColor];
-
-        if (weekDay == 0 || weekDay == 6) {//如果是周末
-            self.normalDateLabel.textColor = CCWeekendTextColor;
-            self.chineseDateLabel.textColor = CCWeekendTextColor;
-        } else {
-            self.normalDateLabel.textColor = CCDefaultDateTextColor;
-            self.chineseDateLabel.textColor = CCDefaultDateTextColor;
-        }
-    }
-    
-    
+    [self.itemButton setItemDate:itemDate];
     
 }
 

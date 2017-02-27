@@ -37,7 +37,6 @@
 }
 
 - (void)setupButton {
-    [self addTarget:self action:@selector(dateButtonClick) forControlEvents:UIControlEventTouchUpInside];
     //获取当前日期
     
     [self updateDate];
@@ -52,7 +51,7 @@
     NSString *dateString = getCurrentDate(@"YYYY年MM月dd日");
     
     [self setTitle:dateString forState:UIControlStateNormal];
-    [self setTitle:dateString forState:UIControlStateSelected];
+//    [self setTitle:dateString forState:UIControlStateSelected];
     NSLog(@"update!");
 }
 
@@ -62,10 +61,6 @@
     self.titleEdgeInsets = UIEdgeInsetsMake(0, -self.imageView.bounds.size.width, 0, self.imageView.bounds.size.width);
 }
 
-
-- (void)dateButtonClick {
-    self.selected = !self.selected;
-}
 
 - (void)startTimer {
     

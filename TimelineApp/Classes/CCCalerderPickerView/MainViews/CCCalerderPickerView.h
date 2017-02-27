@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "CCDotItem.h"
+@class CCCalerderPickerView;
 
+@protocol CCCalerderPickerViewDelegate <NSObject>
+
+- (void)CCCalerderPickerView:(CCCalerderPickerView *)calerderPickerView didSelectDate:(NSDate *)date;
+
+@end
 
 @interface CCCalerderPickerView : UIView
+
+@property (nonatomic, weak) id<CCCalerderPickerViewDelegate> delegate;
 
 
 /**

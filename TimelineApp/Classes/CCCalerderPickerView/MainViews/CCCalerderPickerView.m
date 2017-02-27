@@ -11,6 +11,7 @@
 #import "CCDateTool.h"
 #import "NSDate+Date.h"
 #import "CCCalenderDateView.h"
+#import "CCCalenderItemButton.h"
 
 
 #define CCSecondsOfDay (24 * 60 * 60)
@@ -47,6 +48,11 @@ static CCCalerderPickerView *sharedCalenderPickView;
 @property (nonatomic, strong) NSArray *dotArr;
 
 @property (nonatomic, assign) UIStatusBarStyle currentStatusBarStyle;
+
+/**
+ 记录上一次选中的按钮
+ */
+@property (nonatomic, weak) UIButton *lastSelectedButton;
 
 @end
 
@@ -119,8 +125,14 @@ static CCCalerderPickerView *pickerView;
     [self addGestureRecognizer:swipeLeft];
     [self addGestureRecognizer:swipeRight];
     
+    //监听日期点击的通知
+    [CCNotificationCenter addObserver:self selector:@selector(dateSelected:) name:CCCalendarItemDidSelectNotification object:nil];
+    
 }
 
+- (void)dealloc {
+    [CCNotificationCenter removeObserver:self];
+}
 
 /**
  轻扫手势
@@ -314,10 +326,19 @@ static CCCalerderPickerView *pickerView;
     }
 }
 
+#pragma mark - 监听日期点击的通知
+
+- (void)dateSelected:(NSNotification *)notification {
+    self.lastSelectedButton.selected = NO;
+    CCCalenderItemButton *dateButton = notification.object;
+    dateButton.selected = YES;
+    self.lastSelectedButton = dateButton;
+    
+    //通知代理选中日期
+    [self.delegate CCCalerderPickerView:self didSelectDate:dateButton.itemDate];
+    //关闭日历
+    [self dismiss];
+}
+
 
 @end
-
-
-
-
-

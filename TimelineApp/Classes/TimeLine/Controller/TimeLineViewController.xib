@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimeLineViewController">
             <connections>
                 <outlet property="contentTableView" destination="rcc-ka-Aj2" id="fTO-iF-5fw"/>
+                <outlet property="titleMonthButton" destination="wjO-Jx-9x4" id="HFk-O8-ZsO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
