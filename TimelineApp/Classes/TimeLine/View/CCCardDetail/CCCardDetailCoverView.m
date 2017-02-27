@@ -11,6 +11,7 @@
 #import "CCRemarkNavigationController.h"
 #import "CCRemarkViewController.h"
 #import "CCRemarkItem.h"
+#import "CCCardRecoverView.h"
 
 #define CCStatusBarH 20
 #define CCCardDetailTransitAnimationDuration 0.3
@@ -24,11 +25,27 @@
 
 @property (nonatomic, strong) CCRemarkNavigationController *navVc;
 
+@property (nonatomic, weak) CCCardRecoverView *recoverView;
+
+@property (nonatomic, assign) CGRect detailViewOriFrame;
+
 @end
 
 @implementation CCCardDetailCoverView
 
 #pragma mark - lazy loading
+
+- (CCCardRecoverView *)recoverView {
+    if (_recoverView == nil) {
+        CCCardRecoverView *recoverView = [CCCardRecoverView cardRecoverView];
+        recoverView.CC_width = self.cardDetailView.CC_width;
+        recoverView.CC_centerY = self.cardDetailView.CC_centerY;
+        [self addSubview:recoverView];
+        recoverView.CC_x = ScreenW;
+        _recoverView = recoverView;
+    }
+    return _recoverView;
+}
 
 - (CCRemarkNavigationController *)navVc {
     if (_navVc == nil) {
@@ -65,8 +82,41 @@
 - (void)setupActions {
     [self.cardDetailView.closeButton addTarget:self action:@selector(closeButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.cardDetailView.remarkButton addTarget:self action:@selector(remarkButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.cardDetailView.doneButton addTarget:self action:@selector(doneButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.cardDetailView.doneButton addTarget:self action:@selector(doneButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.cardDetailView.confirmButton addTarget:self action:@selector(confirmButtonClick) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)showRecoverView {
+    //记录当前detailView的位置
+    self.detailViewOriFrame = self.cardDetailView.frame;
+
+    //监听按钮点击
+    [self.recoverView.cancelButton addTarget:self action:@selector(recoverCancelClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.recoverView.confirmButton addTarget:self action:@selector(recoverConfirmClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    [UIView animateWithDuration:CCCardDetailTransitAnimationDuration animations:^{
+        self.recoverView.center = self.cardDetailView.center;
+        self.cardDetailView.CC_x = - self.cardDetailView.CC_width;
+    }];
+}
+
+#pragma RecoverView 按钮点击
+- (void)recoverCancelClick {//取消
+    
+    [UIView animateWithDuration:CCCardDetailTransitAnimationDuration animations:^{
+        self.cardDetailView.frame = self.detailViewOriFrame;
+        self.recoverView.CC_x = ScreenW;
+    } completion:^(BOOL finished) {
+        [self.recoverView removeFromSuperview];
+    }];
+}
+
+- (void)recoverConfirmClick {//确认
+    //将卡片回复成未完成状态
+    self.item.done = NO;
+    [CCNotificationCenter postNotificationName:CCRemarkDidChangeNotification object:self.item];
+    //退出
+    [self dismissView];
 }
 
 #pragma mark - 关闭按钮点击
@@ -93,15 +143,20 @@
 }
 
 #pragma mark - 完成按钮点击
-- (void)doneButtonClick {
+- (void)doneButtonClick:(UIButton *)button {
     
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:CCConfirmNotShowUDKey]){//没有确认不再提醒, 提醒用户
-        [UIView animateWithDuration:CCCardDetailTransitAnimationDuration delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveLinear animations:^{
-            self.cardDetailView.bottomView.CC_x -= self.cardDetailView.CC_width;
-        } completion:^(BOOL finished) {
-        }];
+    if (button.selected) {//取消完成
+        [self showRecoverView];
+        
     } else {
-        [self confirmCompletion];
+        if (![[NSUserDefaults standardUserDefaults] boolForKey:CCConfirmNotShowUDKey]){//没有确认不再提醒, 提醒用户
+            [UIView animateWithDuration:CCCardDetailTransitAnimationDuration delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveLinear animations:^{
+                self.cardDetailView.bottomView.CC_x -= self.cardDetailView.CC_width;
+            } completion:^(BOOL finished) {
+            }];
+        } else {
+            [self confirmCompletion];
+        }
     }
     
 }

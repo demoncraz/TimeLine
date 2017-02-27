@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16E154a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CCCardRecoverView">
+            <rect key="frame" x="0.0" y="0.0" width="315" height="138"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是否取消完成，并恢复闹钟提醒？" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQC-JE-7b9">
+                    <rect key="frame" x="0.0" y="0.0" width="315" height="78"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.47450980392156861" green="0.47450980392156861" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nRP-0E-sDd">
+                    <rect key="frame" x="167.5" y="83" width="127.5" height="35"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="确认" backgroundImage="detail_done_default">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZi-Pf-6My">
+                    <rect key="frame" x="20" y="83" width="127.5" height="35"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="取消" backgroundImage="detail_done_default">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="VZi-Pf-6My" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="806-7u-Xpz"/>
+                <constraint firstItem="nRP-0E-sDd" firstAttribute="leading" secondItem="VZi-Pf-6My" secondAttribute="trailing" constant="20" id="Exq-j3-WjH"/>
+                <constraint firstItem="nRP-0E-sDd" firstAttribute="top" secondItem="fQC-JE-7b9" secondAttribute="bottom" constant="5" id="NoZ-K1-jaP"/>
+                <constraint firstAttribute="trailing" secondItem="fQC-JE-7b9" secondAttribute="trailing" id="aNw-Kl-zav"/>
+                <constraint firstAttribute="bottom" secondItem="VZi-Pf-6My" secondAttribute="bottom" constant="20" id="amA-tt-Sjz"/>
+                <constraint firstItem="VZi-Pf-6My" firstAttribute="top" secondItem="fQC-JE-7b9" secondAttribute="bottom" constant="5" id="grD-3q-YS1"/>
+                <constraint firstAttribute="trailing" secondItem="nRP-0E-sDd" secondAttribute="trailing" constant="20" id="kPk-fP-29G"/>
+                <constraint firstItem="fQC-JE-7b9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="lbq-8h-rBD"/>
+                <constraint firstItem="nRP-0E-sDd" firstAttribute="width" secondItem="VZi-Pf-6My" secondAttribute="width" id="nOn-SW-dZO"/>
+                <constraint firstItem="fQC-JE-7b9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="r5g-Jc-1a4"/>
+                <constraint firstItem="nRP-0E-sDd" firstAttribute="height" secondItem="VZi-Pf-6My" secondAttribute="height" id="w6N-2h-CQr"/>
+                <constraint firstAttribute="bottom" secondItem="fQC-JE-7b9" secondAttribute="bottom" constant="60" id="zYX-1P-Efu"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cancelButton" destination="VZi-Pf-6My" id="Xmf-eX-1cQ"/>
+                <outlet property="confirmButton" destination="nRP-0E-sDd" id="Hha-C3-hQU"/>
+            </connections>
+            <point key="canvasLocation" x="25.5" y="17"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="detail_done_default" width="125" height="40"/>
+    </resources>
+</document>

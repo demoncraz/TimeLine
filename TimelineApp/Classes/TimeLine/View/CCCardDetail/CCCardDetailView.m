@@ -44,7 +44,7 @@
     }
     
     //设置完成按钮状态
-    self.doneButton.enabled = !item.isDone;
+    self.doneButton.selected = item.isDone;
     
 }
 

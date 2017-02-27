@@ -88,6 +88,9 @@
 		3DF7FD211E607F3200AA0D13 /* CCNewCardTagContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD201E607F3200AA0D13 /* CCNewCardTagContainerView.m */; };
 		3DF7FD241E6081A000AA0D13 /* CCNewCardTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD231E6081A000AA0D13 /* CCNewCardTagButton.m */; };
 		3DF7FD271E63CA7200AA0D13 /* CCCardContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD261E63CA7100AA0D13 /* CCCardContentView.m */; };
+		3DF7FD2A1E64190E00AA0D13 /* CCCardDetailDoneButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD291E64190E00AA0D13 /* CCCardDetailDoneButton.m */; };
+		3DF7FD2D1E641B9D00AA0D13 /* CCCardRecoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD2C1E641B9D00AA0D13 /* CCCardRecoverView.m */; };
+		3DF7FD2F1E641BAE00AA0D13 /* CCCardRecoverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF7FD2E1E641BAE00AA0D13 /* CCCardRecoverView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -246,6 +249,11 @@
 		3DF7FD231E6081A000AA0D13 /* CCNewCardTagButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNewCardTagButton.m; sourceTree = "<group>"; };
 		3DF7FD251E63CA7100AA0D13 /* CCCardContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCCardContentView.h; path = CCTimeLineCoverView/CCCardContentView.h; sourceTree = "<group>"; };
 		3DF7FD261E63CA7100AA0D13 /* CCCardContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCCardContentView.m; path = CCTimeLineCoverView/CCCardContentView.m; sourceTree = "<group>"; };
+		3DF7FD281E64190E00AA0D13 /* CCCardDetailDoneButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCardDetailDoneButton.h; sourceTree = "<group>"; };
+		3DF7FD291E64190E00AA0D13 /* CCCardDetailDoneButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCardDetailDoneButton.m; sourceTree = "<group>"; };
+		3DF7FD2B1E641B9D00AA0D13 /* CCCardRecoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCardRecoverView.h; sourceTree = "<group>"; };
+		3DF7FD2C1E641B9D00AA0D13 /* CCCardRecoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCardRecoverView.m; sourceTree = "<group>"; };
+		3DF7FD2E1E641BAE00AA0D13 /* CCCardRecoverView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCCardRecoverView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -642,6 +650,11 @@
 				3DF7FCEC1E5DE60D00AA0D13 /* CCCardDetailView.h */,
 				3DF7FCED1E5DE60D00AA0D13 /* CCCardDetailView.m */,
 				3DF7FCEE1E5DE60D00AA0D13 /* CCCardDetailView.xib */,
+				3DF7FD281E64190E00AA0D13 /* CCCardDetailDoneButton.h */,
+				3DF7FD291E64190E00AA0D13 /* CCCardDetailDoneButton.m */,
+				3DF7FD2B1E641B9D00AA0D13 /* CCCardRecoverView.h */,
+				3DF7FD2C1E641B9D00AA0D13 /* CCCardRecoverView.m */,
+				3DF7FD2E1E641BAE00AA0D13 /* CCCardRecoverView.xib */,
 			);
 			path = CCCardDetail;
 			sourceTree = "<group>";
@@ -792,6 +805,7 @@
 				3D6C9B2B1E45FF9900C2BABE /* Info.plist in Resources */,
 				3D4BF1F01E53E205007B0F59 /* CCCalenderItemView.xib in Resources */,
 				3D6C9A8A1E437A0B00C2BABE /* TaskCardItems.plist in Resources */,
+				3DF7FD2F1E641BAE00AA0D13 /* CCCardRecoverView.xib in Resources */,
 				3DF7FC301E54578500AA0D13 /* CCEditingViewController.storyboard in Resources */,
 				3DF7FC391E54C19D00AA0D13 /* LaunchScreen.storyboard in Resources */,
 				3D4BF1F21E53E205007B0F59 /* CCCalerderPickerView.xib in Resources */,
@@ -810,6 +824,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF7FD2A1E64190E00AA0D13 /* CCCardDetailDoneButton.m in Sources */,
 				3D4BF1EC1E53E205007B0F59 /* NSDate+Date.m in Sources */,
 				3DF7FCFE1E5E7D0000AA0D13 /* CCRemarkNavigationController.m in Sources */,
 				3DF7FD241E6081A000AA0D13 /* CCNewCardTagButton.m in Sources */,
@@ -856,6 +871,7 @@
 				3DF7FD1A1E601D5600AA0D13 /* CCRemarkContainerView.m in Sources */,
 				3D4BF1EF1E53E205007B0F59 /* CCCalenderItemView.m in Sources */,
 				3D4BF1ED1E53E205007B0F59 /* CCDateTool.m in Sources */,
+				3DF7FD2D1E641B9D00AA0D13 /* CCCardRecoverView.m in Sources */,
 				3D6C9B311E45FF9900C2BABE /* MASViewConstraint.m in Sources */,
 				3D6C9B551E46000A00C2BABE /* MJExtensionConst.m in Sources */,
 				3DF7FCFB1E5DE9C500AA0D13 /* CCRemarkViewController.m in Sources */,
