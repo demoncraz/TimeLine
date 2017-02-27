@@ -13,6 +13,7 @@
 #define CCTagButtonDefaultW 60
 #define CCTagButtonMarginMin 10
 #define CCRemarkItemLineH 40
+#define CCContainerViewMargin 10
 
 @interface CCNewCardTagContainerView ()<UITextFieldDelegate>
 
@@ -28,10 +29,11 @@
 
 @property (nonatomic, assign, getter=isAnimating) BOOL animating;
 
-@property (nonatomic, assign) CGRect nextFrame;
-
 @property (nonatomic, assign) CGRect keyBoardRect;
 
+@property (nonatomic, weak) UIView *titleView;
+
+@property (nonatomic, weak) UIScrollView *scrollView;
 
 @end
 
@@ -64,7 +66,7 @@
 - (NSMutableArray *)unselectedTagButtons {
     if (_unselectedTagButtons == nil) {
         _unselectedTagButtons = [NSMutableArray array];
-        for (UIView *subView in self.subviews) {
+        for (UIView *subView in self.titleView.subviews) {
             if ([subView isKindOfClass:[CCNewCardTagButton class]]) {
                 [_unselectedTagButtons addObject:subView];
             }
@@ -94,6 +96,7 @@
         
         [self setupTagButtons];
         
+        [self setupScrollView];
         //监听键盘弹出
         [CCNotificationCenter addObserverForName:UIKeyboardWillShowNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
             NSDictionary *infoDict = note.userInfo;
@@ -106,20 +109,34 @@
 
 
 - (void)setupTagButtons {
+    //选择栏
+    UIView *titleView = [[UIView alloc] init];
+    titleView.frame = CGRectMake(0, 0, ScreenW - 2 * CCContainerViewMargin, CCRemarkItemLineH - CCContainerViewMargin);
+    _titleView = titleView;
+    
     NSInteger count = self.tags.count;
     CGFloat buttonMargin = CCTagButtonMarginMin;
-    CGFloat tagButtonW = (ScreenW - (2 * CCTagButtonMarginMin) - (count - 1) * buttonMargin) / count;
+    CGFloat tagButtonW = (ScreenW - 2 * CCContainerViewMargin - (count + 1) * buttonMargin)/ count;
     CGFloat tagButtonH = CCTagButtonDefaultH;
     CGFloat tagButtonX = 0;
     for (NSInteger i = 0; i < count; i++) {
-        tagButtonX = i * (buttonMargin + tagButtonW);
+        tagButtonX = i * (buttonMargin + tagButtonW) + buttonMargin;
         CCNewCardTagButton *tagButton = [CCNewCardTagButton buttonWithType:UIButtonTypeCustom];
         tagButton.frame = CGRectMake(tagButtonX, 0, tagButtonW, tagButtonH);
         tagButton.title = self.tags[i];
         tagButton.tag = i;
         [tagButton addTarget:self action:@selector(tagButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:tagButton];
+        [titleView addSubview:tagButton];
     }
+    [self addSubview:titleView];
+}
+
+- (void)setupScrollView {
+    UIScrollView *scrollView = [[UIScrollView alloc] init];
+    scrollView.frame = CGRectMake(0, CCRemarkItemLineH, self.titleView.CC_width, CCRemarkItemLineH * 3);
+    
+    _scrollView = scrollView;
+    [self addSubview:scrollView];
 }
 
 #pragma mark - 标签按钮点击
@@ -128,26 +145,45 @@
     if ([self.selectedTagButtons containsObject:tagButton]) return;
     if (self.isAnimating == YES) return;
     self.animating = YES;
-    
-    self.nextFrame = CGRectMake(0, CCRemarkItemLineH * (self.selectedTagButtons.count + 1), CCTagButtonDefaultW, CCTagButtonDefaultH);
 
     [self.selectedTagButtons addObject:tagButton];
     [self.unselectedTagButtons removeObject:tagButton];
-
     
-    
-    [UIView animateWithDuration:0.3 animations:^{
-        tagButton.frame = self.nextFrame;
+    [UIView animateWithDuration:0.2 animations:^{
+        tagButton.transform = CGAffineTransformMakeScale(0.1, 0.1);
         [self arrangeTagButtons];
     } completion:^(BOOL finished) {
-        [self adjustHeight];
-        //添加输入框
-        [self setupTagTextField];
+        [tagButton removeFromSuperview];
         self.animating = NO;
+        [self addTagButton:(CCNewCardTagButton *)tagButton toScrollView:self.scrollView];
+        
     }];
+
     //添加备注
     CCRemarkItem *item = [CCRemarkItem itemWithText:nil imageName:[NSString stringWithFormat:@"remark_%@", tagButton.titleLabel.text]];
     [self.remarkItems addObject:item];
+    
+    [self notifyDelegate];
+    
+}
+
+
+/**
+ 将按钮添加到scrollView中
+
+ @param tagButton 按钮
+ @param scrollView scrollView
+ */
+- (void)addTagButton:(CCNewCardTagButton *)tagButton toScrollView:(UIScrollView *)scrollView {
+    [scrollView addSubview:tagButton];
+    [UIView animateWithDuration:0.2 animations:^{
+        tagButton.transform = CGAffineTransformIdentity;
+    }];
+    CGFloat y = (self.selectedTagButtons.count - 1) * CCRemarkItemLineH;
+    tagButton.frame = CGRectMake(0, y, CCTagButtonDefaultW, CCTagButtonDefaultH);
+    //设置scrollView的滚动范围
+    scrollView.contentSize = CGSizeMake(scrollView.CC_width, CGRectGetMaxY(tagButton.frame));
+    [self setupTagTextField];
     
 }
 
@@ -171,26 +207,29 @@
     tagTextField.delegate = self;
     
     //计算frame
-    tagTextField.frame = CGRectMake(CGRectGetMaxX(self.nextFrame) + CCTagButtonMarginMin, self.nextFrame.origin.y, self.CC_width - CCTagButtonDefaultW - CCTagButtonDefaultH - 10, self.nextFrame.size.height);
+    tagTextField.frame = CGRectMake(CGRectGetMaxX(tagButton.frame) + CCTagButtonMarginMin, tagButton.CC_y, self.CC_width - CCTagButtonDefaultW - CCTagButtonDefaultH - 10, tagButton.CC_height);
     [self.tagTextFields addObject:tagTextField];
-    [self addSubview:tagTextField];
+    [self.scrollView addSubview:tagTextField];
     [tagTextField becomeFirstResponder];
 
     //添加删除按钮
     UIButton *deleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    deleteButton.frame = CGRectMake(self.CC_width - CCTagButtonDefaultH, self.nextFrame.origin.y, CCTagButtonDefaultH, CCTagButtonDefaultH);
+    deleteButton.frame = CGRectMake(self.CC_width - CCTagButtonDefaultH, tagTextField.CC_y, CCTagButtonDefaultH, CCTagButtonDefaultH);
 //    deleteButton.backgroundColor = [UIColor brownColor];
     [deleteButton setImage:[UIImage imageNamed:@"delete_button_white"] forState:UIControlStateNormal];
     deleteButton.adjustsImageWhenHighlighted = NO;
     deleteButton.contentEdgeInsets = UIEdgeInsetsMake(7, 7, 7, 7);
     [self.deleteButtons addObject:deleteButton];
     [deleteButton addTarget:self action:@selector(deleteButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:deleteButton];
+    [self.scrollView addSubview:deleteButton];
     
 }
 
 
 - (void)deleteButtonClick:(UIButton *)button {
+    
+    
+    
     NSInteger index = [self.deleteButtons indexOfObject:button];
     CCNewCardTagButton *tagButton = self.selectedTagButtons[index];
     [self.selectedTagButtons removeObject:tagButton];
@@ -211,16 +250,29 @@
     [self.deleteButtons removeObject:button];
     //移除对应的备注item
     [self.remarkItems removeObjectAtIndex:index];
-    
-    [UIView animateWithDuration:0.3 animations:^{
-        [self arrangeTagButtons];
-        [self arrangeTextFields];
+    [self notifyDelegate];
+
+    [UIView animateWithDuration:0.2 animations:^{
+        tagButton.transform = CGAffineTransformMakeScale(0.1, 0.1);
+        //设置scrollView的滚动范围
+        self.scrollView.contentSize = CGSizeMake(self.scrollView.CC_width, self.selectedTagButtons.count * CCRemarkItemLineH);
     } completion:^(BOOL finished) {
-        [self adjustHeight];
+        [tagButton removeFromSuperview];
+        tagButton.transform = CGAffineTransformIdentity;
+        tagButton.frame = CGRectZero;
+        [self.titleView addSubview:tagButton];
+        [UIView animateWithDuration:0.2 animations:^{
+            [self arrangeTagButtons];
+            [self arrangeTextFields];
+        }];
     }];
+    
+
 }
 
 #pragma mark - 排列剩下的tagButton
+
+static CGFloat tagButtonMaxW = 0;
 
 - (void)arrangeTagButtons {
     
@@ -235,9 +287,12 @@
         if (count >= 3) {//个数大于三时，间距不变
             buttonW = (self.CC_width - buttonMargin * (count + 1)) / count;
             buttonX = i * (buttonW) + buttonMargin * (i + 1);
+            if (count == 3) {
+                tagButtonMaxW = buttonW;
+            }
         } else {//个数小于三时，button不再缩小
             CGFloat newMargin = (self.CC_width - count * tagButton.CC_width) / (count + 1);
-            buttonW = tagButton.CC_width;
+            buttonW = tagButtonMaxW;
             buttonX = newMargin + (buttonW + newMargin) * i;
         }
         tagButton.frame = CGRectMake(buttonX, 0, buttonW, buttonH);
@@ -250,33 +305,12 @@
         UITextField *tagTextFields = self.tagTextFields[i];
         UIButton *deleteButton = self.deleteButtons[i];
         CCNewCardTagButton *tagButton = self.selectedTagButtons[i];
-        tagTextFields.CC_y = CCRemarkItemLineH * (i + 1);
+        tagTextFields.CC_y = CCRemarkItemLineH * i;
         deleteButton.CC_y = tagTextFields.CC_y;
         tagButton.CC_y = tagTextFields.CC_y;
     };
 }
 
-#pragma mark - view自适应大小
-- (void)adjustHeight {
-    //containerView自适应大小
-    if (self.selectedTagButtons.count > 0) {
-        self.CC_height = CGRectGetMaxY([[self.selectedTagButtons lastObject] frame]);
-    } else {
-        self.CC_height = CCTagButtonDefaultH;
-    }
-    //输入框被键盘遮住时 将cover上移以显示输入的内容
-    CGFloat difference = 0;
-    if (CGRectGetMaxY(self.frame) > ScreenH - self.keyBoardRect.size.height) {
-        difference = CGRectGetMaxY(self.frame) - (ScreenH - self.keyBoardRect.size.height);
-    } else {
-        difference = 0;
-    }
-    self.superview.CC_height = ScreenH + difference > self.superview.CC_height ? ScreenH + difference : self.superview.CC_height;
-    [UIView animateWithDuration:0.2 animations:^{
-        self.superview.CC_y = -difference;
-    }];
-
-}
 
 #pragma mark - UITextFieldDelegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
@@ -287,10 +321,28 @@
     return YES;
 }
 
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    CGFloat editingMaxY = CGRectGetMaxY(textField.frame) + self.frame.origin.y - self.scrollView.contentOffset.y;
+    CGFloat difference = editingMaxY > (ScreenH - self.keyBoardRect.size.height) ? editingMaxY - (ScreenH - self.keyBoardRect.size.height) : 0;
+    CGPoint offset = self.scrollView.contentOffset;
+    offset.y -= difference;
+    self.scrollView.contentOffset = offset;
+    
+}
+
 - (void)textChage:(UITextField *)textField {
     NSInteger index = [self.tagTextFields indexOfObject:textField];
     CCRemarkItem *item = self.remarkItems[index];
     item.text = textField.text;
+
+    [self notifyDelegate];
+}
+
+
+- (void)notifyDelegate {
+    [self.CCDelegate CCNewCardTagContainerView:self didChangeRemarkItems:self.remarkItems];
+
 }
 
 @end

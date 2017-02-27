@@ -40,7 +40,7 @@ typedef enum {
 
 
 //使用字典快速创建模型对象
-+ (instancetype)taskCardItemWithTitle:(NSString *)title content:(NSString *)content date:(NSDate *)date alertType:(TaskCardAlertType)alertType;
++ (instancetype)taskCardItemWithTitle:(NSString *)title date:(NSDate *)date alertType:(TaskCardAlertType)alertType isDone:(BOOL)isDone remarkItems:(NSMutableArray *)remarkItems;
 
 + (instancetype)taskCardItemWithDict:(NSDictionary *)dict;
 

@@ -8,6 +8,8 @@
 
 #import "CCNewCardTagButton.h"
 
-@interface CCTagButton : CCNewCardTagButton
+@interface CCTagButton : UIButton
+
+@property (nonatomic, strong) NSString *title;
 
 @end

@@ -512,7 +512,7 @@ static NSString *headerViewId = @"headerView";
 
     NSArray *cardGroup = self.taskCardItems[indexPath.section];
     CCTaskCardItem *item = cardGroup[indexPath.row];
-    cell.dateTF.hidden = YES;
+//    cell.dateTF.hidden = YES;
     cell.taskCardItem = item;
     
     return cell;

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface CCNewCardTagButton : UIButton
 
 @property (nonatomic, strong) NSString *title;

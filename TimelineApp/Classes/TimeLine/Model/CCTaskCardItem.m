@@ -8,6 +8,8 @@
 
 #import "CCTaskCardItem.h"
 
+#define CCTaskCardMinHeight 70
+
 @implementation CCTaskCardItem
 
 //添加模型
@@ -28,13 +30,14 @@
     return item;
 }
 
-+ (instancetype)taskCardItemWithTitle:(NSString *)title content:(NSString *)content date:(NSDate *)date alertType:(TaskCardAlertType)alertType {
+
++ (instancetype)taskCardItemWithTitle:(NSString *)title date:(NSDate *)date alertType:(TaskCardAlertType)alertType isDone:(BOOL)isDone remarkItems:(NSMutableArray *)remarkItems {
     CCTaskCardItem *item = [[CCTaskCardItem alloc] init];
     item.cardTitle = title;
-    item.cardContent = content;
     item.cardDate = date;
     item.taskCardAlertType = alertType;
-    
+    item.done = isDone;
+    item.remarkItems = remarkItems;
     return item;
 }
 
@@ -58,11 +61,9 @@
  根据模型计算cell高度
  */
 - (CGFloat)height {
-//    NSString *contentString = self.cardContent;
-//    CGSize textSize = [contentString boundingRectWithSize:CGSizeMake(CCTaskCardContentW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont fontWithName:@"PingFangSC-Regular" size:12]} context:nil].size;
+
     NSInteger remarkCount = self.remarkItems.count;
-    
-    return (remarkCount * 15) + 50;
+    return (remarkCount * 15) + 50 > CCTaskCardMinHeight ? (remarkCount * 15) + 50 : CCTaskCardMinHeight;
 }
 
 

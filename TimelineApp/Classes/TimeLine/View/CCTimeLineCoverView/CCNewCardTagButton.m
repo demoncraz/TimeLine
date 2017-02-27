@@ -7,6 +7,8 @@
 //
 
 #import "CCNewCardTagButton.h"
+#import "Masonry.h"
+#define CCTagButtonRightMargin 3
 
 @implementation CCNewCardTagButton
 
@@ -14,35 +16,38 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor whiteColor];
         
         self.layer.cornerRadius = 3;
         self.layer.masksToBounds = YES;
-        self.layer.borderColor = CCDefaultGreyClor.CGColor;
+        self.layer.borderColor = [UIColor whiteColor].CGColor;
         self.layer.borderWidth = 0.5;
+        
+        self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        
+        [self addTarget:self action:@selector(tagButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-//    self.imageView.CC_height = 15;
-//    self.imageView.CC_width = 15;
-//    self.imageView.CC_centerY = self.titleLabel.CC_centerY;
-    self.titleLabel.CC_x = CGRectGetMaxX(self.imageView.frame) + 2;
+    self.imageView.CC_width = 14;
+    self.imageView.CC_height = 15;
+    self.imageView.CC_centerY = self.titleLabel.CC_centerY;
+    
+    self.titleLabel.CC_x  = CGRectGetMaxX(self.imageView.frame) + 3;
 
 }
 
 - (void)setTitle:(NSString *)title {
-    _title = title;
+//    [super setTitle:title];
     [self setTitle:title forState:UIControlStateNormal];
     [self setTitle:title forState:UIControlStateSelected];
-    [self setTitleColor:CCDefaultGreyClor forState:UIControlStateNormal];
+    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-    NSString *imageName = [self getImageNameWithTitle:title];
-    NSString *selectedImageName = [self getSelectedImageNameWithTitle:title];
+    NSString *imageName = [NSString stringWithFormat:@"remark_%@_white", title];
     [self setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-    [self setImage:[UIImage imageNamed:selectedImageName] forState:UIControlStateSelected];
+    [self setImage:[UIImage imageNamed:imageName] forState:UIControlStateSelected];
     self.titleLabel.font = [UIFont systemFontOfSize:14];
 }
 
@@ -51,18 +56,9 @@
     //取消高亮
 }
 
-/**
- 根据title返回tag图片名
- 
- @param title tag标题
- @return 图片名
- */
-- (NSString *)getImageNameWithTitle:(NSString *)title {
-    return [NSString stringWithFormat:@"remark_%@", title];
-}
 
-- (NSString *)getSelectedImageNameWithTitle:(NSString *)title {
-    return [NSString stringWithFormat:@"remark_%@_white", title];
+- (void)tagButtonClick:(UIButton *)button {
+    button.selected = !button.selected;
 }
 
 @end

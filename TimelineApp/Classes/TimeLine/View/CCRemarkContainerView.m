@@ -9,7 +9,7 @@
 #import "CCRemarkContainerView.h"
 #import "Masonry.h"
 
-#define RemarkItemHeight 10
+#define RemarkItemHeight 15
 
 @implementation CCRemarkContainerView
 
@@ -18,6 +18,8 @@
 - (void)setRemarkItems:(NSArray *)remarkItems {
     
     _remarkItems = remarkItems;
+    self.CC_height = RemarkItemHeight * remarkItems.count;
+    
     
     for (UIView *subView in self.subviews) {
         [subView removeFromSuperview];
@@ -25,12 +27,13 @@
     
     for (NSInteger i = 0; i < remarkItems.count; i++) {
         CCRemarkItem *item = remarkItems[i];
-        CGFloat y = (RemarkItemHeight + 5) * i;
+        CGFloat y = RemarkItemHeight * i;
         
         UIView *remarkView = [[UIView alloc] init];
-        remarkView.frame = CGRectMake(0, y, 200, RemarkItemHeight);
+        remarkView.frame = CGRectMake(0, y, 250, RemarkItemHeight);
         //tagImage
         UIImageView *tagImageView = [[UIImageView alloc] init];
+        tagImageView.contentMode = UIViewContentModeScaleAspectFit;
         tagImageView.image = [UIImage imageNamed:item.imageName];
         [remarkView addSubview:tagImageView];
         
@@ -53,8 +56,9 @@
             make.right.equalTo(remarkView.mas_right);
         }];
         [self addSubview:remarkView];
+        
     }
-    
+
 }
 
 
