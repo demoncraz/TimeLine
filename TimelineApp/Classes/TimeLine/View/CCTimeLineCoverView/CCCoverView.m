@@ -66,7 +66,9 @@
         self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
 
         self.alpha = 0;
+        //创建新卡片
         [self showNewCard];
+        //创建标签View
         [self showTagView];
         
     }
@@ -193,5 +195,7 @@
 - (void)CCCardContentView:(CCCardContentView *)cardContentView didChangeDate:(NSDate *)date {
     self.newCardItem.cardDate = date;
 }
+
+
 
 @end

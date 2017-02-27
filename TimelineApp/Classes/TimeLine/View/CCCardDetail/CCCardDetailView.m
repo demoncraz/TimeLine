@@ -9,16 +9,21 @@
 #import "CCCardDetailView.h"
 #import "NSDate+Date.h"
 #import "CCDateTool.h"
+#import "CCRemarkContainerView.h"
+
+#define RemarkItemHeight 15
 
 @interface CCCardDetailView ()
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *checkboxButton;
 
+@property (nonatomic, weak) IBOutlet CCRemarkContainerView *remarkView;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *remarkViewHeightCons;
 
 @end
 
@@ -27,7 +32,10 @@
 - (void)setItem:(CCTaskCardItem *)item {
     _item = item;
     self.titleLabel.text = item.cardTitle;
-    self.contentLabel.text = item.cardContent;
+    self.remarkView.remarkItems = item.remarkItems;
+    //重新设置remarkView的高度
+    self.remarkViewHeightCons.constant = item.remarkItems.count * RemarkItemHeight;
+//    [self layoutIfNeeded];
     
     if ([CCDateTool isSameDay:item.cardDate anotherDay:[NSDate date]]) {//是今天
         self.timeLabel.text = [NSString stringWithFormat:@"今天 %ld:%ld", item.cardDate.hour, item.cardDate.minute];
@@ -60,6 +68,13 @@
     //设置昵称
     NSString *nameString = [[NSUserDefaults standardUserDefaults] objectForKey:@"nickname"];
     self.nameLabel.text = nameString ? nameString : @"未设置";
+    
+    //监听通知
+    [CCNotificationCenter addObserver:self selector:@selector(remarkChange:) name:CCRemarkDidChangeNotification object:nil];
+}
+
+- (void)dealloc {
+    [CCNotificationCenter removeObserver:self];
 }
 
 - (void)layoutSubviews {
@@ -76,6 +91,13 @@
     if (self.checkboxButton.selected) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:CCConfirmNotShowUDKey];
     }
+}
+
+#pragma mark - 监听新增备注通知的方法
+- (void)remarkChange:(NSNotification *)notification {
+    CCTaskCardItem *item = notification.object;
+    self.item = item;
+    
 }
 
 

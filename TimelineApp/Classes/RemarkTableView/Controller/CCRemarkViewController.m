@@ -33,8 +33,6 @@ static NSString * const remarkCellId = @"remarkCellId";
 
 @property (nonatomic, strong) NSMutableDictionary *changedTextArr;
 
-@property (nonatomic, strong) NSMutableArray *moveIndexTemps;
-
 @property (nonatomic, strong) NSMutableArray *changedIndexPathes;
 
 @end
@@ -62,12 +60,6 @@ static NSString * const remarkCellId = @"remarkCellId";
     return _changedIndexPathes;
 }
 
-- (NSMutableArray *)moveIndexTemps {
-    if (_moveIndexTemps == nil) {
-        _moveIndexTemps = [NSMutableArray array];
-    }
-    return _moveIndexTemps;
-}
 
 - (NSMutableDictionary *)changedTextArr {
     if (_changedTextArr == nil) {
@@ -164,10 +156,7 @@ static NSString * const remarkCellId = @"remarkCellId";
     [self.tableView setEditing:!button.selected animated:YES];
     //清除编辑缓存
     [self.changedTextArr removeAllObjects];
-    //清除交换位置信息缓存
-    if (self.moveIndexTemps.count > 0) {
-        [self.moveIndexTemps removeAllObjects];
-    }
+
     if (button.selected) {//取消了编辑，复原；
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -183,7 +172,7 @@ static NSString * const remarkCellId = @"remarkCellId";
 
 }
 
-
+#pragma mark - 按钮点击
 - (void)addButtonClick:(UIButton *)button {
     if (button.selected) {//选中状态，点击保存变更并退出编辑模式
         //更新模型数据
@@ -200,24 +189,9 @@ static NSString * const remarkCellId = @"remarkCellId";
                 [self.changedIndexPathes addObject:indexPath];
             }];
         }
-        //交换模型位置
-        NSMutableDictionary *indexTemps = [NSMutableDictionary dictionary];//用来记录交换过位置的所有cell的index
-        for (CCMoveIndexTemp *temp in self.moveIndexTemps) {
-            [self.item.remarkItems exchangeObjectAtIndex:temp.sourceIndex withObjectAtIndex:temp.destinationIndex];
-            [indexTemps setObject:@"" forKey:[NSString stringWithFormat:@"%ld",temp.sourceIndex]];
-            [indexTemps setObject:@"" forKey:[NSString stringWithFormat:@"%ld",temp.destinationIndex]];
-        }
-        
-        [indexTemps enumerateKeysAndObjectsUsingBlock:^(NSString *key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[key integerValue] inSection:0];
-            [self.changedIndexPathes addObject:indexPath];
-        }];
         
         //通知首页时间轴更新
         [CCNotificationCenter postNotificationName:CCRemarkDidChangeNotification object:self.item];
-        
-        //完成后清空缓存
-        [self.moveIndexTemps removeAllObjects];
         
         [self.tableView reloadRowsAtIndexPaths:self.changedIndexPathes withRowAnimation:UITableViewRowAnimationNone];
         
@@ -274,9 +248,8 @@ static NSString * const remarkCellId = @"remarkCellId";
 
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-    //先把交换位置的信息缓存下来，点击完成按钮后再保存
-    CCMoveIndexTemp *indexTemp = [CCMoveIndexTemp indexTempWithSourceIndex:sourceIndexPath.row destinationIndex:destinationIndexPath.row];
-    [self.moveIndexTemps addObject:indexTemp];
+    [self.item.remarkItems exchangeObjectAtIndex:sourceIndexPath.row withObjectAtIndex:destinationIndexPath.row];
+    [CCNotificationCenter postNotificationName:CCRemarkDidChangeNotification object:self.item];
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {

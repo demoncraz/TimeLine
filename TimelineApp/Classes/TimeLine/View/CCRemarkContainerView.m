@@ -18,6 +18,7 @@
 - (void)setRemarkItems:(NSArray *)remarkItems {
     
     _remarkItems = remarkItems;
+    
     self.CC_height = RemarkItemHeight * remarkItems.count;
     
     
