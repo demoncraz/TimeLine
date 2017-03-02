@@ -41,7 +41,7 @@
 
 - (CCTaskCardItem *)item {
     if (_item == nil) {
-        _item = [CCTaskCardItem taskCardItemWithTitle:@"" date:[NSDate date] alertType:0 isDone:NO remarkItems:[NSArray array]];
+        _item = [CCTaskCardItem taskCardItemWithTitle:@"" date:[NSDate date] alertType:0 isDone:NO remarkItems:[NSMutableArray array]];
     }
     return _item;
 }
@@ -50,7 +50,6 @@
 - (CCDatePicker *)datePicker {
     if (_datePicker == nil) {
         _datePicker = [[CCDatePicker alloc] init];
-        
         self.datePicker.delegate = self;
         _datePicker.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height - 260, [UIScreen mainScreen].bounds.size.width, 260);
         
@@ -309,6 +308,18 @@
     self.dateTF.hidden = !allowEditing;
 }
 
+#pragma mark - 设置第一响应者
+- (void)setFirstResponder:(CCCardFirstResponder)firstResponder {
+    switch (firstResponder) {
+        case CCCardFirstResponderTitle:
+            [self.titleTF becomeFirstResponder];
+            break;
+        case CCCardFirstResponderDatePicker:
+            [self.timeTF becomeFirstResponder];
+            break;
+    }
+}
+
 #pragma mark - CCDatePickerDelegate
 - (void)didDismissDatePicker:(CCDatePicker *)datePicker {
     [self.timeTF endEditing:YES];
@@ -325,10 +336,6 @@
     [formatter setDateFormat:@"M月d日"];
     NSString *dateString = [formatter stringFromDate:date];
     
-    
-    
-//    self.selectedDate = date;
-    
     self.timeTF.text = timeString;
     self.dateTF.text = dateString;
     
@@ -336,8 +343,11 @@
 }
 
 - (void)datePicker:(CCDatePicker *)datePicker didConfirmDate:(NSDate *)date {
-    [self.timeTF endEditing:YES];
     [self.dateTF endEditing:YES];
+    [self.timeTF endEditing:YES];
+    if (self.titleTF.text.length == 0) {
+        [self.titleTF becomeFirstResponder];
+    }
     
 }
 

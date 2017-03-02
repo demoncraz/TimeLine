@@ -11,6 +11,11 @@
 #import "CCRemarkContainerView.h"
 @class CCCardContentView;
 
+typedef NS_ENUM(NSInteger, CCCardFirstResponder) {
+    CCCardFirstResponderTitle,
+    CCCardFirstResponderDatePicker
+};
+
 @protocol CCCardContentViewDelegate <NSObject>
 
 - (void)CCCardContentView:(CCCardContentView *)cardContentView didChangeTitle:(NSString *)title;
@@ -33,6 +38,7 @@
 
 - (void)setDataWithTaskCardItem:(CCTaskCardItem *)item;
 
+- (void)setFirstResponder:(CCCardFirstResponder)firstResponder;
 
 
 @end

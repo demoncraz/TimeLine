@@ -91,9 +91,10 @@
 		3DF7FD2A1E64190E00AA0D13 /* CCCardDetailDoneButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD291E64190E00AA0D13 /* CCCardDetailDoneButton.m */; };
 		3DF7FD2D1E641B9D00AA0D13 /* CCCardRecoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD2C1E641B9D00AA0D13 /* CCCardRecoverView.m */; };
 		3DF7FD2F1E641BAE00AA0D13 /* CCCardRecoverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF7FD2E1E641BAE00AA0D13 /* CCCardRecoverView.xib */; };
-		3DF7FD381E64411200AA0D13 /* CCTaskCardItemGroups.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD371E64411200AA0D13 /* CCTaskCardItemGroups.m */; };
 		3DF7FD3B1E64415B00AA0D13 /* CCTaskCardDayGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD3A1E64415B00AA0D13 /* CCTaskCardDayGroup.m */; };
 		3DF7FD3E1E646A1200AA0D13 /* CCCalenderItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD3D1E646A1200AA0D13 /* CCCalenderItemButton.m */; };
+		3DF7FD431E651AFE00AA0D13 /* CCBackTodayButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD421E651AFE00AA0D13 /* CCBackTodayButton.m */; };
+		3DF7FD451E66C50400AA0D13 /* TaskCardItems_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DF7FD441E66C50400AA0D13 /* TaskCardItems_2.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -257,12 +258,13 @@
 		3DF7FD2B1E641B9D00AA0D13 /* CCCardRecoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCardRecoverView.h; sourceTree = "<group>"; };
 		3DF7FD2C1E641B9D00AA0D13 /* CCCardRecoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCardRecoverView.m; sourceTree = "<group>"; };
 		3DF7FD2E1E641BAE00AA0D13 /* CCCardRecoverView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCCardRecoverView.xib; sourceTree = "<group>"; };
-		3DF7FD361E64411200AA0D13 /* CCTaskCardItemGroups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTaskCardItemGroups.h; sourceTree = "<group>"; };
-		3DF7FD371E64411200AA0D13 /* CCTaskCardItemGroups.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTaskCardItemGroups.m; sourceTree = "<group>"; };
 		3DF7FD391E64415B00AA0D13 /* CCTaskCardDayGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTaskCardDayGroup.h; sourceTree = "<group>"; };
 		3DF7FD3A1E64415B00AA0D13 /* CCTaskCardDayGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTaskCardDayGroup.m; sourceTree = "<group>"; };
 		3DF7FD3C1E646A1200AA0D13 /* CCCalenderItemButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCalenderItemButton.h; sourceTree = "<group>"; };
 		3DF7FD3D1E646A1200AA0D13 /* CCCalenderItemButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCalenderItemButton.m; sourceTree = "<group>"; };
+		3DF7FD411E651AFE00AA0D13 /* CCBackTodayButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBackTodayButton.h; sourceTree = "<group>"; };
+		3DF7FD421E651AFE00AA0D13 /* CCBackTodayButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBackTodayButton.m; sourceTree = "<group>"; };
+		3DF7FD441E66C50400AA0D13 /* TaskCardItems_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TaskCardItems_2.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,6 +388,7 @@
 				3D0793DB1E487011000D7DC2 /* Reveal.framework */,
 				3D6C9A891E437A0B00C2BABE /* TaskCardItems.plist */,
 				3D6C9A9A1E45B2BE00C2BABE /* CCGlobalMacro.pch */,
+				3DF7FD441E66C50400AA0D13 /* TaskCardItems_2.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -480,8 +483,6 @@
 			children = (
 				3D6C9A861E4374BE00C2BABE /* CCTaskCardItem.h */,
 				3D6C9A871E4374BE00C2BABE /* CCTaskCardItem.m */,
-				3DF7FD361E64411200AA0D13 /* CCTaskCardItemGroups.h */,
-				3DF7FD371E64411200AA0D13 /* CCTaskCardItemGroups.m */,
 				3DF7FD391E64415B00AA0D13 /* CCTaskCardDayGroup.h */,
 				3DF7FD3A1E64415B00AA0D13 /* CCTaskCardDayGroup.m */,
 			);
@@ -641,6 +642,8 @@
 		3DF7FCAF1E5DE26600AA0D13 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3DF7FD411E651AFE00AA0D13 /* CCBackTodayButton.h */,
+				3DF7FD421E651AFE00AA0D13 /* CCBackTodayButton.m */,
 				3DF7FD1B1E6078CF00AA0D13 /* CCTimeLineCoverView */,
 				3DF7FCB01E5DE26600AA0D13 /* CCCardDetail */,
 				3DF7FCDA1E5DE2D100AA0D13 /* CCContentTableView.h */,
@@ -818,6 +821,7 @@
 				3D6C9A2B1E3C91DC00C2BABE /* TimeLineViewController.xib in Resources */,
 				3DF7FD061E5ECD2F00AA0D13 /* CCRemarkTableViewCell.xib in Resources */,
 				3D6C9B2B1E45FF9900C2BABE /* Info.plist in Resources */,
+				3DF7FD451E66C50400AA0D13 /* TaskCardItems_2.plist in Resources */,
 				3D4BF1F01E53E205007B0F59 /* CCCalenderItemButton.xib in Resources */,
 				3D6C9A8A1E437A0B00C2BABE /* TaskCardItems.plist in Resources */,
 				3DF7FD2F1E641BAE00AA0D13 /* CCCardRecoverView.xib in Resources */,
@@ -841,7 +845,6 @@
 			files = (
 				3DF7FD2A1E64190E00AA0D13 /* CCCardDetailDoneButton.m in Sources */,
 				3D4BF1EC1E53E205007B0F59 /* NSDate+Date.m in Sources */,
-				3DF7FD381E64411200AA0D13 /* CCTaskCardItemGroups.m in Sources */,
 				3DF7FCFE1E5E7D0000AA0D13 /* CCRemarkNavigationController.m in Sources */,
 				3DF7FD241E6081A000AA0D13 /* CCNewCardTagButton.m in Sources */,
 				3D6C9B3B1E45FFB300C2BABE /* AppDelegate.m in Sources */,
@@ -901,6 +904,7 @@
 				3D6C9B571E46000A00C2BABE /* MJProperty.m in Sources */,
 				3D6C9B2A1E45FF9900C2BABE /* GetCurrentTime.m in Sources */,
 				3D6C9B351E45FF9900C2BABE /* ViewController+MASAdditions.m in Sources */,
+				3DF7FD431E651AFE00AA0D13 /* CCBackTodayButton.m in Sources */,
 				3D6C9B2E1E45FF9900C2BABE /* MASConstraintMaker.m in Sources */,
 				3DF7FD1E1E6078CF00AA0D13 /* CCCoverView.m in Sources */,
 				3D6C9B2D1E45FF9900C2BABE /* MASConstraint.m in Sources */,

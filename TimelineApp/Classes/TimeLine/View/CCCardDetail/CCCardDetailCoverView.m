@@ -113,8 +113,9 @@
 
 - (void)recoverConfirmClick {//确认
     //将卡片回复成未完成状态
+    CCTaskCardItem *item = self.cardDetailView.item;
     self.item.done = NO;
-    [CCNotificationCenter postNotificationName:CCRemarkDidChangeNotification object:self.item];
+    [self.delegate CCCardDetailCoverView:self didChangeCompletion:NO withTaskItem:item];
     //退出
     [self dismissView];
 }
@@ -176,7 +177,7 @@
 - (void)confirmCompletion {
     CCTaskCardItem *item = self.cardDetailView.item;
     item.done = YES;
-    [self.delegate CCCardDetailCoverView:self didCompleteTaskItem:item];
+    [self.delegate CCCardDetailCoverView:self didChangeCompletion:YES withTaskItem:item];
     [self dismissView];
 }
 

@@ -27,9 +27,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *chineseDateLabel;
 
-@property (weak, nonatomic) IBOutlet UIView *bgView;
 
-@property (weak, nonatomic) IBOutlet UIView *dotView;
 
 @property (nonatomic, weak) CCCalenderItemButton *itemButton;
 
@@ -62,24 +60,13 @@
     return self;
 }
 
-- (void)itemButtonClick:(UIButton *)button {
+- (void)itemButtonClick:(CCCalenderItemButton *)button {
     [CCNotificationCenter postNotificationName:CCCalendarItemDidSelectNotification object:button];
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.itemButton.frame = self.contentView.bounds;
-}
-
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    //设置底部圆点为⭕️形
-    self.dotView.layer.cornerRadius = self.dotView.bounds.size.width * 0.5;
-    //设置背景色图为原型
-    self.bgView.layer.cornerRadius = self.bgView.bounds.size.width * 0.5;
-    self.bgView.layer.masksToBounds = YES;
-    
 }
 
 - (void)setItemDate:(NSDate *)itemDate {
@@ -92,9 +79,9 @@
 - (void)setShouldShowDot:(BOOL)shouldShowDot {
     _shouldShowDot = shouldShowDot;
     if (shouldShowDot) {
-        self.dotView.hidden = NO;
+        self.itemButton.dotView.hidden = NO;
     } else {
-        self.dotView.hidden = YES;
+        self.itemButton.dotView.hidden = YES;
     }
 }
 
@@ -104,16 +91,16 @@
  @param item 模型
  */
 - (void)showDotWithDotItem:(CCDotItem *)item {
-    self.dotView.hidden = NO;
+    self.itemButton.dotView.hidden = NO;
     switch (item.dotStyle) {
         case CCDotStyleImportant:
-            self.dotView.backgroundColor = CCDotColorImportant;
+            self.itemButton.dotView.backgroundColor = CCDotColorImportant;
             break;
         case CCDotStyleNormal:
-            self.dotView.backgroundColor = CCDotColorNormal;
+            self.itemButton.dotView.backgroundColor = CCDotColorNormal;
             break;
         default:
-            self.dotView.backgroundColor = [UIColor clearColor];
+            self.itemButton.dotView.backgroundColor = [UIColor clearColor];
             break;
     }
 }

@@ -112,9 +112,16 @@
         make.right.equalTo(cardView.mas_right).offset(-10);
         make.width.height.equalTo(@20);
     }];
-//     //开场动画效果
-
-//    contentView.transform = CGAffineTransformMakeTranslation(0, -60);
+    
+    //开始编辑
+    [cardView setFirstResponder:CCCardFirstResponderDatePicker];
+    
+     //开场动画效果
+    cardView.transform = CGAffineTransformMakeTranslation(0, -60);
+    [UIView animateWithDuration:0.3 animations:^{
+        cardView.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+    }];
 
 
 }

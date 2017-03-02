@@ -40,8 +40,8 @@
     //获取当前日期
     
     [self updateDate];
-    
-    self.titleLabel.font = [UIFont systemFontOfSize:14];
+    self.titleLabel.font = [UIFont systemFontOfSize:16];
+    [self setImage:[UIImage imageNamed:@"tintArrow"] forState:UIControlStateNormal];
     [self.titleLabel sizeToFit];
     
 }
@@ -57,8 +57,8 @@
 
 -(void)layoutSubviews {
     [super layoutSubviews];
-    self.imageEdgeInsets = UIEdgeInsetsMake(0, self.titleLabel.bounds.size.width + 5, 0, -self.titleLabel.bounds.size.width - 5);
-    self.titleEdgeInsets = UIEdgeInsetsMake(0, -self.imageView.bounds.size.width, 0, self.imageView.bounds.size.width);
+    self.titleLabel.CC_x = 0;
+    self.imageView.CC_x =  CGRectGetMaxX(self.titleLabel.frame) + 5;
 }
 
 
@@ -71,4 +71,11 @@
     }];
 }
 
+- (void)setHighlighted:(BOOL)highlighted {
+    
+}
+
+- (void)setSelected:(BOOL)selected {
+    
+}
 @end

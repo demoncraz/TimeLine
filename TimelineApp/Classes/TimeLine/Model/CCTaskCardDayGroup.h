@@ -10,22 +10,18 @@
 #import "CCTaskCardItem.h"
 #import "CCDateTool.h"
 
+#import "MJExtension.h"
+
 @interface CCTaskCardDayGroup : NSObject
+
+@property (nonatomic, strong) NSMutableArray<CCTaskCardItem *> *items;
 
 @property (nonatomic, strong) NSDate *date;
 
-@property (nonatomic, assign) NSInteger count;
-
 + (instancetype)dayGroupWithDate:(NSDate *)date;
 
-- (void)addItem:(CCTaskCardItem *)item;
 
-- (void)removeItem:(CCTaskCardItem *)item;
 
-- (CCTaskCardItem *)itemAtIndex:(NSInteger)index;
 
-- (BOOL)hasItem:(CCTaskCardItem *)item;
-
-- (NSInteger)rowIndexForItem:(CCTaskCardItem *)item;
 
 @end

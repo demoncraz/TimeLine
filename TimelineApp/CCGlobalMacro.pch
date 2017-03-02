@@ -22,6 +22,7 @@
 #define CCRemarkViewControllerWillDismissNotification @"CCRemarkViewControllerWillDismissNotification"
 #define CCRemarkDidChangeNotification @"CCRemarkDidChangeNotification"
 #define CCCalendarItemDidSelectNotification @"CCCalendarItemDidSelectNotification"
+#define CCBackToTodayButtonClickNotification @"CCBackToTodayButtonClickNotification"
 
 #define CCNotificationCenter [NSNotificationCenter defaultCenter]
 /*******************通知宏**********************/

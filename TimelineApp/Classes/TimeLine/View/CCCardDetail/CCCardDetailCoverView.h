@@ -12,7 +12,7 @@
 
 @protocol CCCardDetailCoverViewDelegate <NSObject>
 
-- (void)CCCardDetailCoverView:(CCCardDetailCoverView *)coverView didCompleteTaskItem:(CCTaskCardItem *)item;
+- (void)CCCardDetailCoverView:(CCCardDetailCoverView *)coverView didChangeCompletion:(BOOL)isCompleted withTaskItem:(CCTaskCardItem *)item;
 
 @end
 

@@ -20,7 +20,6 @@
 
 @interface CCCalenderItemButton ()
 
-@property (weak, nonatomic) IBOutlet UIView *dotView;
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UILabel *normalDay;
 @property (weak, nonatomic) IBOutlet UILabel *chineseDay;
@@ -38,7 +37,10 @@
     [super awakeFromNib];
     self.bgView.layer.cornerRadius = self.bgView.CC_width * 0.5;
     self.bgView.layer.masksToBounds = YES;
-
+    
+    self.dotView.layer.cornerRadius = self.dotView.CC_width * 0.5;
+    self.dotView.layer.masksToBounds = YES;
+    
 }
 
 

@@ -12,6 +12,9 @@
 
 @property (nonatomic, strong) NSDate *itemDate;
 
+@property (weak, nonatomic) IBOutlet UIView *dotView;
+
 + (instancetype)calendarItemButton;
+
 
 @end

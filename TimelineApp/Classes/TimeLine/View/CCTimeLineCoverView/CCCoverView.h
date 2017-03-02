@@ -17,16 +17,8 @@ typedef enum {
     CCCoverViewDismissOptionAddNew //新卡片添加完成
 } CCCoverViewDismissOption;
 
-@protocol CCCoverViewDelegate <NSObject>
-
-- (void)coverView:(CCCoverView *)coverView didChangeLineNumbers:(NSInteger)lineNumbers;
-
-@end
 
 @interface CCCoverView : UIView
-
-@property (nonatomic, strong) id<CCCoverViewDelegate> delegate;
-
 
 /**
  显示新建卡片
@@ -45,5 +37,6 @@ typedef enum {
  
  */
 - (void)dismissCoverViewWithOptions:(CCCoverViewDismissOption)option;
+
 
 @end

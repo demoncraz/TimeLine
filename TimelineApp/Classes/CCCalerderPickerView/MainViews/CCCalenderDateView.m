@@ -19,7 +19,9 @@
 #define CCDefaultSeparatorLineColor ColorWithRGB(220,220,227,1)
 
 
-@interface CCCalenderDateView ()<UICollectionViewDataSource>
+@interface CCCalenderDateView ()<UICollectionViewDataSource> {
+    NSMutableArray *_dotArr;
+}
 
 
 
@@ -39,9 +41,9 @@
 
 #pragma mark - lazy loading
 
-- (NSArray *)dotArr {
+- (NSMutableArray *)dotArr {
     if (_dotArr == nil) {
-        _dotArr = [NSArray array];
+        _dotArr = [NSMutableArray array];
     }
     return _dotArr;
 }
@@ -58,6 +60,12 @@
         _dateArr = [NSMutableArray array];
     }
     return _dateArr;
+    
+}
+
+- (void)setDotArr:(NSMutableArray<CCDotItem *> *)dotArr {
+    _dotArr = dotArr;
+    [self reloadData];
     
 }
 

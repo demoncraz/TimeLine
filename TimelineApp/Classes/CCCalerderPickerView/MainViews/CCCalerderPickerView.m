@@ -22,7 +22,7 @@
 #define CCDefaultSeparatorLineMargin 10
 #define CCDefaultSeparatorLineColor ColorWithRGB(220,220,227,1)
 
-#define CCDefaultShowAnomationDuration 0.3
+#define CCDefaultShowAnomationDuration 0.2
 
 static NSString * const cellId = @"cell";
 
@@ -48,6 +48,7 @@ static CCCalerderPickerView *sharedCalenderPickView;
 @property (nonatomic, strong) NSArray *dotArr;
 
 @property (nonatomic, assign) UIStatusBarStyle currentStatusBarStyle;
+
 
 /**
  记录上一次选中的按钮
@@ -127,7 +128,9 @@ static CCCalerderPickerView *pickerView;
     
     //监听日期点击的通知
     [CCNotificationCenter addObserver:self selector:@selector(dateSelected:) name:CCCalendarItemDidSelectNotification object:nil];
-    
+    //监听返回今天按钮的点击
+    [CCNotificationCenter addObserver:self selector:@selector(backToTodayButtonClick) name:CCBackToTodayButtonClickNotification object:nil];
+
 }
 
 - (void)dealloc {
@@ -329,8 +332,10 @@ static CCCalerderPickerView *pickerView;
 #pragma mark - 监听日期点击的通知
 
 - (void)dateSelected:(NSNotification *)notification {
-    self.lastSelectedButton.selected = NO;
     CCCalenderItemButton *dateButton = notification.object;
+    if (dateButton == self.lastSelectedButton) return;
+    
+    self.lastSelectedButton.selected = NO;
     dateButton.selected = YES;
     self.lastSelectedButton = dateButton;
     
@@ -339,6 +344,15 @@ static CCCalerderPickerView *pickerView;
     //关闭日历
     [self dismiss];
 }
+
+#pragma mark - 监听返回今天按钮的点击
+- (void)backToTodayButtonClick {
+    
+    self.lastSelectedButton.selected = NO;
+    self.lastSelectedButton = nil;
+
+}
+
 
 
 @end

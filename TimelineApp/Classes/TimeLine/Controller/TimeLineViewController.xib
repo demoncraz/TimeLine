@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimeLineViewController">
             <connections>
                 <outlet property="contentTableView" destination="rcc-ka-Aj2" id="fTO-iF-5fw"/>
+                <outlet property="titleImageView" destination="S1M-EA-OAM" id="ihX-jO-J3G"/>
                 <outlet property="titleMonthButton" destination="wjO-Jx-9x4" id="HFk-O8-ZsO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -42,13 +43,12 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjO-Jx-9x4" customClass="CCDateButton">
-                    <rect key="frame" x="116" y="32" width="142" height="20"/>
+                    <rect key="frame" x="119.5" y="32" width="135" height="20"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="135" id="dha-RF-OD5"/>
                         <constraint firstAttribute="height" constant="20" id="qSj-vM-GfD"/>
                     </constraints>
-                    <state key="normal" title="2017年12月13日" image="tintArrow"/>
-                    <state key="selected" image="tintArrow"/>
-                    <state key="highlighted" image="tintArrow"/>
+                    <state key="normal" title="2017年12月13日"/>
                     <connections>
                         <action selector="dateButtonClick:" destination="-1" eventType="touchUpInside" id="A6Q-1D-mHN"/>
                     </connections>
@@ -73,7 +73,6 @@
     </objects>
     <resources>
         <image name="notes_icon" width="15" height="17"/>
-        <image name="tintArrow" width="10" height="6"/>
         <image name="背景图" width="562" height="171"/>
     </resources>
 </document>
