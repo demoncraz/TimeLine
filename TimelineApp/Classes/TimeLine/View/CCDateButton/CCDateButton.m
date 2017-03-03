@@ -26,6 +26,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setupButton];
+        
     }
     return self;
 }
@@ -57,8 +58,12 @@
 
 -(void)layoutSubviews {
     [super layoutSubviews];
+    self.CC_height = 60;//扩大按钮点击范围
     self.titleLabel.CC_x = 0;
+    self.titleLabel.CC_y = 0;
     self.imageView.CC_x =  CGRectGetMaxX(self.titleLabel.frame) + 5;
+    self.imageView.CC_y = (self.titleLabel.CC_height - self.imageView.CC_height) * 0.5
+    ;
 }
 
 

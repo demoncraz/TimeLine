@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		3D07945A1E4B1449000D7DC2 /* NSObject+LocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0794591E4B1449000D7DC2 /* NSObject+LocalNotification.m */; };
-		3D07945F1E4B5C16000D7DC2 /* alert_sound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D07945E1E4B5C16000D7DC2 /* alert_sound.m4a */; };
+		3D4A08391E69A1A4005AE249 /* alert_sound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D4A08341E69A1A4005AE249 /* alert_sound.m4a */; };
+		3D4A083A1E69A1A4005AE249 /* crystal.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D4A08351E69A1A4005AE249 /* crystal.m4a */; };
+		3D4A083B1E69A1A4005AE249 /* knock.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D4A08361E69A1A4005AE249 /* knock.m4a */; };
+		3D4A083C1E69A1A4005AE249 /* mystic.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D4A08371E69A1A4005AE249 /* mystic.m4a */; };
+		3D4A083D1E69A1A4005AE249 /* piano.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D4A08381E69A1A4005AE249 /* piano.m4a */; };
 		3D4BF1EC1E53E205007B0F59 /* NSDate+Date.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF1DA1E53E205007B0F59 /* NSDate+Date.m */; };
 		3D4BF1ED1E53E205007B0F59 /* CCDateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF1DD1E53E205007B0F59 /* CCDateTool.m */; };
 		3D4BF1EE1E53E205007B0F59 /* CCCalenderDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF1E01E53E205007B0F59 /* CCCalenderDateView.m */; };
@@ -23,7 +27,6 @@
 		3D6C9A2A1E3C91DC00C2BABE /* TimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C9A1F1E3C91DC00C2BABE /* TimeLineViewController.m */; };
 		3D6C9A2B1E3C91DC00C2BABE /* TimeLineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D6C9A201E3C91DC00C2BABE /* TimeLineViewController.xib */; };
 		3D6C9A881E4374BE00C2BABE /* CCTaskCardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C9A871E4374BE00C2BABE /* CCTaskCardItem.m */; };
-		3D6C9A8A1E437A0B00C2BABE /* TaskCardItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D6C9A891E437A0B00C2BABE /* TaskCardItems.plist */; };
 		3D6C9B2A1E45FF9900C2BABE /* GetCurrentTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C9B0C1E45FF9900C2BABE /* GetCurrentTime.m */; };
 		3D6C9B2B1E45FF9900C2BABE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D6C9B0E1E45FF9900C2BABE /* Info.plist */; };
 		3D6C9B2C1E45FF9900C2BABE /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C9B101E45FF9900C2BABE /* MASCompositeConstraint.m */; };
@@ -94,18 +97,20 @@
 		3DF7FD3B1E64415B00AA0D13 /* CCTaskCardDayGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD3A1E64415B00AA0D13 /* CCTaskCardDayGroup.m */; };
 		3DF7FD3E1E646A1200AA0D13 /* CCCalenderItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD3D1E646A1200AA0D13 /* CCCalenderItemButton.m */; };
 		3DF7FD431E651AFE00AA0D13 /* CCBackTodayButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD421E651AFE00AA0D13 /* CCBackTodayButton.m */; };
-		3DF7FD451E66C50400AA0D13 /* TaskCardItems_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DF7FD441E66C50400AA0D13 /* TaskCardItems_2.plist */; };
 		3DF7FD4B1E6864ED00AA0D13 /* CCNotesCellMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD4A1E6864ED00AA0D13 /* CCNotesCellMenuView.m */; };
 		3DF7FD561E695A4900AA0D13 /* CCNotesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD541E695A4900AA0D13 /* CCNotesTableViewCell.m */; };
 		3DF7FD5A1E695F2300AA0D13 /* CCNotesCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD591E695F2300AA0D13 /* CCNotesCellScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3D0793DB1E487011000D7DC2 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		3D0793DE1E487069000D7DC2 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		3D0794581E4B1449000D7DC2 /* NSObject+LocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+LocalNotification.h"; path = "Masonry/NSObject+LocalNotification.h"; sourceTree = "<group>"; };
 		3D0794591E4B1449000D7DC2 /* NSObject+LocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+LocalNotification.m"; path = "Masonry/NSObject+LocalNotification.m"; sourceTree = "<group>"; };
-		3D07945E1E4B5C16000D7DC2 /* alert_sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = alert_sound.m4a; sourceTree = "<group>"; };
+		3D4A08341E69A1A4005AE249 /* alert_sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = alert_sound.m4a; sourceTree = "<group>"; };
+		3D4A08351E69A1A4005AE249 /* crystal.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = crystal.m4a; sourceTree = "<group>"; };
+		3D4A08361E69A1A4005AE249 /* knock.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = knock.m4a; sourceTree = "<group>"; };
+		3D4A08371E69A1A4005AE249 /* mystic.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = mystic.m4a; sourceTree = "<group>"; };
+		3D4A08381E69A1A4005AE249 /* piano.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = piano.m4a; sourceTree = "<group>"; };
 		3D4BF1D91E53E205007B0F59 /* NSDate+Date.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Date.h"; sourceTree = "<group>"; };
 		3D4BF1DA1E53E205007B0F59 /* NSDate+Date.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Date.m"; sourceTree = "<group>"; };
 		3D4BF1DC1E53E205007B0F59 /* CCDateTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDateTool.h; sourceTree = "<group>"; };
@@ -130,7 +135,6 @@
 		3D6C9A201E3C91DC00C2BABE /* TimeLineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeLineViewController.xib; sourceTree = "<group>"; };
 		3D6C9A861E4374BE00C2BABE /* CCTaskCardItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTaskCardItem.h; sourceTree = "<group>"; };
 		3D6C9A871E4374BE00C2BABE /* CCTaskCardItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTaskCardItem.m; sourceTree = "<group>"; };
-		3D6C9A891E437A0B00C2BABE /* TaskCardItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TaskCardItems.plist; sourceTree = "<group>"; };
 		3D6C9A9A1E45B2BE00C2BABE /* CCGlobalMacro.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCGlobalMacro.pch; sourceTree = "<group>"; };
 		3D6C9B0B1E45FF9900C2BABE /* GetCurrentTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCurrentTime.h; sourceTree = "<group>"; };
 		3D6C9B0C1E45FF9900C2BABE /* GetCurrentTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCurrentTime.m; sourceTree = "<group>"; };
@@ -189,12 +193,12 @@
 		3D6C9B531E46000A00C2BABE /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
 		3DF7FC161E54334800AA0D13 /* CCMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMeViewController.h; sourceTree = "<group>"; };
 		3DF7FC171E54334800AA0D13 /* CCMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMeViewController.m; sourceTree = "<group>"; };
-		3DF7FC201E544E9C00AA0D13 /* CCProfileViewContoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCProfileViewContoller.h; sourceTree = "<group>"; };
-		3DF7FC211E544E9C00AA0D13 /* CCProfileViewContoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCProfileViewContoller.m; sourceTree = "<group>"; };
-		3DF7FC2A1E54521200AA0D13 /* CCProfileViewContoller.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CCProfileViewContoller.storyboard; sourceTree = "<group>"; };
-		3DF7FC2C1E54576E00AA0D13 /* CCEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEditingViewController.h; sourceTree = "<group>"; };
-		3DF7FC2D1E54576E00AA0D13 /* CCEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCEditingViewController.m; sourceTree = "<group>"; };
-		3DF7FC2F1E54578500AA0D13 /* CCEditingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CCEditingViewController.storyboard; sourceTree = "<group>"; };
+		3DF7FC201E544E9C00AA0D13 /* CCProfileViewContoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCProfileViewContoller.h; path = ../View/CCProfileViewContoller.h; sourceTree = "<group>"; };
+		3DF7FC211E544E9C00AA0D13 /* CCProfileViewContoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCProfileViewContoller.m; path = ../View/CCProfileViewContoller.m; sourceTree = "<group>"; };
+		3DF7FC2A1E54521200AA0D13 /* CCProfileViewContoller.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CCProfileViewContoller.storyboard; path = ../View/CCProfileViewContoller.storyboard; sourceTree = "<group>"; };
+		3DF7FC2C1E54576E00AA0D13 /* CCEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCEditingViewController.h; path = ../View/CCEditingViewController.h; sourceTree = "<group>"; };
+		3DF7FC2D1E54576E00AA0D13 /* CCEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCEditingViewController.m; path = ../View/CCEditingViewController.m; sourceTree = "<group>"; };
+		3DF7FC2F1E54578500AA0D13 /* CCEditingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CCEditingViewController.storyboard; path = ../View/CCEditingViewController.storyboard; sourceTree = "<group>"; };
 		3DF7FC311E54607C00AA0D13 /* CCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCNavigationController.h; path = ../View/CCNavigationController.h; sourceTree = "<group>"; };
 		3DF7FC321E54607C00AA0D13 /* CCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCNavigationController.m; path = ../View/CCNavigationController.m; sourceTree = "<group>"; };
 		3DF7FC341E548AED00AA0D13 /* CCImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageView.h; sourceTree = "<group>"; };
@@ -267,7 +271,6 @@
 		3DF7FD3D1E646A1200AA0D13 /* CCCalenderItemButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCalenderItemButton.m; sourceTree = "<group>"; };
 		3DF7FD411E651AFE00AA0D13 /* CCBackTodayButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBackTodayButton.h; sourceTree = "<group>"; };
 		3DF7FD421E651AFE00AA0D13 /* CCBackTodayButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBackTodayButton.m; sourceTree = "<group>"; };
-		3DF7FD441E66C50400AA0D13 /* TaskCardItems_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TaskCardItems_2.plist; sourceTree = "<group>"; };
 		3DF7FD491E6864ED00AA0D13 /* CCNotesCellMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNotesCellMenuView.h; sourceTree = "<group>"; };
 		3DF7FD4A1E6864ED00AA0D13 /* CCNotesCellMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNotesCellMenuView.m; sourceTree = "<group>"; };
 		3DF7FD531E695A4900AA0D13 /* CCNotesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNotesTableViewCell.h; sourceTree = "<group>"; };
@@ -293,6 +296,18 @@
 				3D0793DE1E487069000D7DC2 /* libz.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3D4A08331E69A1A4005AE249 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				3D4A08341E69A1A4005AE249 /* alert_sound.m4a */,
+				3D4A08351E69A1A4005AE249 /* crystal.m4a */,
+				3D4A08361E69A1A4005AE249 /* knock.m4a */,
+				3D4A08371E69A1A4005AE249 /* mystic.m4a */,
+				3D4A08381E69A1A4005AE249 /* piano.m4a */,
+			);
+			path = Audio;
 			sourceTree = "<group>";
 		};
 		3D4BF1D71E53E205007B0F59 /* CCCalerderPickerView */ = {
@@ -393,11 +408,8 @@
 		3D6C99FA1E3C917000C2BABE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3D07945E1E4B5C16000D7DC2 /* alert_sound.m4a */,
-				3D0793DB1E487011000D7DC2 /* Reveal.framework */,
-				3D6C9A891E437A0B00C2BABE /* TaskCardItems.plist */,
+				3D4A08331E69A1A4005AE249 /* Audio */,
 				3D6C9A9A1E45B2BE00C2BABE /* CCGlobalMacro.pch */,
-				3DF7FD441E66C50400AA0D13 /* TaskCardItems_2.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -441,6 +453,12 @@
 				3DF7FC171E54334800AA0D13 /* CCMeViewController.m */,
 				3DF7FC311E54607C00AA0D13 /* CCNavigationController.h */,
 				3DF7FC321E54607C00AA0D13 /* CCNavigationController.m */,
+				3DF7FC201E544E9C00AA0D13 /* CCProfileViewContoller.h */,
+				3DF7FC211E544E9C00AA0D13 /* CCProfileViewContoller.m */,
+				3DF7FC2A1E54521200AA0D13 /* CCProfileViewContoller.storyboard */,
+				3DF7FC2C1E54576E00AA0D13 /* CCEditingViewController.h */,
+				3DF7FC2D1E54576E00AA0D13 /* CCEditingViewController.m */,
+				3DF7FC2F1E54578500AA0D13 /* CCEditingViewController.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -455,12 +473,6 @@
 		3D6C9A1B1E3C91DC00C2BABE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3DF7FC201E544E9C00AA0D13 /* CCProfileViewContoller.h */,
-				3DF7FC211E544E9C00AA0D13 /* CCProfileViewContoller.m */,
-				3DF7FC2A1E54521200AA0D13 /* CCProfileViewContoller.storyboard */,
-				3DF7FC2C1E54576E00AA0D13 /* CCEditingViewController.h */,
-				3DF7FC2D1E54576E00AA0D13 /* CCEditingViewController.m */,
-				3DF7FC2F1E54578500AA0D13 /* CCEditingViewController.storyboard */,
 				3DF7FC341E548AED00AA0D13 /* CCImageView.h */,
 				3DF7FC351E548AED00AA0D13 /* CCImageView.m */,
 			);
@@ -830,22 +842,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DF7FC2B1E54521200AA0D13 /* CCProfileViewContoller.storyboard in Resources */,
+				3D4A083B1E69A1A4005AE249 /* knock.m4a in Resources */,
 				3D6C9A071E3C917000C2BABE /* Assets.xcassets in Resources */,
+				3D4A08391E69A1A4005AE249 /* alert_sound.m4a in Resources */,
 				3DF7FCF01E5DE60D00AA0D13 /* CCCardDetailView.xib in Resources */,
+				3D4A083C1E69A1A4005AE249 /* mystic.m4a in Resources */,
 				3DF7FC7E1E5A976F00AA0D13 /* CCAddNotesView.xib in Resources */,
 				3D6C9A2B1E3C91DC00C2BABE /* TimeLineViewController.xib in Resources */,
+				3D4A083D1E69A1A4005AE249 /* piano.m4a in Resources */,
 				3DF7FD061E5ECD2F00AA0D13 /* CCRemarkTableViewCell.xib in Resources */,
 				3D6C9B2B1E45FF9900C2BABE /* Info.plist in Resources */,
-				3DF7FD451E66C50400AA0D13 /* TaskCardItems_2.plist in Resources */,
 				3D4BF1F01E53E205007B0F59 /* CCCalenderItemButton.xib in Resources */,
-				3D6C9A8A1E437A0B00C2BABE /* TaskCardItems.plist in Resources */,
 				3DF7FD2F1E641BAE00AA0D13 /* CCCardRecoverView.xib in Resources */,
 				3DF7FC301E54578500AA0D13 /* CCEditingViewController.storyboard in Resources */,
 				3DF7FC391E54C19D00AA0D13 /* LaunchScreen.storyboard in Resources */,
 				3D4BF1F21E53E205007B0F59 /* CCCalerderPickerView.xib in Resources */,
 				3D6C9A271E3C91DC00C2BABE /* Main.storyboard in Resources */,
 				3D6C9B541E46000A00C2BABE /* Info.plist in Resources */,
-				3D07945F1E4B5C16000D7DC2 /* alert_sound.m4a in Resources */,
+				3D4A083A1E69A1A4005AE249 /* crystal.m4a in Resources */,
 				3DF7FD0E1E5F1F9E00AA0D13 /* CCAddRemarkViewController.xib in Resources */,
 				3D4BF1F41E53E205007B0F59 /* up_arror.png in Resources */,
 			);

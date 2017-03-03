@@ -123,6 +123,11 @@ static NSString *notesCellId = @"notesCellId";
     self.view.frame = CGRectMake(-NotesVcDefaultW, 20, NotesVcDefaultW, ScreenH - 20);
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self endEditingCell];
+}
+
 
 - (void)dealloc {
     [CCNotificationCenter removeObserver:self];
@@ -349,6 +354,7 @@ static NSString *notesCellId = @"notesCellId";
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+    self.editingCell = nil;
 
 }
 
