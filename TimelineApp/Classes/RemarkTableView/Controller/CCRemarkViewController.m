@@ -240,7 +240,7 @@ static NSString * const remarkCellId = @"remarkCellId";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CCRemarkTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:remarkCellId forIndexPath:indexPath];
     cell.item = self.item.remarkItems[indexPath.row];
-    cell.row = indexPath.row;
+
     return cell;
 }
 

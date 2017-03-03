@@ -12,18 +12,25 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *notesTextView;
 
+@property (nonatomic, strong) CCNotesItem *noteItem;
+
 @end
 
 @implementation CCAddNotesView
 
 
-+ (instancetype)addNotesView {
+- (instancetype)initWithItem:(CCNotesItem *)notesItem {
     CCAddNotesView *addNotesView = [[[NSBundle mainBundle] loadNibNamed:@"CCAddNotesView" owner:nil options:nil] lastObject];
     addNotesView.CC_width = ScreenW * 0.8;
     addNotesView.CC_centerX = [UIApplication sharedApplication].keyWindow.CC_centerX;
     addNotesView.CC_centerY = [UIApplication sharedApplication].keyWindow.CC_centerY - 100;
     addNotesView.alpha = 0;
-//    [addNotesView becomeFirstResponder];
+    
+    if (notesItem) {
+        addNotesView.noteItem = notesItem;
+        addNotesView.notesTextView.text = notesItem.text;
+    } 
+    
     return addNotesView;
 }
 
@@ -43,7 +50,7 @@
 }
 
 - (IBAction)doneButtonClick:(id)sender {
-    [self.delegate addNotesView:self didConfirmWithContent:self.notesTextView.text createDate:[NSDate date]];
+    [self.delegate addNotesView:self didConfirmWithContent:self.notesTextView.text createDate:[NSDate date] notesItem:self.noteItem];
 }
 
 

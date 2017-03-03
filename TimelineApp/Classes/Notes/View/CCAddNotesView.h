@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CCNotesItem.h"
 @class CCAddNotesView;
 
 @protocol CCAddNotesViewDelegate <NSObject>
 
 - (void)addNotesViewWillDismiss:(CCAddNotesView *)addNotesView;
-- (void)addNotesView:(CCAddNotesView *)addNotesView didConfirmWithContent:(NSString *)content createDate:(NSDate *)date;
+- (void)addNotesView:(CCAddNotesView *)addNotesView didConfirmWithContent:(NSString *)content createDate:(NSDate *)date notesItem:(CCNotesItem *)notesItem;
 
 @end
 
@@ -21,7 +22,7 @@
 @property (nonatomic, weak) id<CCAddNotesViewDelegate> delegate;
 
 
-+ (instancetype)addNotesView;
+- (instancetype)initWithItem:(CCNotesItem *)notesItem;
 
 - (void)startEdting;
 

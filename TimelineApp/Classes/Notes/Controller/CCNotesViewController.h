@@ -10,4 +10,6 @@
 
 @interface CCNotesViewController : UIViewController
 
+- (void)saveNotesData;
+
 @end

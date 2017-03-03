@@ -23,6 +23,9 @@
 #define CCRemarkDidChangeNotification @"CCRemarkDidChangeNotification"
 #define CCCalendarItemDidSelectNotification @"CCCalendarItemDidSelectNotification"
 #define CCBackToTodayButtonClickNotification @"CCBackToTodayButtonClickNotification"
+#define CCNotesCellMenuDeleteButtonClickNotification @"CCNotesCellMenuDeleteButtonClickNotification"
+#define CCNotesCellMenuEditButtonClickNotification @"CCNotesCellMenuEditButtonClickNotification"
+#define CCNotesCellMenuTouchBeganNotification @"CCNotesCellMenuTouchBeganNotification"
 
 #define CCNotificationCenter [NSNotificationCenter defaultCenter]
 /*******************通知宏**********************/

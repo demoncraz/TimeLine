@@ -146,7 +146,8 @@
 }
 
 + (NSDate *)getDateWithoutDailyTimeFromDate:(NSDate *)date {
-    NSInteger daysSince1970 = [date timeIntervalSince1970] / SecondsOfADay;
+    NSDate *CNDate = date.c_date;
+    NSInteger daysSince1970 = [CNDate timeIntervalSince1970] / SecondsOfADay;
     NSDate *newDate = [NSDate dateWithTimeIntervalSince1970:SecondsOfADay * daysSince1970];
     return newDate;
 }

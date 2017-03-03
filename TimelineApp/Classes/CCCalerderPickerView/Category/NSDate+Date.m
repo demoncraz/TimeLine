@@ -75,5 +75,15 @@
     return [[formatter stringFromDate:self] integerValue];
 }
 
+- (NSDate *)c_date {
+    
+    NSTimeZone *zone = [NSTimeZone defaultTimeZone];
+    
+    NSInteger interval = [zone secondsFromGMTForDate:self];
+    
+    return [self dateByAddingTimeInterval:interval];
+
+}
+
 
 @end

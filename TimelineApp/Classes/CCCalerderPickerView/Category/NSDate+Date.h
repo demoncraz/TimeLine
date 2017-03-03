@@ -23,4 +23,9 @@
 @property NSInteger second;
 
 
+/**
+ 活动当前时区的时间
+ */
+- (NSDate *)c_date;
+
 @end

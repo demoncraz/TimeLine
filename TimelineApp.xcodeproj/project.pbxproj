@@ -95,6 +95,9 @@
 		3DF7FD3E1E646A1200AA0D13 /* CCCalenderItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD3D1E646A1200AA0D13 /* CCCalenderItemButton.m */; };
 		3DF7FD431E651AFE00AA0D13 /* CCBackTodayButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD421E651AFE00AA0D13 /* CCBackTodayButton.m */; };
 		3DF7FD451E66C50400AA0D13 /* TaskCardItems_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DF7FD441E66C50400AA0D13 /* TaskCardItems_2.plist */; };
+		3DF7FD4B1E6864ED00AA0D13 /* CCNotesCellMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD4A1E6864ED00AA0D13 /* CCNotesCellMenuView.m */; };
+		3DF7FD561E695A4900AA0D13 /* CCNotesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD541E695A4900AA0D13 /* CCNotesTableViewCell.m */; };
+		3DF7FD5A1E695F2300AA0D13 /* CCNotesCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FD591E695F2300AA0D13 /* CCNotesCellScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -265,6 +268,12 @@
 		3DF7FD411E651AFE00AA0D13 /* CCBackTodayButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBackTodayButton.h; sourceTree = "<group>"; };
 		3DF7FD421E651AFE00AA0D13 /* CCBackTodayButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBackTodayButton.m; sourceTree = "<group>"; };
 		3DF7FD441E66C50400AA0D13 /* TaskCardItems_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TaskCardItems_2.plist; sourceTree = "<group>"; };
+		3DF7FD491E6864ED00AA0D13 /* CCNotesCellMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNotesCellMenuView.h; sourceTree = "<group>"; };
+		3DF7FD4A1E6864ED00AA0D13 /* CCNotesCellMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNotesCellMenuView.m; sourceTree = "<group>"; };
+		3DF7FD531E695A4900AA0D13 /* CCNotesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNotesTableViewCell.h; sourceTree = "<group>"; };
+		3DF7FD541E695A4900AA0D13 /* CCNotesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNotesTableViewCell.m; sourceTree = "<group>"; };
+		3DF7FD581E695F2300AA0D13 /* CCNotesCellScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNotesCellScrollView.h; sourceTree = "<group>"; };
+		3DF7FD591E695F2300AA0D13 /* CCNotesCellScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNotesCellScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -619,6 +628,12 @@
 		3DF7FC651E58139C00AA0D13 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3DF7FD531E695A4900AA0D13 /* CCNotesTableViewCell.h */,
+				3DF7FD541E695A4900AA0D13 /* CCNotesTableViewCell.m */,
+				3DF7FD581E695F2300AA0D13 /* CCNotesCellScrollView.h */,
+				3DF7FD591E695F2300AA0D13 /* CCNotesCellScrollView.m */,
+				3DF7FD491E6864ED00AA0D13 /* CCNotesCellMenuView.h */,
+				3DF7FD4A1E6864ED00AA0D13 /* CCNotesCellMenuView.m */,
 				3DF7FC671E5813C500AA0D13 /* CCNotesTitleView.h */,
 				3DF7FC681E5813C500AA0D13 /* CCNotesTitleView.m */,
 				3DF7FC701E59EC1200AA0D13 /* CCNotesFullScreenButton.h */,
@@ -851,8 +866,10 @@
 				3DF7FD011E5EB02400AA0D13 /* UIBarButtonItem+BarButtonItem.m in Sources */,
 				3DF7FC721E59EC1200AA0D13 /* CCNotesFullScreenButton.m in Sources */,
 				3D6C9B5A1E46000A00C2BABE /* NSObject+MJClass.m in Sources */,
+				3DF7FD561E695A4900AA0D13 /* CCNotesTableViewCell.m in Sources */,
 				3DF7FC5F1E57FCB700AA0D13 /* UIView+Frame.m in Sources */,
 				3DF7FCDB1E5DE2D100AA0D13 /* CCContentTableView.m in Sources */,
+				3DF7FD5A1E695F2300AA0D13 /* CCNotesCellScrollView.m in Sources */,
 				3DF7FD211E607F3200AA0D13 /* CCNewCardTagContainerView.m in Sources */,
 				3D4BF1EE1E53E205007B0F59 /* CCCalenderDateView.m in Sources */,
 				3D6C9A881E4374BE00C2BABE /* CCTaskCardItem.m in Sources */,
@@ -911,6 +928,7 @@
 				3DF7FC791E5A8DF300AA0D13 /* CCCommonCoverView.m in Sources */,
 				3D07945A1E4B1449000D7DC2 /* NSObject+LocalNotification.m in Sources */,
 				3D6C9B561E46000A00C2BABE /* MJFoundation.m in Sources */,
+				3DF7FD4B1E6864ED00AA0D13 /* CCNotesCellMenuView.m in Sources */,
 				3D6C9B341E45FF9900C2BABE /* View+MASAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

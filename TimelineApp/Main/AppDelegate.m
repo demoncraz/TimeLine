@@ -100,7 +100,7 @@
 - (void)saveTaskCardItems {
     UITabBarController *tabBarController = (UITabBarController *)_window.rootViewController;
     TimeLineViewController *vc = tabBarController.childViewControllers[0];
-    [vc performSelectorInBackground:@selector(saveTaskCards) withObject:nil];
+    [vc performSelectorInBackground:@selector(saveData) withObject:nil];
 }
 
 

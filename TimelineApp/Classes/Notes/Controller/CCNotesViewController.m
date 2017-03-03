@@ -13,8 +13,13 @@
 #import "CCCommonCoverView.h"
 #import "CCAddNotesView.h"
 #import "CCNotesItem.h"
+#import "MJExtension.h"
+#import "CCNotesTableViewCell.h"
+#import "CCNotesCellMenuView.h"
 
 #define NotesVcDefaultW ScreenW * 0.7
+
+static NSString *notesCellId = @"notesCellId";
 
 @interface CCNotesViewController ()<UITableViewDelegate, UITableViewDataSource, CCAddNotesViewDelegate>
 
@@ -24,11 +29,19 @@
 
 @property (nonatomic, weak) CCAddNotesView *addNotesView;
 
+@property (nonatomic, weak) CCAddNotesView *editNotesView;
+
 @property (nonatomic, weak) CCCommonCoverView *notesCoverView;
 
 @property (nonatomic, weak) CCCommonCoverView *addNotesCoverView;
 
 @property (nonatomic, strong) NSMutableArray *items;
+
+@property (nonatomic, strong) NSString *filePath;
+
+@property (nonatomic, strong) CCNotesTableViewCell *editingCell;
+
+@property (nonatomic, weak) CCNotesCellMenuView *menuView;
 
 @end
 
@@ -36,9 +49,30 @@
 
 #pragma mark - lazy loading
 
+//- (CCNotesCellMenuView *)menuView {
+//    if (_menuView == nil) {
+//        _menuView = [[CCNotesCellMenuView alloc] init];
+//        _menuView.frame = CGRectMake(self.tableView.CC_width, 0, self.tableView.CC_width, 50);
+//    }
+//    return _menuView;
+//}
+
+- (NSString *)filePath {
+    
+    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *fullPath = [cachesPath stringByAppendingPathComponent:@"notes.plist"];
+    _filePath = fullPath;
+    return _filePath;
+}
+
 - (NSMutableArray *)items {
     if (_items == nil) {
-        _items = [NSMutableArray array];
+        NSMutableArray *arr = [NSMutableArray arrayWithContentsOfFile:self.filePath];
+        if (arr) {
+            _items = [CCNotesItem mj_objectArrayWithKeyValuesArray:arr];
+        } else {
+            _items = [NSMutableArray array];
+        }
     }
     return _items;
 }
@@ -59,6 +93,25 @@
     
     //监听遮罩层点击事件
     [CCNotificationCenter addObserver:self selector:@selector(addCoverViewClick:) name:CCCommonCoverViewWillDismissNotification object:nil];
+    
+    //监听cell内部菜单按钮点击事件
+    [CCNotificationCenter addObserver:self selector:@selector(notesCellEditButtonClick) name:CCNotesCellMenuEditButtonClickNotification object:nil];
+    [CCNotificationCenter addObserver:self selector:@selector(notesCellDeleteButtonClick) name:CCNotesCellMenuDeleteButtonClickNotification object:nil];
+    [CCNotificationCenter addObserver:self selector:@selector(notesCellMenuViewTouchBegan) name:CCNotesCellMenuTouchBeganNotification object:nil];
+   
+    //注册cell
+    [self.tableView registerClass:[CCNotesTableViewCell class] forCellReuseIdentifier:notesCellId];
+    
+    //添加滑动手势
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLeft:)];
+    swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.tableView addGestureRecognizer:swipeLeft];
+    
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRight:)];
+    swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.tableView addGestureRecognizer:swipeRight];
+    
+    
     
 }
 
@@ -119,6 +172,11 @@
 
 
 - (void)fullScreenButtonClick:(UIButton *)button {
+    if (self.editingCell) {//如果有cell在编辑中，就退出编辑模式，刷新frame
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:self.editingCell];
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    }
+    [self endEditingCell];
 
     [UIView animateWithDuration:0.3 animations:^{
         if (!button.selected) {
@@ -143,7 +201,7 @@
     //添加遮罩
     self.addNotesCoverView = [CCCommonCoverView showWithIdentifier:@"AddNotesCoverView"];
     //添加新备忘录输入窗
-    CCAddNotesView *addNotesView = [CCAddNotesView addNotesView];
+    CCAddNotesView *addNotesView = [[CCAddNotesView alloc] initWithItem:nil];
     addNotesView.delegate = self;
     _addNotesView = addNotesView;
     [self.view.window addSubview:addNotesView];
@@ -167,22 +225,40 @@
     } completion:^(BOOL finished) {
         [self.addNotesView removeFromSuperview];
     }];
-    
 }
+- (void)dismissEditNotesView {
+    [UIView animateWithDuration:0.3 animations:^{
+        self.editNotesView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.editNotesView removeFromSuperview];
+    }];
+}
+
 
 #pragma mark - CCAddNotesViewDelegate
 - (void)addNotesViewWillDismiss:(CCAddNotesView *)addNotesView {
     [self dismissAddNotesView];
+    [self dismissEditNotesView];
     [self.addNotesCoverView dismiss];
 }
 
-- (void)addNotesView:(CCAddNotesView *)addNotesView didConfirmWithContent:(NSString *)content createDate:(NSDate *)date{
-    [self dismissAddNotesView];
+- (void)addNotesView:(CCAddNotesView *)addNotesView didConfirmWithContent:(NSString *)content createDate:(NSDate *)date notesItem:(CCNotesItem *)notesItem{
+    if (notesItem == nil) {
+        [self dismissAddNotesView];
+    } else {
+        [self dismissEditNotesView];
+    }
     [self.addNotesCoverView dismiss];
-    if (content && content.length > 0) {
-        CCNotesItem *newItem = [CCNotesItem itemWithText:content date:date];
-        [self.items addObject:newItem];
-        [self.tableView reloadData];
+    if (notesItem == nil) {//新增模式 - 完成
+        if (content && content.length > 0) {
+            CCNotesItem *newItem = [CCNotesItem itemWithText:content date:date];
+            [self.items addObject:newItem];
+            [self.tableView reloadData];
+        }
+    } else {//编辑模式 - 完成
+        notesItem.text = content;
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.items indexOfObject:notesItem] inSection:0];
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 
@@ -193,27 +269,112 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50;
+    return 60;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *notesCellId = @"notesCellId";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:notesCellId];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:notesCellId];
-    }
+    CCNotesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:notesCellId];
     CCNotesItem *item = self.items[indexPath.row];
-    cell.textLabel.text = item.text;
-    
+    cell.notesItem = item;
+    if (cell.isEditingMode) {
+        [cell setEditingMode:NO animated:NO];
+    }
     return cell;
 }
 
-#pragma mark - UITableViewDelegate
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.items removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    NSLog(@"test");
+}
+
+
+#pragma mark - 左滑手势
+- (void)swipeLeft:(UISwipeGestureRecognizer *)swipe {
+    
+    if (self.editingCell) {
+        [self.editingCell setEditingMode:NO animated:YES];
     }
+    
+    CGPoint location = [swipe locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:location];
+    CCNotesTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    if (cell == self.editingCell) return;
+    
+    [cell setEditingMode:YES animated:YES];
+    
+    self.editingCell = cell;
+    
+}
+
+#pragma mark - 右滑
+- (void)swipeRight:(UISwipeGestureRecognizer *)swipe {
+    CGPoint location = [swipe locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:location];
+    CCNotesTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    if (cell == self.editingCell) {
+        [self endEditingCell];
+    }
+
+}
+
+#pragma mark - 左滑菜单点击事件
+- (void)notesCellEditButtonClick {
+    
+    //添加遮罩
+    self.addNotesCoverView = [CCCommonCoverView showWithIdentifier:@"AddNotesCoverView"];
+    //添加新备忘录输入窗
+    CCAddNotesView *editNotesView = [[CCAddNotesView alloc] initWithItem:self.editingCell.notesItem];
+    editNotesView.delegate = self;
+    _editNotesView = editNotesView;
+    [self.view.window addSubview:editNotesView];
+    [UIView animateWithDuration:0.3 animations:^{
+        editNotesView.alpha = 1;
+        [editNotesView startEdting];
+    }];
+    
+    [self endEditingCell];
+}
+
+- (void)notesCellDeleteButtonClick {
+    
+    CCNotesTableViewCell *cell = self.editingCell;
+    CCNotesItem *item = cell.notesItem;
+    NSInteger index = [self.items indexOfObject:item];
+    [self.items removeObjectAtIndex:index];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+    
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+
+}
+
+- (void)notesCellMenuViewTouchBegan {
+    [self endEditingCell];
+}
+
+- (void)endEditingCell {
+    if (self.editingCell) {
+        [self.editingCell setEditingMode:NO animated:YES];
+        self.editingCell = nil;
+    }
+}
+
+#pragma mark - 本地化数据
+- (void)saveNotesData {
+    
+    NSArray *notesArr= [CCNotesItem mj_keyValuesArrayWithObjectArray:self.items];
+    
+    [notesArr writeToFile:self.filePath atomically:YES];
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self endEditingCell];
 }
 
 

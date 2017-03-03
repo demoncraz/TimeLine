@@ -82,7 +82,7 @@
 
 @property (nonatomic, assign, getter=isBackButtonShowing) BOOL backButtonShowing;
 
-@property (nonatomic, weak) NSTimer *timer;
+@property (nonatomic, strong) NSTimer *timer;
 
 @property (nonatomic, assign) CGFloat backButtonMinY;
 
@@ -178,12 +178,9 @@
 }
 
 - (NSString *)filePath {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *fullPath = [cachesPath stringByAppendingPathComponent:@"Cards.plist"];
-        _filePath = fullPath;
-    });
+    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *fullPath = [cachesPath stringByAppendingPathComponent:@"Cards.plist"];
+    _filePath = fullPath;
     return _filePath;
 }
 
@@ -242,6 +239,7 @@
     
     for (CCTaskCardDayGroup *group in self.taskCardItems) {
         NSDate *dateWithNoTime = [CCDateTool getDateWithoutDailyTimeFromDate:date];
+
         NSDate *groupDateWithNoTime = [CCDateTool getDateWithoutDailyTimeFromDate:group.date];
         
         for (CCTaskCardItem *item in group.items) {
@@ -383,6 +381,7 @@ static NSString *headerViewId = @"headerView";
     UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRight:)];
     [self.view addGestureRecognizer:swipeRight];
     
+    
     //注册接收newCard完成按钮的通知
     [CCNotificationCenter addObserver:self selector:@selector(newCardComplete:) name:CCNewCardCompleteNotification object:nil];
     [CCNotificationCenter addObserver:self selector:@selector(dismissCalendarCoverView) name:@"CCCalendarDismissNotification" object:nil];
@@ -418,6 +417,7 @@ static NSString *headerViewId = @"headerView";
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    self.timer = nil;
 }
 
 
@@ -534,8 +534,8 @@ static NSString *headerViewId = @"headerView";
 
 
 #pragma mark - 保存卡片内容到沙盒
-- (void)saveTaskCards {
-    
+- (void)saveData {
+    //本地化卡片数据
     NSArray *arr = [CCTaskCardDayGroup mj_keyValuesArrayWithObjectArray:self.taskCardItems];
     
     NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
@@ -543,6 +543,9 @@ static NSString *headerViewId = @"headerView";
     NSString *fullPath = [cachesPath stringByAppendingPathComponent:@"Cards.plist"];
     
     [arr writeToFile:fullPath atomically:YES];
+    
+    //本地化备忘录
+    [self.notesVc saveNotesData];
 
 }
 
@@ -926,7 +929,7 @@ static NSString *headerViewId = @"headerView";
     //如果不是当天 展示一个回到当前的按钮
     if (![CCDateTool isSameDay:date anotherDay:[NSDate date]]) {
         [self showBackToTodayButton];
-        self.timer = nil;
+        [self.timer invalidate];
         self.timer = [NSTimer scheduledTimerWithTimeInterval:HideBackButtonTimeInterval repeats:NO block:^(NSTimer * _Nonnull timer) {
             [self hideBackToTodayButton];
         }];
@@ -947,8 +950,8 @@ static NSString *headerViewId = @"headerView";
 #pragma mark - 隐藏和展示返回今天的浮窗按钮
 
 - (void)showBackToTodayButton {
-    if (self.backButtonShowing) return;
-    self.backButtonShowing = YES;
+//    if (self.backButtonShowing) return;
+//    self.backButtonShowing = YES;
     [self.backButton showButton];
     [UIView animateWithDuration:0.1 animations:^{
         self.backButton.CC_x = ScreenW - 60;
@@ -960,8 +963,8 @@ static NSString *headerViewId = @"headerView";
 
 - (void)hideBackToTodayButton {
     DefineWeakSelf;
-    if (self.backButtonShowing == NO) return;
-    self.backButtonShowing = NO;
+//    if (self.backButtonShowing == NO) return;
+//    self.backButtonShowing = NO;
     [self.backButton hideButtonWithCompletion:^{
         [UIView animateWithDuration:0.2 animations:^{
             weakSelf.backButton.CC_x = ScreenW;
@@ -998,11 +1001,10 @@ static NSString *headerViewId = @"headerView";
         if (maxDistance > self.backButtonMaxDistance) maxDistance = self.backButtonMaxDistance;
         self.backButton.CC_y = self.backButtonMinY + maxDistance * scrollView.contentOffset.y / maxContentOffsetY;
     }
-    
-    //注销定时器
-    [self.timer invalidate];
 
     [self showBackToTodayButton];
+    //注销定时器
+    [self.timer invalidate];
 
 }
 
@@ -1020,11 +1022,12 @@ static NSString *headerViewId = @"headerView";
     //计算是否处于bounce状态
     CGFloat maxOffsetY = (scrollView.contentSize.height - scrollView.CC_height) > 0 ? (scrollView.contentSize.height - scrollView.CC_height + self.contentTableView.contentInset.bottom) : 0;
     if (scrollView.contentOffset.y < 0 || scrollView.contentOffset.y > maxOffsetY) return;
-    if (self.timer) return;
+//    if (self.timer) return;
     //停止滚动后2秒隐藏按钮
     self.timer = [NSTimer scheduledTimerWithTimeInterval:HideBackButtonTimeInterval repeats:NO block:^(NSTimer * _Nonnull timer) {
         [self hideBackToTodayButton];
-        self.timer = nil;
+//        self.timer = nil;
+        
     }];
 }
 

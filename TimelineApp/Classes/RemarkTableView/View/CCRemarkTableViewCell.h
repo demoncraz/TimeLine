@@ -13,6 +13,5 @@
 
 @property (nonatomic, strong) CCRemarkItem *item;
 
-@property (nonatomic, assign) NSInteger row;
 
 @end

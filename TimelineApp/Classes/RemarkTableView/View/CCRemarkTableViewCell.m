@@ -47,9 +47,5 @@
     
 }
 
-- (void)setRow:(NSInteger)row {
-    _row = row;
-    self.contentTextField.tag = row;
-}
 
 @end
