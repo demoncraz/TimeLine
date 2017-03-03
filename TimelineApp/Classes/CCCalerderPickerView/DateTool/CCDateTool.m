@@ -28,8 +28,8 @@
     NSInteger day = [cal component:NSCalendarUnitDay fromDate:date];
     NSInteger month = [cal component:NSCalendarUnitMonth fromDate:date];
     NSDictionary *dateDict = @{
-                               @"month" : [NSString stringWithFormat:@"%ld",month],
-                               @"day" : [NSString stringWithFormat:@"%ld",day]
+                               @"month" : [NSString stringWithFormat:@"%zd",month],
+                               @"day" : [NSString stringWithFormat:@"%zd",day]
                                };
     return dateDict;
 }
@@ -73,7 +73,7 @@
 + (NSDate *)getDateFromYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
-    return [formatter dateFromString:[NSString stringWithFormat:@"%ld-%ld-%ld", year, month, day]];
+    return [formatter dateFromString:[NSString stringWithFormat:@"%zd-%zd-%zd", year, month, day]];
 }
 
 

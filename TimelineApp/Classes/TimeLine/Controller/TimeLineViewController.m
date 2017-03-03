@@ -758,6 +758,7 @@ static NSString *headerViewId = @"headerView";
     //按钮模式设置为非新增模式
     self.addingNew = NO;
     
+    [self removeNoinfoImage];
 }
 
 
@@ -939,7 +940,7 @@ static NSString *headerViewId = @"headerView";
         self.selectedDateToday = YES;
     }
     
-    NSString *dateString = [NSString stringWithFormat:@"%ld年%ld月%ld日", date.year, date.month, date.day];
+    NSString *dateString = [NSString stringWithFormat:@"%zd年%zd月%zd日", date.year, date.month, date.day];
     [self.titleMonthButton setTitle:dateString forState:UIControlStateNormal];
     
     //更新当前展示的数据

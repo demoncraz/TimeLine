@@ -38,9 +38,9 @@
 //    [self layoutIfNeeded];
     
     if ([CCDateTool isSameDay:item.cardDate anotherDay:[NSDate date]]) {//是今天
-        self.timeLabel.text = [NSString stringWithFormat:@"今天 %ld:%ld", item.cardDate.hour, item.cardDate.minute];
+        self.timeLabel.text = [NSString stringWithFormat:@"今天 %zd:%zd", item.cardDate.hour, item.cardDate.minute];
     } else {
-        self.timeLabel.text = [NSString stringWithFormat:@"%ld月%ld日 %ld:%ld", item.cardDate.month, item.cardDate.day, item.cardDate.hour, item.cardDate.minute];
+        self.timeLabel.text = [NSString stringWithFormat:@"%zd月%zd日 %zd:%zd", item.cardDate.month, item.cardDate.day, item.cardDate.hour, item.cardDate.minute];
     }
     
     //设置完成按钮状态

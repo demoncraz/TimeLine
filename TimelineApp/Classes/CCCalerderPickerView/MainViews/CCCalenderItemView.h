@@ -15,8 +15,6 @@
 
 @property (nonatomic, strong) NSDate *itemDate;
 
-+ (instancetype)calenderItemView;
-
 
 /**
  根据模型显示dot

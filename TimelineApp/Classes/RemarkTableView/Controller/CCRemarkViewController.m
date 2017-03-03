@@ -103,7 +103,7 @@ static NSString * const remarkCellId = @"remarkCellId";
     UITextField *textField = notification.object;
     NSInteger index = textField.tag;
     //记录编辑过的文字和对应的行号
-    [self.changedTextArr setObject:textField.text forKey:[NSString stringWithFormat:@"%ld", index]];
+    [self.changedTextArr setObject:textField.text forKey:[NSString stringWithFormat:@"%zd", index]];
 
 }
 

@@ -158,7 +158,7 @@ static CCCalerderPickerView *pickerView;
  */
 - (void)setMonthLabelTextWithYearMonth:(CCYearMonth)yearMonth {
 //    self.monthLabel.text = [NSString stringWithFormat:@"%ld年%ld月", yearMonth.year, yearMonth.month];
-    [self.monthButton setTitle:[NSString stringWithFormat:@"%ld年%ld月", yearMonth.year, yearMonth.month] forState:UIControlStateNormal];
+    [self.monthButton setTitle:[NSString stringWithFormat:@"%zd年%zd月", yearMonth.year, yearMonth.month] forState:UIControlStateNormal];
 }
 
 
