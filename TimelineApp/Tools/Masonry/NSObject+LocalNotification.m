@@ -29,7 +29,12 @@
     notification.timeZone = [NSTimeZone defaultTimeZone];
     notification.repeatInterval = 0;
     notification.applicationIconBadgeNumber = 1;
-    notification.soundName = @"alert_sound.m4a";
+    //通知的铃声
+    NSString *soundName = [[NSUserDefaults standardUserDefaults] objectForKey:@"alertSoundName"];
+    if (!soundName) {
+        soundName = @"默认";
+    }
+    notification.soundName = [NSString stringWithFormat:@"%@.m4a", soundName];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObject:content forKey:key];
     notification.userInfo = userInfo;
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];

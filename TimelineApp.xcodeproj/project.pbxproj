@@ -8,11 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		3D07945A1E4B1449000D7DC2 /* NSObject+LocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0794591E4B1449000D7DC2 /* NSObject+LocalNotification.m */; };
-		3D4A08391E69A1A4005AE249 /* alert_sound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D4A08341E69A1A4005AE249 /* alert_sound.m4a */; };
-		3D4A083A1E69A1A4005AE249 /* crystal.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D4A08351E69A1A4005AE249 /* crystal.m4a */; };
-		3D4A083B1E69A1A4005AE249 /* knock.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D4A08361E69A1A4005AE249 /* knock.m4a */; };
-		3D4A083C1E69A1A4005AE249 /* mystic.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D4A08371E69A1A4005AE249 /* mystic.m4a */; };
-		3D4A083D1E69A1A4005AE249 /* piano.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D4A08381E69A1A4005AE249 /* piano.m4a */; };
+		3D4A08391E69A1A4005AE249 /* 默认.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D4A08341E69A1A4005AE249 /* 默认.m4a */; };
+		3D4A083A1E69A1A4005AE249 /* 水晶.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D4A08351E69A1A4005AE249 /* 水晶.m4a */; };
+		3D4A083B1E69A1A4005AE249 /* 敲击.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D4A08361E69A1A4005AE249 /* 敲击.m4a */; };
+		3D4A083C1E69A1A4005AE249 /* 神秘.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D4A08371E69A1A4005AE249 /* 神秘.m4a */; };
+		3D4A085F1E69A366005AE249 /* CCEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A08521E69A366005AE249 /* CCEditingViewController.m */; };
+		3D4A08601E69A366005AE249 /* CCEditingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4A08531E69A366005AE249 /* CCEditingViewController.storyboard */; };
+		3D4A08611E69A366005AE249 /* CCMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A08551E69A366005AE249 /* CCMeViewController.m */; };
+		3D4A08621E69A366005AE249 /* CCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A08571E69A366005AE249 /* CCNavigationController.m */; };
+		3D4A08631E69A366005AE249 /* CCProfileViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A08591E69A366005AE249 /* CCProfileViewContoller.m */; };
+		3D4A08641E69A366005AE249 /* CCProfileViewContoller.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4A085A1E69A366005AE249 /* CCProfileViewContoller.storyboard */; };
+		3D4A08651E69A366005AE249 /* CCImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A085E1E69A366005AE249 /* CCImageView.m */; };
+		3D4A08681E69A3CE005AE249 /* CCSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A08671E69A3CE005AE249 /* CCSettingsTableViewController.m */; };
+		3D4A086A1E69A510005AE249 /* CCSettingsTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4A08691E69A510005AE249 /* CCSettingsTableViewController.storyboard */; };
+		3D4A086D1E69ABA8005AE249 /* CCSoundTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A086C1E69ABA8005AE249 /* CCSoundTableViewController.m */; };
+		3D4A086F1E69BE65005AE249 /* 钢琴.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3D4A086E1E69BE65005AE249 /* 钢琴.m4a */; };
 		3D4BF1EC1E53E205007B0F59 /* NSDate+Date.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF1DA1E53E205007B0F59 /* NSDate+Date.m */; };
 		3D4BF1ED1E53E205007B0F59 /* CCDateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF1DD1E53E205007B0F59 /* CCDateTool.m */; };
 		3D4BF1EE1E53E205007B0F59 /* CCCalenderDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF1E01E53E205007B0F59 /* CCCalenderDateView.m */; };
@@ -53,13 +63,6 @@
 		3D6C9B5C1E46000A00C2BABE /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C9B4F1E46000A00C2BABE /* NSObject+MJKeyValue.m */; };
 		3D6C9B5D1E46000A00C2BABE /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C9B511E46000A00C2BABE /* NSObject+MJProperty.m */; };
 		3D6C9B5E1E46000A00C2BABE /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C9B531E46000A00C2BABE /* NSString+MJExtension.m */; };
-		3DF7FC181E54334800AA0D13 /* CCMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FC171E54334800AA0D13 /* CCMeViewController.m */; };
-		3DF7FC221E544E9C00AA0D13 /* CCProfileViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FC211E544E9C00AA0D13 /* CCProfileViewContoller.m */; };
-		3DF7FC2B1E54521200AA0D13 /* CCProfileViewContoller.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF7FC2A1E54521200AA0D13 /* CCProfileViewContoller.storyboard */; };
-		3DF7FC2E1E54576E00AA0D13 /* CCEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FC2D1E54576E00AA0D13 /* CCEditingViewController.m */; };
-		3DF7FC301E54578500AA0D13 /* CCEditingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF7FC2F1E54578500AA0D13 /* CCEditingViewController.storyboard */; };
-		3DF7FC331E54607C00AA0D13 /* CCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FC321E54607C00AA0D13 /* CCNavigationController.m */; };
-		3DF7FC361E548AED00AA0D13 /* CCImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FC351E548AED00AA0D13 /* CCImageView.m */; };
 		3DF7FC391E54C19D00AA0D13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF7FC371E54C19D00AA0D13 /* LaunchScreen.storyboard */; };
 		3DF7FC5F1E57FCB700AA0D13 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FC5E1E57FCB700AA0D13 /* UIView+Frame.m */; };
 		3DF7FC661E58139C00AA0D13 /* CCNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7FC631E58139C00AA0D13 /* CCNotesViewController.m */; };
@@ -106,11 +109,28 @@
 		3D0793DE1E487069000D7DC2 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		3D0794581E4B1449000D7DC2 /* NSObject+LocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+LocalNotification.h"; path = "Masonry/NSObject+LocalNotification.h"; sourceTree = "<group>"; };
 		3D0794591E4B1449000D7DC2 /* NSObject+LocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+LocalNotification.m"; path = "Masonry/NSObject+LocalNotification.m"; sourceTree = "<group>"; };
-		3D4A08341E69A1A4005AE249 /* alert_sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = alert_sound.m4a; sourceTree = "<group>"; };
-		3D4A08351E69A1A4005AE249 /* crystal.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = crystal.m4a; sourceTree = "<group>"; };
-		3D4A08361E69A1A4005AE249 /* knock.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = knock.m4a; sourceTree = "<group>"; };
-		3D4A08371E69A1A4005AE249 /* mystic.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = mystic.m4a; sourceTree = "<group>"; };
-		3D4A08381E69A1A4005AE249 /* piano.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = piano.m4a; sourceTree = "<group>"; };
+		3D4A08341E69A1A4005AE249 /* 默认.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "默认.m4a"; sourceTree = "<group>"; };
+		3D4A08351E69A1A4005AE249 /* 水晶.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "水晶.m4a"; sourceTree = "<group>"; };
+		3D4A08361E69A1A4005AE249 /* 敲击.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "敲击.m4a"; sourceTree = "<group>"; };
+		3D4A08371E69A1A4005AE249 /* 神秘.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "神秘.m4a"; sourceTree = "<group>"; };
+		3D4A08511E69A366005AE249 /* CCEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEditingViewController.h; sourceTree = "<group>"; };
+		3D4A08521E69A366005AE249 /* CCEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCEditingViewController.m; sourceTree = "<group>"; };
+		3D4A08531E69A366005AE249 /* CCEditingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CCEditingViewController.storyboard; sourceTree = "<group>"; };
+		3D4A08541E69A366005AE249 /* CCMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMeViewController.h; sourceTree = "<group>"; };
+		3D4A08551E69A366005AE249 /* CCMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMeViewController.m; sourceTree = "<group>"; };
+		3D4A08561E69A366005AE249 /* CCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNavigationController.h; sourceTree = "<group>"; };
+		3D4A08571E69A366005AE249 /* CCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNavigationController.m; sourceTree = "<group>"; };
+		3D4A08581E69A366005AE249 /* CCProfileViewContoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCProfileViewContoller.h; sourceTree = "<group>"; };
+		3D4A08591E69A366005AE249 /* CCProfileViewContoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCProfileViewContoller.m; sourceTree = "<group>"; };
+		3D4A085A1E69A366005AE249 /* CCProfileViewContoller.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CCProfileViewContoller.storyboard; sourceTree = "<group>"; };
+		3D4A085D1E69A366005AE249 /* CCImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageView.h; sourceTree = "<group>"; };
+		3D4A085E1E69A366005AE249 /* CCImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageView.m; sourceTree = "<group>"; };
+		3D4A08661E69A3CE005AE249 /* CCSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSettingsTableViewController.h; sourceTree = "<group>"; };
+		3D4A08671E69A3CE005AE249 /* CCSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCSettingsTableViewController.m; sourceTree = "<group>"; };
+		3D4A08691E69A510005AE249 /* CCSettingsTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CCSettingsTableViewController.storyboard; sourceTree = "<group>"; };
+		3D4A086B1E69ABA8005AE249 /* CCSoundTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSoundTableViewController.h; sourceTree = "<group>"; };
+		3D4A086C1E69ABA8005AE249 /* CCSoundTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCSoundTableViewController.m; sourceTree = "<group>"; };
+		3D4A086E1E69BE65005AE249 /* 钢琴.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "钢琴.m4a"; sourceTree = "<group>"; };
 		3D4BF1D91E53E205007B0F59 /* NSDate+Date.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Date.h"; sourceTree = "<group>"; };
 		3D4BF1DA1E53E205007B0F59 /* NSDate+Date.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Date.m"; sourceTree = "<group>"; };
 		3D4BF1DC1E53E205007B0F59 /* CCDateTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDateTool.h; sourceTree = "<group>"; };
@@ -191,18 +211,6 @@
 		3D6C9B511E46000A00C2BABE /* NSObject+MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJProperty.m"; sourceTree = "<group>"; };
 		3D6C9B521E46000A00C2BABE /* NSString+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MJExtension.h"; sourceTree = "<group>"; };
 		3D6C9B531E46000A00C2BABE /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
-		3DF7FC161E54334800AA0D13 /* CCMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMeViewController.h; sourceTree = "<group>"; };
-		3DF7FC171E54334800AA0D13 /* CCMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMeViewController.m; sourceTree = "<group>"; };
-		3DF7FC201E544E9C00AA0D13 /* CCProfileViewContoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCProfileViewContoller.h; path = ../View/CCProfileViewContoller.h; sourceTree = "<group>"; };
-		3DF7FC211E544E9C00AA0D13 /* CCProfileViewContoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCProfileViewContoller.m; path = ../View/CCProfileViewContoller.m; sourceTree = "<group>"; };
-		3DF7FC2A1E54521200AA0D13 /* CCProfileViewContoller.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CCProfileViewContoller.storyboard; path = ../View/CCProfileViewContoller.storyboard; sourceTree = "<group>"; };
-		3DF7FC2C1E54576E00AA0D13 /* CCEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCEditingViewController.h; path = ../View/CCEditingViewController.h; sourceTree = "<group>"; };
-		3DF7FC2D1E54576E00AA0D13 /* CCEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCEditingViewController.m; path = ../View/CCEditingViewController.m; sourceTree = "<group>"; };
-		3DF7FC2F1E54578500AA0D13 /* CCEditingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CCEditingViewController.storyboard; path = ../View/CCEditingViewController.storyboard; sourceTree = "<group>"; };
-		3DF7FC311E54607C00AA0D13 /* CCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCNavigationController.h; path = ../View/CCNavigationController.h; sourceTree = "<group>"; };
-		3DF7FC321E54607C00AA0D13 /* CCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCNavigationController.m; path = ../View/CCNavigationController.m; sourceTree = "<group>"; };
-		3DF7FC341E548AED00AA0D13 /* CCImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageView.h; sourceTree = "<group>"; };
-		3DF7FC351E548AED00AA0D13 /* CCImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageView.m; sourceTree = "<group>"; };
 		3DF7FC381E54C19D00AA0D13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DF7FC5D1E57FCB700AA0D13 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		3DF7FC5E1E57FCB700AA0D13 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
@@ -301,13 +309,61 @@
 		3D4A08331E69A1A4005AE249 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				3D4A08341E69A1A4005AE249 /* alert_sound.m4a */,
-				3D4A08351E69A1A4005AE249 /* crystal.m4a */,
-				3D4A08361E69A1A4005AE249 /* knock.m4a */,
-				3D4A08371E69A1A4005AE249 /* mystic.m4a */,
-				3D4A08381E69A1A4005AE249 /* piano.m4a */,
+				3D4A08341E69A1A4005AE249 /* 默认.m4a */,
+				3D4A08351E69A1A4005AE249 /* 水晶.m4a */,
+				3D4A086E1E69BE65005AE249 /* 钢琴.m4a */,
+				3D4A08361E69A1A4005AE249 /* 敲击.m4a */,
+				3D4A08371E69A1A4005AE249 /* 神秘.m4a */,
 			);
 			path = Audio;
+			sourceTree = "<group>";
+		};
+		3D4A084F1E69A366005AE249 /* MyProfile */ = {
+			isa = PBXGroup;
+			children = (
+				3D4A08501E69A366005AE249 /* Controller */,
+				3D4A085B1E69A366005AE249 /* Model */,
+				3D4A085C1E69A366005AE249 /* View */,
+			);
+			path = MyProfile;
+			sourceTree = "<group>";
+		};
+		3D4A08501E69A366005AE249 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3D4A08541E69A366005AE249 /* CCMeViewController.h */,
+				3D4A08551E69A366005AE249 /* CCMeViewController.m */,
+				3D4A08511E69A366005AE249 /* CCEditingViewController.h */,
+				3D4A08521E69A366005AE249 /* CCEditingViewController.m */,
+				3D4A08531E69A366005AE249 /* CCEditingViewController.storyboard */,
+				3D4A08561E69A366005AE249 /* CCNavigationController.h */,
+				3D4A08571E69A366005AE249 /* CCNavigationController.m */,
+				3D4A08581E69A366005AE249 /* CCProfileViewContoller.h */,
+				3D4A08591E69A366005AE249 /* CCProfileViewContoller.m */,
+				3D4A085A1E69A366005AE249 /* CCProfileViewContoller.storyboard */,
+				3D4A08661E69A3CE005AE249 /* CCSettingsTableViewController.h */,
+				3D4A08671E69A3CE005AE249 /* CCSettingsTableViewController.m */,
+				3D4A08691E69A510005AE249 /* CCSettingsTableViewController.storyboard */,
+				3D4A086B1E69ABA8005AE249 /* CCSoundTableViewController.h */,
+				3D4A086C1E69ABA8005AE249 /* CCSoundTableViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3D4A085B1E69A366005AE249 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3D4A085C1E69A366005AE249 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3D4A085D1E69A366005AE249 /* CCImageView.h */,
+				3D4A085E1E69A366005AE249 /* CCImageView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		3D4BF1D71E53E205007B0F59 /* CCCalerderPickerView */ = {
@@ -428,55 +484,12 @@
 			children = (
 				3D4BF1D71E53E205007B0F59 /* CCCalerderPickerView */,
 				3DF7FC601E58139C00AA0D13 /* Notes */,
-				3D6C9A151E3C91DC00C2BABE /* MyProfile */,
+				3D4A084F1E69A366005AE249 /* MyProfile */,
 				3D6C9A1C1E3C91DC00C2BABE /* TimeLine */,
 				3DF7FCF51E5DE9AC00AA0D13 /* RemarkTableView */,
 				3DF7FC731E5A8DA500AA0D13 /* Others */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		3D6C9A151E3C91DC00C2BABE /* MyProfile */ = {
-			isa = PBXGroup;
-			children = (
-				3D6C9A161E3C91DC00C2BABE /* Controller */,
-				3D6C9A1A1E3C91DC00C2BABE /* Model */,
-				3D6C9A1B1E3C91DC00C2BABE /* View */,
-			);
-			path = MyProfile;
-			sourceTree = "<group>";
-		};
-		3D6C9A161E3C91DC00C2BABE /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				3DF7FC161E54334800AA0D13 /* CCMeViewController.h */,
-				3DF7FC171E54334800AA0D13 /* CCMeViewController.m */,
-				3DF7FC311E54607C00AA0D13 /* CCNavigationController.h */,
-				3DF7FC321E54607C00AA0D13 /* CCNavigationController.m */,
-				3DF7FC201E544E9C00AA0D13 /* CCProfileViewContoller.h */,
-				3DF7FC211E544E9C00AA0D13 /* CCProfileViewContoller.m */,
-				3DF7FC2A1E54521200AA0D13 /* CCProfileViewContoller.storyboard */,
-				3DF7FC2C1E54576E00AA0D13 /* CCEditingViewController.h */,
-				3DF7FC2D1E54576E00AA0D13 /* CCEditingViewController.m */,
-				3DF7FC2F1E54578500AA0D13 /* CCEditingViewController.storyboard */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		3D6C9A1A1E3C91DC00C2BABE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		3D6C9A1B1E3C91DC00C2BABE /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3DF7FC341E548AED00AA0D13 /* CCImageView.h */,
-				3DF7FC351E548AED00AA0D13 /* CCImageView.m */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		3D6C9A1C1E3C91DC00C2BABE /* TimeLine */ = {
@@ -841,25 +854,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DF7FC2B1E54521200AA0D13 /* CCProfileViewContoller.storyboard in Resources */,
-				3D4A083B1E69A1A4005AE249 /* knock.m4a in Resources */,
+				3D4A086F1E69BE65005AE249 /* 钢琴.m4a in Resources */,
+				3D4A08641E69A366005AE249 /* CCProfileViewContoller.storyboard in Resources */,
+				3D4A083B1E69A1A4005AE249 /* 敲击.m4a in Resources */,
 				3D6C9A071E3C917000C2BABE /* Assets.xcassets in Resources */,
-				3D4A08391E69A1A4005AE249 /* alert_sound.m4a in Resources */,
+				3D4A08391E69A1A4005AE249 /* 默认.m4a in Resources */,
 				3DF7FCF01E5DE60D00AA0D13 /* CCCardDetailView.xib in Resources */,
-				3D4A083C1E69A1A4005AE249 /* mystic.m4a in Resources */,
+				3D4A083C1E69A1A4005AE249 /* 神秘.m4a in Resources */,
 				3DF7FC7E1E5A976F00AA0D13 /* CCAddNotesView.xib in Resources */,
+				3D4A08601E69A366005AE249 /* CCEditingViewController.storyboard in Resources */,
 				3D6C9A2B1E3C91DC00C2BABE /* TimeLineViewController.xib in Resources */,
-				3D4A083D1E69A1A4005AE249 /* piano.m4a in Resources */,
 				3DF7FD061E5ECD2F00AA0D13 /* CCRemarkTableViewCell.xib in Resources */,
 				3D6C9B2B1E45FF9900C2BABE /* Info.plist in Resources */,
 				3D4BF1F01E53E205007B0F59 /* CCCalenderItemButton.xib in Resources */,
 				3DF7FD2F1E641BAE00AA0D13 /* CCCardRecoverView.xib in Resources */,
-				3DF7FC301E54578500AA0D13 /* CCEditingViewController.storyboard in Resources */,
 				3DF7FC391E54C19D00AA0D13 /* LaunchScreen.storyboard in Resources */,
 				3D4BF1F21E53E205007B0F59 /* CCCalerderPickerView.xib in Resources */,
 				3D6C9A271E3C91DC00C2BABE /* Main.storyboard in Resources */,
+				3D4A086A1E69A510005AE249 /* CCSettingsTableViewController.storyboard in Resources */,
 				3D6C9B541E46000A00C2BABE /* Info.plist in Resources */,
-				3D4A083A1E69A1A4005AE249 /* crystal.m4a in Resources */,
+				3D4A083A1E69A1A4005AE249 /* 水晶.m4a in Resources */,
 				3DF7FD0E1E5F1F9E00AA0D13 /* CCAddRemarkViewController.xib in Resources */,
 				3D4BF1F41E53E205007B0F59 /* up_arror.png in Resources */,
 			);
@@ -881,23 +895,24 @@
 				3DF7FC721E59EC1200AA0D13 /* CCNotesFullScreenButton.m in Sources */,
 				3D6C9B5A1E46000A00C2BABE /* NSObject+MJClass.m in Sources */,
 				3DF7FD561E695A4900AA0D13 /* CCNotesTableViewCell.m in Sources */,
+				3D4A08621E69A366005AE249 /* CCNavigationController.m in Sources */,
 				3DF7FC5F1E57FCB700AA0D13 /* UIView+Frame.m in Sources */,
 				3DF7FCDB1E5DE2D100AA0D13 /* CCContentTableView.m in Sources */,
 				3DF7FD5A1E695F2300AA0D13 /* CCNotesCellScrollView.m in Sources */,
 				3DF7FD211E607F3200AA0D13 /* CCNewCardTagContainerView.m in Sources */,
+				3D4A08631E69A366005AE249 /* CCProfileViewContoller.m in Sources */,
+				3D4A086D1E69ABA8005AE249 /* CCSoundTableViewController.m in Sources */,
 				3D4BF1EE1E53E205007B0F59 /* CCCalenderDateView.m in Sources */,
 				3D6C9A881E4374BE00C2BABE /* CCTaskCardItem.m in Sources */,
-				3DF7FC2E1E54576E00AA0D13 /* CCEditingViewController.m in Sources */,
 				3D6C9B321E45FF9900C2BABE /* NSArray+MASAdditions.m in Sources */,
 				3DF7FD051E5ECD2F00AA0D13 /* CCRemarkTableViewCell.m in Sources */,
 				3D4BF1F11E53E205007B0F59 /* CCCalerderPickerView.m in Sources */,
-				3DF7FC221E544E9C00AA0D13 /* CCProfileViewContoller.m in Sources */,
 				3DF7FC691E5813C500AA0D13 /* CCNotesTitleView.m in Sources */,
-				3DF7FC181E54334800AA0D13 /* CCMeViewController.m in Sources */,
 				3DF7FD141E5FF41600AA0D13 /* CCRemarkTitleCloseButton.m in Sources */,
 				3D6C9B581E46000A00C2BABE /* MJPropertyKey.m in Sources */,
 				3D6C9B591E46000A00C2BABE /* MJPropertyType.m in Sources */,
 				3D6C9B331E45FF9900C2BABE /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				3D4A08681E69A3CE005AE249 /* CCSettingsTableViewController.m in Sources */,
 				3DF7FCE51E5DE50700AA0D13 /* CCDatePicker.m in Sources */,
 				3D6C9B361E45FF9900C2BABE /* UIView+FindViewThatIsFirstResponder.m in Sources */,
 				3D6C9B5C1E46000A00C2BABE /* NSObject+MJKeyValue.m in Sources */,
@@ -909,13 +924,14 @@
 				3DF7FC811E5AC6EF00AA0D13 /* CCNotesItem.m in Sources */,
 				3D6C9B3C1E45FFB300C2BABE /* main.m in Sources */,
 				3D6C9B5D1E46000A00C2BABE /* NSObject+MJProperty.m in Sources */,
-				3DF7FC331E54607C00AA0D13 /* CCNavigationController.m in Sources */,
+				3D4A08651E69A366005AE249 /* CCImageView.m in Sources */,
 				3DF7FC661E58139C00AA0D13 /* CCNotesViewController.m in Sources */,
+				3D4A08611E69A366005AE249 /* CCMeViewController.m in Sources */,
 				3DF7FD271E63CA7200AA0D13 /* CCCardContentView.m in Sources */,
 				3D6C9B5B1E46000A00C2BABE /* NSObject+MJCoding.m in Sources */,
+				3D4A085F1E69A366005AE249 /* CCEditingViewController.m in Sources */,
 				3D6C9B2C1E45FF9900C2BABE /* MASCompositeConstraint.m in Sources */,
 				3DF7FCEF1E5DE60D00AA0D13 /* CCCardDetailView.m in Sources */,
-				3DF7FC361E548AED00AA0D13 /* CCImageView.m in Sources */,
 				3DF7FD0C1E5F1A0300AA0D13 /* CCAddRemarkViewController.m in Sources */,
 				3D6C9A2A1E3C91DC00C2BABE /* TimeLineViewController.m in Sources */,
 				3DF7FD1A1E601D5600AA0D13 /* CCRemarkContainerView.m in Sources */,

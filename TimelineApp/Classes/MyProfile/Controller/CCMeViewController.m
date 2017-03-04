@@ -8,6 +8,7 @@
 
 #import "CCMeViewController.h"
 #import "CCProfileViewContoller.h"
+#import "CCSettingsTableViewController.h"
 
 static NSString * const cellId = @"cell";
 
@@ -16,7 +17,7 @@ static NSString * const cellId = @"cell";
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *versionLable;
+
 
 @end
 
@@ -32,8 +33,6 @@ static NSString * const cellId = @"cell";
     NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"avatarImage"];
     UIImage *avatarImage = [UIImage imageWithData:imageData];
     self.avatarImageView.image = avatarImage;
-    
-    [self getCurrentVersion];
 
 }
 
@@ -59,11 +58,17 @@ static NSString * const cellId = @"cell";
     if (indexPath.section == 0) {//个人信息编辑
         UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"CCProfileViewContoller" bundle:nil];
     
-        CCProfileViewContoller *profileVc = [storyBoard instantiateInitialViewController];;
+        CCProfileViewContoller *profileVc = [storyBoard instantiateInitialViewController];
         [profileVc setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:profileVc animated:YES];
     }
     
+    if (indexPath.section == 1 && indexPath.row == 0) {//设置界面
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"CCSettingsTableViewController" bundle:nil];
+        CCSettingsTableViewController *settingVc = [storyBoard instantiateInitialViewController];
+        [settingVc setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:settingVc animated:YES];
+    }
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -73,13 +78,6 @@ static NSString * const cellId = @"cell";
     self.avatarImageView.image = image;
 }
 
-#pragma mark - 获取当前版本号
-- (void)getCurrentVersion {
-    NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
-    //CFBundleShortVersionString
-    NSString *version = [infoDict objectForKey:@"CFBundleShortVersionString"];
-    self.versionLable.text = version;
-    
-}
+
 
 @end
